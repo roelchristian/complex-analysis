@@ -15,3 +15,10 @@
 
 # Mac
 .DS_Store
+
+# Latex-Workshop
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+*.fls
+*.fdb_latexmk

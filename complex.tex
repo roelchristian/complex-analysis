@@ -1,4 +1,4 @@
-\documentclass[11pt, b5paper]{amsbook}
+\documentclass[10pt, b5paper]{amsbook}
 
 \title{Complex Analysis Quals Review}
 \author{Roel Christian Yambao}
@@ -47,8 +47,8 @@
 \newtheorem{exercise}[theorem]{Exercise}
 \newtheorem{remark}[theorem]{Remark}
 
-% Pad theorem numbers with zeros so that they are all two digits
-\renewcommand{\thetheorem}{\thesection.\ifnum\value{theorem}<10 0\fi\arabic{theorem}}
+% % Pad theorem numbers with zeros so that they are all two digits
+% \renewcommand{\thetheorem}{\thesection.\ifnum\value{theorem}<10 0\fi\arabic{theorem}}
 
 % Solution environment
 \newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
@@ -81,8 +81,7 @@
 \setstretch{1.1}
 
 \AtBeginDocument{
-    \let\origref\ref
-\def\ref#1{\textbf{\origref{#1}}} % make references bold
+
     \let\epsilon\varepsilon
     \let\phi\varphi
     \let\emptyset\varnothing

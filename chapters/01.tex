@@ -947,9 +947,24 @@ The following results are useful in computing limits of complex functions and il
                     &< \epsilon/2 + |c|\epsilon/(2|c|) = \epsilon,
         \end{align*}
         so that \(\lim_{z \to z_0} (f(z) + cg(z)) = L + cM\).
-
+        \item 
     \end{enumerate}
 \end{proof}
+
+\begin{theorem}
+    Let \(f: D \to \C\) be a function and let \(z_0\) be a limit point of \(D\). Then for any natural number \(n\), we have
+    \[
+        \lim_{z \to z_0} z^n = z_0^n.
+    \]
+\end{theorem}
+
+\begin{theorem}
+    Let \(f: D \to \C\) be a function and let \(z_0\) be a limit point of \(D\). Then for any natural number \(n\),
+    \[
+        \lim_{z \to z_0} P(z) = P(z_0),
+    \]
+    where \(P(z)\) is the polynomial \(P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0\).
+\end{theorem}
 
 
 We have earlier defined the point at infinity \(\infty\) [to be continued...]
@@ -980,6 +995,10 @@ Restating this in terms of the \(\epsilon\)-\(\delta\) definition of the limit, 
 \begin{theorem}%{Equivalence of definitions of continuity}
     Definitions {\normalfont\ref{def:continuity}} and {\normalfont\ref{de:continuity-epsilon-delta}} are equivalent.
 \end{theorem}
+
+\begin{proof}
+    Suppose that \(f\) is continuous at \(z_0\) according to Definition \ref{def:continuity}. Then because \(\lim_{z \to z_0} f(z) = f(z_0)\), for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |z - z_0| < \delta\), then \(|f(z) - f(z_0)| < \epsilon\), which is Definition \ref{de:continuity-epsilon-delta}. The converse follows similarly.
+\end{proof}
 
 \begin{example}
     Show that the functions \(f(z) = \Re z\) and \(g(z) = \Im z\) are continuous on \(\C\).
@@ -1050,6 +1069,7 @@ The following basic properties of the derivative follow from the definition.
     \[
         (g \circ f)'(z_0) = g'(f(z_0))f'(z_0).
     \]
+    \label{thm:chain-rule}
 \end{theorem}
 
 \begin{example}
@@ -1146,6 +1166,24 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
     Let \(f(z) = u(x, y) + iv(x, y)\) be a complex function defined on an open set \(D \subseteq \C\). If \(u\) and \(v\) are continuous and have continuous first partial derivatives in \(D\) that satisfy the Cauchy-Riemann equations, then \(f\) is holomorphic in \(D\).
 \end{theorem}
 
+\begin{theorem}
+    If \(f(z) = u(x, y) + iv(x, y)\) is holomorphic on an open set \(D \subseteq \C\), then the derivative of \(f\) is given by
+    \[
+        f'(z) = \partialfrac{f}{x} = -i\partialfrac{f}{y}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    By combining the Cauchy-Riemann equations, we have
+    \[
+        f'(z) = \partialfrac{u}{x} + i\partialfrac{v}{x} = \partialfrac{f}{x}
+    \]
+    and
+    \[
+        f'(z) = i\partialfrac{u}{y} - \partialfrac{v}{y} = -i\partialfrac{f}{y} = -i\left(\partialfrac{u}{y} + i\partialfrac{v}{y}\right) = -i\partialfrac{f}{y}.
+    \]
+\end{proof}
+
 \begin{theorem}[Constant functions]
     Let \(f : D \to \C\) be holomorphic on its domain \(D\).
     \begin{enumerate}[label=(\alph*)]
@@ -1189,4 +1227,122 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
     \end{enumerate}
 \end{proof}
 
+\begin{definition}[Harmonic functions]
+    A function \(f: D \to \C\) is \emph{harmonic} on an open set \(D \subseteq \C\) if it is twice continuously differentiable and satisfies the \emph{Laplace equation}
+    \begin{equation}
+        \partialfrac{^2u}{x^2} + \partialfrac{^2u}{y^2} = 0,
+        \label{eq:laplace-equation}
+    \end{equation}
+    where \(f(z) = u(x, y) + iv(x, y)\). The right-hand side of \eqref{eq:laplace-equation} shall be denoted by \(\nabla^2 u\) so that \eqref{eq:laplace-equation} can be written as \(\nabla^2 u = 0\).
+    \label{def:harmonic-function}
+\end{definition}
+
+\begin{example}
+    Show that \(f(x, y) = e^x \cos y\) is harmonic on the entire plane.
+
+    \begin{solution}
+        The first-order partial derivatives of \(f\) are
+        \[
+            \partialfrac{u}{x} = e^x \cos y \quad \text{and} \quad \partialfrac{u}{y} = -e^x \sin y,
+        \]
+        and the second-order partial derivatives are
+        \[
+            \partialfrac{^2u}{x^2} = e^x \cos y \quad \text{and} \quad \partialfrac{^2u}{y^2} = -e^x \cos y.
+        \]
+        Since \(\nabla^2 u = 0\) and the second-order partial derivatives are continuous on the whole plane, \(f\) is harmonic on the entire plane.
+    \end{solution}
+\end{example}
+
+
+
+\begin{theorem}
+    If \(f(z) = u(x, y) + iv(x, y)\) is holomorphic on an open set \(D \subseteq \C\), then \(u\) and \(v\) are harmonic on \(D\).
+    \label{thm:holomorphic-implies-harmonic-continuous}
+\end{theorem}
+
+\begin{proof}
+    Since \(f\) is holomorphic on \(D\), its partial derivatives exist and satisfy the Cauchy-Riemann equations. Differentiating both equations with respect to \(x\), we have
+    \[
+        \partialfrac{^2u}{x^2} = \frac{\partial^2 v}{\partial x \partial y} \quad \text{and} \quad \frac{\partial^2 u}{\partial x \partial y} = -\partialfrac{^2v}{x^2}.
+    \]
+    Similarly, differentiating both equations with respect to \(y\), we have
+    \[
+        \partialfrac{^2u}{y^2} = -\frac{\partial^2 v}{\partial y \partial x} \quad \text{and} \quad \frac{\partial^2 u}{\partial y \partial x} = \partialfrac{^2v}{y^2}.
+    \]
+    Now if we assume that the second-order partial derivatives of \(u\) and \(v\) are continuous, by Clairaut's theorem from multivariable calculus, we have
+    \[
+        \partialfrac{^2 u}{ x^2} = \partialfrac{^2 u}{ y^2} \quad \text{and} \quad \partialfrac{^2 v}{ x^2} = \partialfrac{^2 v}{ y^2},
+    \]
+    so that \(u\) and \(v\) are harmonic.
+\end{proof}
+
+\begin{example}
+    As with the Cauchy-Riemann equations, the statement of Theorem~\ref{thm:holomorphic-implies-harmonic-continuous} tells us that satisfying the Laplace equation is a necessary condition for a function to be holomorphic if the second-order partial derivatives are continuous; it is not, however, a sufficient condition. Nevertheless, this gives us a criterion for non-holomorphicity. For example, show that there cannot exist a complex function \(f\) whose real part is given by
+    \[
+        u(x, y) = 3x^2 + xy + y^2
+    \]
+    that is holomorphic on any open set.
+
+    \begin{solution}
+        Observe that the second-order partial derivatives of \(u\) are
+        \[
+            \partialfrac{^2u}{x^2} = 6 \quad \text{and} \quad \partialfrac{^2u}{y^2} = 2,
+        \]
+        so that \(\nabla^2 \neq 0\). Thus by Theorem~\ref{thm:holomorphic-implies-harmonic-continuous}, the function \(f\) cannot be holomorphic on any open set.
+    \end{solution}
+\end{example}
+
+\begin{definition}[Harmonic conjugate]
+    Let \(u(x, y)\) be a harmonic function on an open set \(D \subseteq \C\). A function \(v(x, y)\) such that \(f(z) = u(x, y) + iv(x, y)\) is holomorphic on \(D\) is called a \emph{harmonic conjugate} of \(u\).
+\end{definition}
+
+\begin{example}
+    Find an analytic function whose real part is \(u(x, y) = x^3 - 3xy^2 + 7y\).
+
+    \begin{solution}
+        The first-order partial derivatives of \(u\) are
+    \end{solution}
+\end{example}
+
+\section{Möbius transformations and the Riemann sphere}
+
+\begin{definition}[Möbius transformation]
+    A \emph{linear fractional transformation} is a function of the form
+    \[
+        f(z) = \frac{az + b}{cz + d},
+    \]
+    where \(a, b, c, d \in \C\). If, in addition, \(ad - bc \neq 0\), then \(f\) is called a \emph{Möbius transformation}.
+\end{definition}
+
+By identifying with \(f\) the \(2 \times 2\) matrix with complex entries
+\[
+    \begin{pmatrix}
+        a & b\\
+        c & d
+    \end{pmatrix},
+\]
+we can write the Möbius transformation as
+\[
+    \begin{pmatrix}
+        a & b\\
+        c & d
+    \end{pmatrix}
+    \begin{pmatrix}
+        z\\
+        1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        az + b\\
+        cz + d
+    \end{pmatrix},
+\]
+
 \section{A survey of elementary functions}
+
+\begin{definition}
+    The (complex) \emph{sine} and \emph{cosine} functions are defined by
+    \[
+        \sin z = \frac{e^{iz} - e^{-iz}}{2i} \quad \text{and} \quad \cos z = \frac{e^{iz} + e^{-iz}}{2},
+    \]
+\end{definition}

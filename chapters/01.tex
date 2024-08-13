@@ -756,6 +756,21 @@ where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and 
     Thus, the real and imaginary parts of \(f\) are \(u(x, y) = x^2 - y^2 - 1\) and \(v(x, y) = 2xy\), respectively.
 \end{example}
 
+\begin{example}
+    If \(x = re^{i\theta} = r(\cos\theta + i\sin\theta)\), then the real and imaginary parts of \(x\) are \(u(x, y) = r\cos\theta\) and \(v(x, y) = r\sin\theta\), respectively. Note, however, that the functions \(u\) and \(v\) are not necessarily the same as the functions \(u\) and \(v\) previously defined when writing \(z = x+ iy\).
+
+    Consider, for example, the function \(f : \C \to \C\) defined by \(f(z) = z^2\). Then in rectangular form, writing \(z = x + iy\) we have
+    \begin{align*}
+        f(z) & = z^2 = (x + iy)^2 = x^2 + 2ixy - y^2\\
+        & = (x^2 - y^2) + i(2xy).
+    \end{align*}
+    In polar form, on the other hand, writing \(z = re^{i\theta}\), we have
+    \begin{align*}
+        f(z) & = z^2  = (re^{i\theta})^2 = r^2e^{2i\theta} = r^2(\cos 2\theta + i\sin 2\theta)\\
+        & = r^2\cos 2\theta + ir^2\sin 2\theta.
+    \end{align*}
+\end{example}
+
 \begin{definition}[Limit of a function]
     Let \(f : D \to \C\) be a function defined on some neighborhood of a point \(z_0 \in \C\) except possibly at \(z_0\) itself (i.e., \(z_0\) is an limit point of \(D\)). We say that the \emph{limit} of \(f(z)\) as \(z\) approaches \(z_0\) is \(L \in \C\) and write
     \[
@@ -842,15 +857,51 @@ The following result reduces the computation of limits of complex functions to t
 
 \begin{theorem}%[Complex limit as a limit of real functions]
     Suppose that \(f(z) = u(x, y) + iv(x, y)\) is a complex function and that \(z_0 = x_0 + iy_0\) is a limit point of the domain of \(f\). Prove that
-    \[
-        lim_{z \to z_0} f(z) = u_0 + iv_0
-    \]
+    \begin{equation}
+        \lim_{z \to z_0} f(z) = u_0 + iv_0
+        \label{eq:complex-limit-real-eq-1}
+    \end{equation}
     if and only if
-    \[
+    \begin{equation}
         \lim_{(x, y) \to (x_0, y_0)} u(x, y) = u_0 \quad \text{and} \quad \lim_{(x, y) \to (x_0, y_0)} v(x, y) = v_0.
-    \]
+        \label{eq:complex-limit-real-eq-2}
+    \end{equation}
     \label{thm:complex-limit-real}
 \end{theorem}
+
+\begin{proof}
+    Suppose that \eqref{eq:complex-limit-real-eq-1} holds. Then, given a real number \(\epsilon > 0\), there exists a \(\delta > 0\) such that
+    \[
+        |(u + iv) - (u_0 + iv_0)|  < \epsilon
+    \]
+    whenever \(0 < |(x + iy) - (x_0 + iy_0)| < \delta\). This is equivalent to
+    \[
+        |(u - u_0) + i(v - v_0)| < \epsilon
+    \]
+    and thus we have
+    \[
+        |u - u_0| < \epsilon, \quad |v - v_0| < \epsilon.
+    \]
+    Since
+    \[
+        |(x + iy) - (x_0 + iy_0)| = |(x - x_0) + i(y - y_0)| = \sqrt{(x - x_0)^2 + (y - y_0)^2} < \delta,
+    \]
+    Equation \eqref{eq:complex-limit-real-eq-2} holds.
+
+    Conversely, suppose that \eqref{eq:complex-limit-real-eq-2} holds. Then for any real number \(\epsilon > 0\), there exist real numbers \(\delta_1, \delta_2 > 0\) such that
+    \[
+        |u - u_0| < \frac{\epsilon}{2} \quad \text{whenever} \quad 0 < \sqrt{(x - x_0)^2 + (y - y_0)^2} < \delta_1
+    \]
+    and
+    \[
+        |v - v_0| < \frac{\epsilon}{2} \quad \text{whenever} \quad 0 < \sqrt{(x - x_0)^2 + (y - y_0)^2} < \delta_2.
+    \]
+    Letting \(\delta = \min\{\delta_1, \delta_2\}\), we have
+    \[
+        |(u + iv) - (u_0 + iv_0)| = |(u - u_0) + i(v - v_0)| < \epsilon
+    \]
+    whenever \(0 < |(x + iy) - (x_0 + iy_0)| < \delta\). Thus \eqref{eq:complex-limit-real-eq-1} holds and the proof is complete.
+\end{proof}
 
 \begin{example}
     Let us revisit Theorem~\ref{thm:limit-restriction} while using the result of Theorem~\ref{thm:complex-limit-real}. Consider the function
@@ -876,7 +927,7 @@ The following result reduces the computation of limits of complex functions to t
     \end{solution}
 \end{example}
 
-
+The following results are useful in computing limits of complex functions and illustrate that complex limits follow the usual algebraic limit laws for real functions.
 
 \begin{theorem}%[Properties of limits]
     Let \(f\) and \(g\) be complex functions on a domain \(D \subseteq \C\). Let \(z_0\) be a limit point of \(D\) and let \(c \in \C\). If\(\lim_{z \to z_0} f(z) = L\) and \(\lim_{z \to z_0} g(z) = M\)
@@ -896,8 +947,19 @@ The following result reduces the computation of limits of complex functions to t
                     &< \epsilon/2 + |c|\epsilon/(2|c|) = \epsilon,
         \end{align*}
         so that \(\lim_{z \to z_0} (f(z) + cg(z)) = L + cM\).
+
     \end{enumerate}
 \end{proof}
+
+
+We have earlier defined the point at infinity \(\infty\) [to be continued...]
+
+\begin{theorem}[Limits at infinity]
+    Let \(f\)
+    
+\end{theorem}
+
+
 
 \begin{definition}[Continuity]
     A function \(f : D \to \C\) is \emph{continuous} at a point \(z_0 \in D\) if
@@ -947,6 +1009,12 @@ An alternative way of defining the derivative of a complex function is by substi
 \]
 By writing \(dz\) as the infinitesimal change in \(z\) (i.e., the limit as the change in \(z\), \(\Delta z = z - z_0\), approaches zero), and writing \(df\) as the infinitesimal change in \(f(z)\), we can write the derivative of \(f\) as \(df/dz\), although it must be noted that this is not a fraction and that the choice of notation is purely suggestive.
 
+Geometrically, the existence of a derivative at a point \(z_0\) means that the function \(f\) is well-approximated by a linear function near \(z_0\), or more precisely, on an \(\epsilon\)-neighborhood of \(z_0\) for very small \(\epsilon\). That is,
+\[
+    f(z) = f(z_0) + f'(z_0)(z - z_0) + o(z - z_0),
+\]
+where the error term \(o(z - z_0)\) is a function of \(z - z_0\) that vanishes faster than \(z - z_0\) as \(z \to z_0\).
+
 \begin{example}
     The function \(f : \C \to \C\) defined by \(f(z) = z^4\) is entire. If \(z_0 \in \C\), then
     \[
@@ -973,6 +1041,27 @@ By writing \(dz\) as the infinitesimal change in \(z\) (i.e., the limit as the c
 
 The following basic properties of the derivative follow from the definition.
 
+\begin{theorem}%[Algebraic properties]
+    
+\end{theorem}
+
+\begin{theorem}[Chain rule]
+    Let \(f\) be differentiable at a point \(z_0\) and let \(g\) be differentiable at \(f(z_0)\). Then the composite function \(g \circ f\) is differentiable at \(z_0\) and
+    \[
+        (g \circ f)'(z_0) = g'(f(z_0))f'(z_0).
+    \]
+\end{theorem}
+
+\begin{example}
+    Use the chain rule to find the derivative of the function \(f(z) = (2z^2 + i)^3\).
+
+    \begin{solution}
+        Write \(f = g \circ h\) where \(g(w) = w^3\) and \(h(z) = 2z^2 + i\). Then since \(g'(w) = 3w^2\) and \(h'(z) = 4z\), we have
+        \[
+            f'(z) = g'(h(z))h'(z) = 3(2z^2 + i)^2(4z) = 12z(2z^2 + i)^2.
+        \]
+    \end{solution}
+\end{example}
 
 
 \begin{example}
@@ -1056,3 +1145,48 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
 \begin{theorem}[Criterion for holomorphicity]
     Let \(f(z) = u(x, y) + iv(x, y)\) be a complex function defined on an open set \(D \subseteq \C\). If \(u\) and \(v\) are continuous and have continuous first partial derivatives in \(D\) that satisfy the Cauchy-Riemann equations, then \(f\) is holomorphic in \(D\).
 \end{theorem}
+
+\begin{theorem}[Constant functions]
+    Let \(f : D \to \C\) be holomorphic on its domain \(D\).
+    \begin{enumerate}[label=(\alph*)]
+        \item If \(|f(z)|\) is constant on \(D\), then so is \(f(z)\).
+        \item If \(f'(z) = 0\) on \(D\), then \(f(z)\) is constant on \(D\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Write \(f(z) = u(x, y) + iv(x, y)\) as usual.
+    \begin{enumerate}[label=(\alph*), wide]
+        \item Since \(|f(z)|\) is constant, it follows that \(u(x, y)^2 + v(x, y)^2\) is also constant. Taking the partial derivatives of this expression with respect to \(x\) and \(y\), respectively, we get
+        \[
+            2u(x, y)\partialfrac{u}{x} + 2v(x, y)\partialfrac{v}{x} = 0 \quad \text{and} \quad 2u(x, y)\partialfrac{u}{y} + 2v(x, y)\partialfrac{v}{y} = 0,
+        \]
+        or simply,
+        \[
+            u(x, y)\partialfrac{u}{x} + v(x, y)\partialfrac{v}{x} = 0 \quad \text{and} \quad u(x, y)\partialfrac{u}{y} + v(x, y)\partialfrac{v}{y} = 0.
+        \]
+        Since \(f\) is holomorphic, the Cauchy-Riemann equations are satisfied, so that
+        \[
+            u(x, y)\partialfrac{u}{x} - v(x, y)\partialfrac{u}{y} = 0
+        \]
+        and
+        \[
+            u(x, y)\partialfrac{u}{y} + v(x, y)\partialfrac{u}{x} = 0.
+        \]
+        Multiplying the first equation by \(u\) and the second by \(v\) and adding the two, we get
+        \[
+            (u^2(x, y) + v^2(x, y))\partialfrac{u}{x} = 0,
+        \]
+        and
+        \[
+            (u^2(x, y) + v^2(x, y))\partialfrac{v}{x} = 0.
+        \]
+        Doing the same for the other pair of equations with \(v\) instead of \(u\), we ultimately get
+        \[
+            \partialfrac{u}{x} = 0, \quad \partialfrac{u}{y} = 0, \quad \partialfrac{v}{x} = 0, \quad \text{and} \quad \partialfrac{v}{y} = 0,
+        \]
+        so that \(u\) and \(v\) are constant, and hence \(f\) is constant.
+    \end{enumerate}
+\end{proof}
+
+\section{A survey of elementary functions}

@@ -939,13 +939,13 @@ Restating this in terms of the \(\epsilon\)-\(\delta\) definition of the limit, 
     provided that this limit exists, in which case we say that \(f\) is \emph{differentiable} at \(z_0\). If \(f\) is differentiable at some neighborhood of \(z_0\), then we say that \(f\) is \emph{holomorphic} at \(z_0\). If \(f\) is holomorphic at every point on the open set \(E \subseteq D\), then we say that \(f\) is holomorphic on \(E\). A function that is holomorphic on the whole complex plane is said to be \emph{entire}.
 \end{definition}
 
-An alternative way of defining the derivative of a complex function is by substituting \(h = z - z_0\) so that we can write
+An alternative way of defining the derivative of a complex function is by substituting \(\Delta z = z - z_0\) so that we can write
 \eqref{eq:complex-derivative} as
 \[
-    \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h}.
-    \label{eq:complex-derivative-h}
+    \lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} = f'(z_0).
+    \label{eq:complex-derivative-delta-z}
 \]
-By writing \(dz\) as the infinitesimal change in \(z\) (i.e., the limit as the change in \(z\), \(h = z - z_0\), approaches zero), and writing \(df\) as the infinitesimal change in \(f(z)\), we can write the derivative of \(f\) as \(df/dz\), although it must be noted that this is not a fraction and that the choice of notation is purely suggestive.
+By writing \(dz\) as the infinitesimal change in \(z\) (i.e., the limit as the change in \(z\), \(\Delta z = z - z_0\), approaches zero), and writing \(df\) as the infinitesimal change in \(f(z)\), we can write the derivative of \(f\) as \(df/dz\), although it must be noted that this is not a fraction and that the choice of notation is purely suggestive.
 
 \begin{example}
     The function \(f : \C \to \C\) defined by \(f(z) = z^4\) is entire. If \(z_0 \in \C\), then
@@ -979,7 +979,7 @@ The following basic properties of the derivative follow from the definition.
     It is important to note that differentiability at a point \(z_0\) is not the same as holomorphicity at \(z_0\); holomorphicity is a neighborhood property, i.e., it is defined over an open set. To illustrate this, show that the function \(f: \C \to \C\) defined by \(f(z) = |z|^2\) is differentiable but not holomorphic at \(z = 0\).
 \end{example}
 
-We now present a criteria for determining whether the function \(f\) defined by
+We now present a criterion for determining whether the function \(f\) defined by
 \[
     f(z) = u(x, y) + iv(x, y)
 \]
@@ -992,4 +992,67 @@ is holomorphic by looking at the partial derivatives of \(u\) and \(v\).
         \partialfrac{u}{x} = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} = -\partialfrac{v}{x}.
         \label{eq:cauchy-riemann}
     \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Since \(f\) is differentiable at \(z_0\), the limit
+    \begin{equation}
+        \lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z}
+        \label{eq:limit-derivative-delta-z-cr}
+    \end{equation}
+    must exist and must be equal to the same limit taken along any path to \(z_0\). Writing \(\Delta z = \Delta x + i\Delta y\), Equation \eqref{eq:limit-derivative-delta-z-cr} then becomes
+    \begin{equation}
+        \lim_{\Delta z \to 0} \frac{u(x_0 + \Delta x, y_0 + \Delta y) + iv(x_0 + \Delta x, y_0 + \Delta y) - u(x_0, y_0) - iv(x_0, y_0)}{\Delta x + i\Delta y}.
+        \label{eq:limit-derivative-x-y}
+    \end{equation}
+    In particular, if we approach \(z_0\) along the real axis, we have \(\Delta y = 0\) and \(\Delta z = \Delta x\), so that \eqref{eq:limit-derivative-x-y} simplifies to
+    \begin{align*}
+        \lim_{\Delta x \to 0} &\frac{u(x_0 + \Delta x, y_0) + iv(x_0 + \Delta x, y_0) - u(x_0, y_0) - iv(x_0, y_0)}{\Delta x}\\
+        &= \lim_{\Delta x \to 0} \frac{u(x_0 + \Delta x, y_0) - u(x_0, y_0)}{\Delta x} + i\lim_{\Delta x \to 0} \frac{v(x_0 + \Delta x, y_0) - v(x_0, y_0)}{\Delta x}.\\
+        &= \partialfrac{u}{x}(x_0, y_0) + i\partialfrac{v}{x}(x_0, y_0).
+    \end{align*}
+    Similarly, if we approach \(z_0\) along the imaginary axis, we have \(\Delta x = 0\) and \(\Delta z = i\Delta y\), so that \eqref{eq:limit-derivative-x-y} becomes
+    \begin{align*}
+        \lim_{\Delta y \to 0} &\frac{u(x_0, y_0 + \Delta y) + iv(x_0, y_0 + \Delta y) - u(x_0, y_0) - iv(x_0, y_0)}{i\Delta y}\\
+        &= \lim_{\Delta y \to 0} \frac{u(x_0, y_0 + \Delta y) - u(x_0, y_0)}{i\Delta y} + i\lim_{\Delta y \to 0} \frac{v(x_0, y_0 + \Delta y) - v(x_0, y_0)}{i\Delta y}.\\
+        &= -i \partialfrac{u}{y}(x_0, y_0) + \partialfrac{v}{y}(x_0, y_0).
+    \end{align*}
+    Equating the real and imaginary parts of the limit in \eqref{eq:limit-derivative-delta-z-cr} along the real and imaginary axes, we obtain the Cauchy-Riemann equations.
+\end{proof}
+
+Theorem \ref{thm:cauchy-riemann} tells us that having the partial derivatives of a complex function with respect to \(x\) and \(y\) satisfy the Cauchy-Riemann equations is a necessary condition for the function to be differentiable at a point. While it does not tell us when a function is differentiable, it does tell us when a function fails to be differentiable.
+
+\begin{example}
+    The function \(f(z) = x + 3iy\) is not differentiable at any point in \(\C\). We can verify this by checking that the Cauchy-Riemann equations are not simultaneously satisfied, viz.,
+    \[
+        \partialfrac{u}{x} = 1 \neq 3 = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} =  0 = -\partialfrac{v}{x}.
+    \]
+\end{example}
+
+We can extend Theorem \ref{thm:cauchy-riemann} to holomorphic functions by considering that a function \(f : D \to \C\) that is holomorphic in its domain must be differentiable at every point in \(D\). Thus, the Cauchy-Riemann equations must be satisfied at every point in \(D\). From the converse, it then follows that if the Cauchy-Riemann equations are not satisfied at every point in \(D\), then the function is not holomorphic in \(D\).
+
+\begin{example}
+    Show that the function
+    \[
+        f(z) = 2x^2 + y + i(y^2 - x)
+    \]
+    is nowhere holomorphic.
+
+    \begin{solution}
+        Writing \(u = 2x^2 + y\) and \(v = y^2 - x\), we have
+        \[
+            \partialfrac{u}{x} = 4x \neq 2y = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} = 1 = 1 -\partialfrac{v}{x}.
+        \]
+        The equality \(\partial u / \partial x = \partial v / \partial y\) is satisfied only along the line \(y = 2x\) but not elsewhere, so that the function is not holomorphic.
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Consider the function \(f(z) = \sqrt{|x||y|}\). Show that \(f\) satisfies the Cauchy-Riemann equations at the origin but is not holomorphic at \(z = 0\).
+\end{example}
+
+We have thus seen that the Cauchy-Riemann equations are not sufficient for a function to be holomorphic. As it turns out, however, we can easily establish a criterion for holomorphicity using the Cauchy-Riemann equations by adding a simple qualification.
+
+\begin{theorem}[Criterion for holomorphicity]
+    Let \(f(z) = u(x, y) + iv(x, y)\) be a complex function defined on an open set \(D \subseteq \C\). If \(u\) and \(v\) are continuous and have continuous first partial derivatives in \(D\) that satisfy the Cauchy-Riemann equations, then \(f\) is holomorphic in \(D\).
 \end{theorem}

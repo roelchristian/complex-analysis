@@ -1,0 +1,995 @@
+\chapter{Complex functions}
+
+\section{Complex numbers}
+
+\begin{definition}[Complex number]
+    \label{def:complex}
+    A \emph{complex number} is an ordered pair \((x, y)\) of real numbers together with the operations of addition and multiplication defined by
+    \[
+        (x_1, y_1) + (x_2, y_2) = (x_1 + x_2, y_1 + y_2)
+    \]
+    and
+    \[
+        (x_1, y_1) \cdot (x_2, y_2) = (x_1x_2 - y_1y_2, x_1y_2 + x_2y_1),
+    \]
+    where the \(x_i\) and \(y_i\) are real numbers and the operations on the right-hand side are the usual addition and multiplication of real numbers.
+
+    We denote the set of complex numbers by \(\C\).
+\end{definition}
+
+Observe that every real number \(x\) can be identified with the complex number \((x, 0)\). We can thus think of the complex numbers as an extension of the real numbers. Indeed, the usual addition and multiplication of real numbers can be seen to hold by applying the above definitions to the real numbers, viz.,
+\[
+    x + y = (x, 0) + (y, 0) = (x + y, 0) = x + y
+\]
+and
+\[
+    xy = (x, 0) \cdot (y, 0) = (xy - 0, 0 + 0) = xy.
+\]
+We can also verify that the elements \(1 = (1, 0)\) and \(0 = (0, 0)\) behave as the additive and multiplicative identities, respectively. That is for any complex number \((x, y)\),
+\[
+    (x, y) + (0, 0) = (x + 0, y + 0) = (x, y)
+\]
+and
+\[
+    (x, y) \cdot (1, 0) = (x \cdot 1 - y \cdot 0, x \cdot 0 + y \cdot 1) = (x, y).
+\]
+By writing \(-(x, y) = (-x, -y)\) we see that the additive inverse of \((x, y)\) is \((-x, -y)\). We can also verify that the multiplicative inverse of \((x, y)\) is \((x/(x^2 + y^2), -y/(x^2 + y^2))\) if \((x, y) \neq (0, 0)\) and is undefined if \((x, y) = (0, 0)\). This is,
+\[
+    (x, y) \cdot \left(\frac{x}{x^2 + y^2}, -\frac{y}{x^2 + y^2}\right) = \left(\frac{x^2 + y^2}{x^2 + y^2}, \frac{xy - yx}{x^2 + y^2}\right) = (1, 0).
+\]
+Finally, we can verify that the distributive law holds for complex numbers. That is, for any complex numbers \((x_1, y_1)\), \((x_2, y_2)\), and \((x_3, y_3)\),
+
+\[
+    \begin{aligned}
+        (x_1, y_1) &\cdot \left((x_2, y_2) + (x_3, y_3)\right)\\
+        &= (x_1, y_1) \cdot (x_2 + x_3, y_2 + y_3) \\
+        &= (x_1(x_2 + x_3) - y_1(y_2 + y_3), x_1(y_2 + y_3) + (x_2 + x_3)y_1) \\
+        &= (x_1x_2 + x_1x_3 - y_1y_2 - y_1y_3, x_1y_2 + x_1y_3 + x_2y_1 + x_3y_1) \\
+        &= (x_1x_2 - y_1y_2, x_1y_2 + x_2y_1) + (x_1x_3 - y_1y_3, x_1y_3 + x_3y_1) \\
+        &= (x_1, y_1) \cdot (x_2, y_2) + (x_1, y_1) \cdot (x_3, y_3).
+    \end{aligned}
+\]
+This gives us the following result.
+\begin{theorem}[\(\C\) is a field]
+    The set \(\C\) of complex numbers forms a field under the operations of addition and multiplication defined above.
+    \label{thm:c-field}
+\end{theorem}
+
+\begin{example}
+    Prove the following general property of a field for \(\C\) using only the properties we have established so far: for any complex numbers \(z\) and \(w\), if \(zw = 0\), then either \(z = 0\) or \(w = 0\); that is, \(\C\) has no zero divisors.
+\end{example}
+
+By exploiting the above properties, we can see that
+\begin{align}
+    (x, y) &= (x, 0) + (0, y)\label{eq:rectangular} \\
+    &= (x, 0) \cdot (1, 0) + (0, y) \cdot (0, 1) \nonumber \\
+    &= x(1, 0) + y(0, 1).\nonumber
+\end{align}
+As such, and since we have already established the correspondence between the real number \(1\) and the complex number \((1, 0)\), it would be convenient to denote the complex number \((0, 1)\) as \(i\), so that we can identify the complex number \((x, y)\) with the sum \[x + iy.\] We call this the \emph{rectangular form} of the complex number. The real numbers \(x\) and \(y\) are called the \emph{real} and \emph{imaginary} parts of the complex number \(x + iy\). If we write \(z = x + iy\), we can introduce the notation
+\[
+    \Re z = x \quad \text{and} \quad \Im z = y.
+\]
+We can also see that
+\[
+    \begin{aligned}
+        i^2 &= (0, 1) \cdot (0, 1) \\
+        &= (0 \cdot 0 - 1 \cdot 1, 0 \cdot 1 + 0 \cdot 1) \\
+        &= (-1, 0) \\
+        &= -1.
+    \end{aligned}
+\]
+We call \(i\) the \emph{imaginary unit}, although it should be noted that the term `imaginary' in this sense is only a historical artifact. If \(\Re z = 0\), then we say that \(z\) is a \emph{purely imaginary} number.
+
+\begin{example}
+    Express the complex number \(1/i\) in rectangular form.
+
+    \begin{solution}
+        We have
+        \[
+            \frac{1}{i} = \frac{1}{i} \cdot \frac{i}{i} = \frac{i}{i^2} = \frac{i}{-1} = -i.
+        \]
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Show that \(\C\) is a vector space over \(\R\) under addition and scalar multiplication, defined by
+    \[
+        \lambda(x, y) = (\lambda, 0)(x, y) = (\lambda x, \lambda y)
+    \]
+    Find a basis for \(\C\).
+
+    \begin{solution}
+        We shall skip the first part of the question which can be routinely verified by checking the axioms of a vector space.
+
+        Equation \eqref{eq:rectangular} shows that every element of \(\C\) can be written as a linear combination of the vectors \((1, 0)\) and \((0, 1)\) and thus \({(1, 0), (0, 1)}\) is a basis for \(\C\). We call this the \emph{standard basis} for \(\C\).
+    \end{solution}
+\end{example}
+
+\begin{example}
+    If \(z\) and \(w\) are complex numbers, show that \(\Re(z + w) = \Re z + \Re w\) and \(\Im(z + w) = \Im z + \Im w\).\label{ex:reimsum}
+
+    \begin{solution}
+        Let \(z = x_1 + iy_1\) and \(w = x_2 + iy_2\). Then \(z + w = (x_1 + x_2) + i(y_1 + y_2)\). Thus, \(\Re(z + w) = x_1 + x_2 = \Re z + \Re w\) 
+        and \(\Im(z + w) = y_1 + y_2 = \Im z + \Im w\).
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Let \(z\) and \(w\) be complex numbers. Is it true that \(\Re(zw) = \Re z \Re w\)?
+
+    \begin{solution}
+        Let \(z = x_1 + iy_1\) and \(w = x_2 + iy_2\). Then \(zw = (x_1x_2 - y_1y_2) + i(x_1y_2 + x_2y_1)\). Thus, \(\Re(zw) = x_1x_2 - y_1y_2 \neq x_1x_2 = \Re z \Re w\).
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Let \((x - iy)/(x + iy) = \xi + i\eta\). Prove that \(\xi^2 + \eta^2 = 1\).
+
+    \begin{solution}
+        We have
+        \[
+            \begin{aligned}
+                \frac{x - iy}{x + iy} &= \frac{x - iy}{x + iy} \cdot \frac{x - iy}{x - iy} \\
+                &= \frac{
+                    x^2 - 2ixy - y^2
+                }{
+                    x^2 + y^2
+                } \\
+                &= \frac{x^2 - y^2}{x^2 + y^2} - i\frac{2xy}{x^2 + y^2}.
+            \end{aligned}
+        \]
+        Thus
+        \[
+            \xi = \frac{x^2 - y^2}{x^2 + y^2} \quad \text{and} \quad \eta = \frac{-2xy}{x^2 + y^2}.
+        \]
+        Substituting these into \(\xi^2 + \eta^2\), we get
+        \[
+            \begin{aligned}
+                \xi^2 + \eta^2 &= \left(\frac{x^2 - y^2}{x^2 + y^2}\right)^2 + \left(\frac{-2xy}{x^2 + y^2}\right)^2 \\
+                &= \frac{x^4 - 2x^2y^2 + y^4}{(x^2 + y^2)^2} + \frac{4x^2y^2}{(x^2 + y^2)^2} \\
+                &= \frac{x^4 + 2x^2y^2 + y^4}{(x^2 + y^2)^2} \\
+                &= \frac{(x^2 + y^2)^2}{(x^2 + y^2)^2} \\
+                &= 1.
+            \end{aligned}
+        \]
+    \end{solution}
+\end{example}
+
+\begin{definition}[Complex conjugate]
+    Let \(z = x + iy\) be a complex number. The \emph{(complex) conjugate} of \(z\) is the complex number \(\conj{z} = x - iy\) (read as `\(z\) bar').
+    \label{def:conjugate}
+\end{definition}
+
+Observe that if \(z = x + iy\), then
+\[
+    z\conj{z} = (x + iy)(x - iy) = x^2 - i^2y^2 = x^2 + y^2.
+\]
+We can use this fact to simplify division of complex numbers.
+
+\begin{example}
+    Express \(\displaystyle\frac{3 + 4i}{1 - 2i}\) in rectangular form.
+
+    \begin{solution}
+        \[
+            \begin{aligned}
+                \frac{3 + 4i}{1 - 2i} &= \frac{3 + 4i}{1 - 2i} \cdot \frac{1 + 2i}{1 + 2i} \\
+                &= \frac{3 + 4i + 6i - 8}{1 + 4} \\
+                &= \frac{-5 + 10i}{5} \\
+                &= -1 + 2i.
+            \end{aligned}
+        \]
+    \end{solution}
+\end{example}
+
+We review some standard properties of the conjugate.
+
+\begin{theorem}[Properties of the complex conjugate]
+    Let \(z\) and \(w\) be complex numbers. Then
+    \begin{enumerate}[label=(\alph*)]
+        \item \(\displaystyle\Re z = \frac{z + \conj{z}}{2}\) and \(\displaystyle\Im z = \frac{z - \conj{z}}{2i}\);
+        \item \(\conj{z + w} = \conj{z} + \conj{w}\);
+        \item \(\conj{zw} = \conj{z}\conj{w}\);
+        \item \(\conj{\conj{z}} = z\); and 
+        \item \(\Re iz = -\Im z\) and \(\Im iz = \Re z\).
+    \end{enumerate}
+    \label{thm:conjugate}
+\end{theorem}
+
+\begin{proof}
+    We prove each part in turn. Let \(z = x + iy\) and \(w = a + ib\).
+
+    \begin{enumerate}[label=(\alph*)]
+        \item \[
+            \begin{aligned}
+                \frac{z + \conj{z}}{2} &= \frac{x + iy + x - iy}{2} \\
+                &= \frac{2x}{2} = x = \Re z,
+            \end{aligned}
+        \]
+        and
+        \[
+            \begin{aligned}
+                \frac{z - \conj{z}}{2i} &= \frac{x + iy - (x - iy)}{2i} \\
+                &= \frac{2iy}{2i} = y = \Im z.
+            \end{aligned}
+        \]
+        \item \[ 
+            \begin{aligned}
+                \conj{z + w} &= \conj{x + iy + a + ib} \\
+                &= \conj{x + a + i(y + b)} \\
+                &= x + a - i(y + b) \\
+                &= x - iy + a - ib \\
+                &= \conj{z} + \conj{w}.
+            \end{aligned}
+        \]
+        \item \[
+            \begin{aligned}
+                \conj{zw} &= \conj{(x + iy)(a + ib)} \\
+                &= \conj{xa - yb + i(xb + ay)} \\
+                &= xa - yb - i(xb + ay) \\
+                &= (x - iy)(a - ib) \\
+                &= \conj{z}\conj{w}.
+            \end{aligned}
+        \]
+        \item \[
+            \begin{aligned}
+                \conj{\conj{z}} &= \conj{x - iy} \\
+                &= x + iy = z.
+            \end{aligned}
+        \]
+        This property is called \emph{involution}.
+        \item Using the result in Example \ref{ex:reimsum}
+        \[
+            \begin{aligned}
+                \Re iz &= \Re i(x + iy) \\
+                &= \Re ix - \Re y \\
+                &= -y = -\Im z
+            \end{aligned}
+        \]
+        and
+        \[
+            \begin{aligned}
+                \Im iz &= \Im i(x + iy) \\
+                &= \Im ix + \Re y \\
+                &= x = \Re z.
+            \end{aligned}
+        \]
+    \end{enumerate}
+
+\end{proof}
+
+\begin{example}
+    Show that a complex number \(z\) is real if and only if \(\conj{z} = z\). Show that \(z\) is real or purely imaginary if and only if \((\conj{z})^2 = z^2\).
+
+    \begin{solution}
+        Let \(z = x + iy\). Then \(\conj{z} = x - iy\). Thus, \(\conj{z} = z\) if and only if \(y = 0\), i.e., \(z\) is real.
+
+        On the other hand, \((\conj{z})^2 = z^2\) implies
+        \[
+        (x - iy)^2 = x^2 - 2ixy - y^2 = x^2 + 2ixy - y^2 = (x + iy)^2,
+        \]
+        or
+        \[
+            xy = 0,
+        \]
+        which is true if and only if \(y = 0\) or \(x = 0\), i.e., \(z\) is real or purely imaginary.
+    \end{solution}
+\end{example}
+
+Recall that since we have defined a complex number as an ordered pair of real numbers, we can consequently interpret any complex number \(z = x + iy\) as a vector in \(\R^2\). We can use the geometrical properties of vectors in \(\R^2\) to introduce an alternative characterization of the complex numbers.
+
+Suppose that the vector \(z = x + iy\) has a distance of \(r\) from the origin and makes an angle \(\theta\) with the positive real axis. If we restrict the values of \(\theta\) to the interval \([0, 2\pi)\), then we see that the vector \(z\) can be uniquely identified by the pair \((r, \theta)\). The value of \(r\) can be computed as
+\[
+    r = \sqrt{x^2 + y^2},
+\]
+by the Pythagorean theorem. Similarly, the angle \(\theta\) can be computed as
+\[
+    \theta = \arctan\left(\frac{y}{x}\right),
+\]
+by trigonometry.
+
+Before we proceed, we shall note a useful property of the modulus.
+
+\begin{theorem}[Distance and modulus]
+    Let \(z\) and \(w\) be complex numbers thought of as vectors in \(\R^2\) and let \(d(z, w)\) denote the Euclidean distance between \(z\) and \(w\). Then
+    \[
+        d(z, w) = \abs{z - w} = \abs{w - z}.
+    \]
+    \label{thm:distance-modulus}
+\end{theorem}
+
+\begin{proof}
+    Let \(z = x_1 + iy_1\) and \(w = x_2 + iy_2\). Then \(z - w = (x_1 - x_2) + i(y_1 - y_2)\). Thus
+    \[
+        \begin{aligned}
+            \abs{z - w} &= \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2},
+        \end{aligned}
+    \]
+    which is the Euclidean distance between \(z\) and \(w\). Since \((x_1 - x_2)^2 = (x_2 - x_1)^2\) and \((y_1 - y_2)^2 = (y_2 - y_1)^2\), we have \(\abs{z - w} = \abs{w - z}\).
+\end{proof}
+
+We call \(r\) the \emph{modulus} of \(z\), denoted by \(\abs{z}\). The angle \(\theta\) is called an \emph{argument} of \(z\), denoted by \(\arg z\) which is unique modulo \(2\pi\). We can use results from trigonometry to express \(x\) and \(y\) in terms of \(r\) and \(\theta\), viz.,
+\[
+    x = r\cos\theta \quad \text{and} \quad y = r\sin\theta,
+\]
+which gives us the \emph{polar form} of the complex number \(z\):
+\[
+    z = r\cos\theta + ir\sin\theta = r(\cos\theta + i\sin\theta).
+\]
+Since the angle \(\theta\) is only unique modulo \(2\pi\), the values of \(\arg z\) are thus of the form \(\theta + 2\pi k\) for any integer \(k\). If we want to explicitly restrict the values of \(\arg z\) to the interval \([0, 2\pi)\), we shall write \(\Arg z\) instead; this is called the \emph{principal value} of the argument.
+
+\begin{example}
+    Find the polar form of the complex number \(1 + i\).
+
+    \begin{solution}
+        The modulus of \(1 + i\) is
+        \[
+            \abs{1 + i} = \sqrt{1^2 + 1^2} = \sqrt{2}.
+        \]
+        The argument of \(1 + i\) is
+        \[
+            \arg(1 + i) = \arctan\left(\frac{1}{1}\right) = \frac{\pi}{4}.
+        \]
+        Thus, the polar form of \(1 + i\) is
+        \[
+            1 + i = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right) \pmod{2\pi}.
+        \]
+    \end{solution}
+\end{example}
+
+Writing \(z = r_1(\cos\theta_1 + i\sin\theta_1)\) and \(w = r_2(\cos\theta_2 + i\sin\theta_2)\), we can see that
+\begin{align}
+    zw &= r_1(\cos\theta_1 + i\sin\theta_1) \cdot r_2(\cos\theta_2 + i\sin\theta_2) \nonumber \\
+    &= r_1r_2(\cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2 + i(\cos\theta_1\sin\theta_2 + \sin\theta_1\cos\theta_2)) \nonumber \\
+    &= r_1r_2(\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)) \label{eq:product-polar}.
+\end{align}
+
+This gives us the following result.
+
+\begin{theorem}[Modulus and argument of a product]
+    Let \(z\) and \(w\) be complex numbers. Then
+    \[
+        \abs{zw} = \abs{z}\abs{w} \quad \text{and} \quad \arg(zw) = \arg z + \arg w \pmod{2\pi}.
+    \]
+    \label{thm:product-polar}
+\end{theorem}
+
+\begin{example}
+    Alternatively, we can think of multiplication of complex numbers in terms of the map \(\phi_z : \C \to \C\) defined by \(\phi_z(w) = zw\) where we fix some complex number \(z\).
+
+    The map \(\phi_z\) is a linear transformation in the sense that
+    \[
+        \begin{aligned}
+            \phi_z(\lambda w_1 + \mu w_2) &= z(\lambda w_1 + \mu w_2) \\
+            &= \lambda zw_1 + \mu zw_2 \\
+            &= \lambda \phi_z(w_1) + \mu \phi_z(w_2),
+        \end{aligned}
+    \]
+    where \(\lambda, \mu \in \R\) and \(w_1, w_2 \in \C\).
+
+    We can find the matrix representation of \(\phi_z\) by considering the images of the basis vectors \(1 = (1, 0)\) and \(i = (0, 1)\). If we let \(z = x + iy\), then
+    \[
+        \begin{aligned}
+            \phi_z(1) &= z = x + iy = x(1, 0) + y(0, 1) = x(1, 0) + y(0, 1) = x + iy, \\
+            \phi_z(i) &= zi = (x + iy)(0, 1) = (0 - y, x) = -y + ix.
+        \end{aligned}
+    \]
+    Thus, the matrix representation of \(\phi_z\) is
+    \[
+        \begin{pmatrix}
+            x & -y \\
+            y & x
+        \end{pmatrix}.
+    \]
+    We can verify this by checking that if we let \(w = a + ib\), then
+    \[
+        \begin{aligned}
+            \begin{pmatrix}
+                x & -y \\
+                y & x
+            \end{pmatrix}
+            \begin{pmatrix}
+                a \\
+                b
+            \end{pmatrix}
+            &= \begin{pmatrix}
+                xa - yb \\
+                ya + xb
+            \end{pmatrix} \\
+            &= zw.
+        \end{aligned}
+    \]
+\end{example}
+
+We can extend Equation \eqref{eq:product-polar} to powers of complex numbers, as in the following result.
+
+\begin{theorem}[De Moivre's formula]
+    \label{thm:demoivre}
+    Let \(z = r(\cos\theta + i\sin\theta)\) be a complex number. Then for any integer \(n\),
+    \begin{equation}
+        z^n = r^n(\cos n\theta + i\sin n\theta).
+    \label{eq:demoivre}
+    \end{equation}
+    
+\end{theorem}
+
+\begin{proof}
+    We prove this by induction on \(n\). The base case is 
+    \[
+        z^1 = r^1(\cos\theta + i\sin\theta) = r(\cos\theta + i\sin\theta),
+    \]
+    which is essentially our definition. Suppose that Equation \eqref{eq:demoivre} holds for some integer \(k\). Then
+    \[
+        \begin{aligned}
+            z^{k + 1} &= z^kz \\
+            &= r^k(\cos k\theta + i\sin k\theta)r(\cos\theta + i\sin\theta) \\
+            &= r^{k + 1}(\cos k\theta\cos\theta - \sin k\theta\sin\theta + i(\cos k\theta\sin\theta + \sin k\theta\cos\theta)) \\
+            &= r^{k + 1}(\cos(k + 1)\theta + i\sin(k + 1)\theta).
+        \end{aligned}
+    \]
+\end{proof}
+
+Observe that the quantity \(\cos \theta + i\sin \theta\) is of particular import when dealing with complex numbers. We thus introduce the notation
+\begin{equation}
+    e^{i\theta} := \cos\theta + i\sin\theta.
+    \label{eq:euler}
+\end{equation}
+Equation \eqref{eq:euler} above is often called \emph{Euler's formula}. We shall call the quantity \(e^{i\theta}\) the \emph{exponential function} of the complex number \(i\theta\). For typographic reasons we shall sometimes write \(e^{i\theta}\) as \(\exp(i\theta)\). While this notation may seem arbitrary, we shall establish that this is indeed the familiar exponential function. However, we shall use this as the definition of the exponential function for now and establish the connection later.
+
+Since the polar form of the complex number is
+\[
+    z = r(\cos\theta + i\sin\theta),
+\]
+substituting \eqref{eq:euler} gives us
+\[
+    z = re^{i\theta},
+\]
+which we shall call the \emph{exponential form} of the complex number \(z\).
+
+De Moivre's formula can be rewritten in terms of the exponential function, viz.,
+\[
+    \begin{aligned}
+        z^n &= (re^{i\theta})^n = r^n(e^{i\theta})^n = r^n e^{in\theta}\\
+        &= r^n(\cos n\theta + i\sin n\theta).
+    \end{aligned}
+\]
+
+We establish some properties of the exponential function.
+
+\begin{theorem}[Properties of the exponential function]
+    Let \(\theta, \theta_1, \theta_2 \in \R\). Then
+    \begin{enumerate}
+        \item \(e^{i\theta_1}e^{i\theta_2} = e^{i(\theta_1 + \theta_2)}\);
+        \item \(e^{0} = 1\);
+        \item \(1/(e^{i\theta}) = e^{-i\theta}\);
+        \item \(e^{i\theta} = e^{i(\theta + 2\pi k)}\) for any integer \(k\).
+        \item \(|e^{i\theta}| = 1\).
+        \item \((e^{i\theta})' = ie^{i\theta}\).
+    \end{enumerate}
+    \label{thm:properties-exp}
+\end{theorem}
+
+\begin{proof}
+    We prove each statement in turn.
+    \begin{enumerate}[label=(\alph*)]
+        \item \[
+            \begin{aligned}
+                e^{i\theta_1}e^{i\theta_2} &= (\cos\theta_1 + i\sin\theta_1)(\cos\theta_2 + i\sin\theta_2) \\
+                &= \cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2 + i(\cos\theta_1\sin\theta_2 + \sin\theta_1\cos\theta_2) \\
+                &= \cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2) \\
+                &= e^{i(\theta_1 + \theta_2)}.
+            \end{aligned}
+        \]
+        \item \[
+            e^0 = e^{i0} = \cos 0 + i\sin 0 = 1.
+        \]
+        \item \[
+            \begin{aligned}
+                \frac{1}{e^{i\theta}} &= \frac{1}{\cos\theta + i\sin\theta} = \frac{1}{\cos\theta + i\sin\theta} \cdot \frac{\cos\theta - i\sin\theta}{\cos\theta - i\sin\theta} \\
+                &= \frac{\cos\theta - i\sin\theta}{\cos^2\theta + \sin^2\theta} = \cos\theta - i\sin\theta = e^{-i\theta}.
+            \end{aligned}
+        \]
+        \item This follows from the periodicity of the trigonometric functions.
+        \item \[
+            |e^{i\theta}| = |\cos\theta + i\sin\theta| = \sqrt{\cos^2\theta + \sin^2\theta} = 1.
+        \]
+        \item \[
+            \begin{aligned}
+                \frac{d}{d\theta}e^{i\theta} &= \frac{d}{d\theta}(\cos\theta + i\sin\theta) \\
+                &= \frac{d}{d\theta}\cos\theta + i\frac{d}{d\theta}\sin\theta \\
+                &= -\sin\theta + i\cos\theta \\
+                &= i(\cos\theta + i\sin\theta) \\
+                &= ie^{i\theta}.
+            \end{aligned}
+        \]
+    \end{enumerate}
+\end{proof}
+
+By Theorem \ref{thm:properties-exp} above we see that for any integers \(k\) and \(n\), with \(n > 0\),
+\[
+    \exp\left({\frac{i2\pi k}{n}}\right)^n = e^{i2\pi k} = 1.
+\]
+This shall prove useful later on and we introduce the following definition.
+
+\begin{definition}[Roots of unity]
+    A complex number \(\omega\) of the form \(\exp\left(\frac{2\pi i k}{n}\right)\) for some integers \(k\) and \(n\) with \(n > 0\) is called an \(n\)-th \emph{root of unity}.
+    \label{def:roots-of-unity}
+\end{definition}
+
+\begin{example}
+    Show that there are exactly \(n\) \(n\)-th roots of unity.\label{ex:roots-of-unity-count}
+
+    \begin{solution}
+        Let \(\omega = \exp\left(\frac{2\pi i k}{n}\right)\) be an \(n\)-th root of unity. Because \(k\) and \(n\) are integers, by the division algorithm, there must exist
+        integers \(q\) and \(r\) such that \(k = nq + r\) with \(0 \leq r < n\), with \(r = 0\) if and only if \(m\) is divisible by \(n\). Thus, we can write
+        \[
+            \begin{aligned}
+                \omega &= \exp\left(\frac{2\pi i k}{n}\right) \\
+                &= \exp\left(\frac{2\pi i (nq + r)}{n}\right) 
+                = \exp\left(2\pi iq + \frac{2\pi i r}{n}\right)\\&= \exp\left({2\pi i q}\right)\cdot\exp\left(\frac{2\pi i r}{n}\right) \\
+                &= \exp\left(\frac{2\pi i r}{n}\right),
+            \end{aligned}
+        \]
+        so that only the values of \(r\) from \(0\) to \(n - 1\) are distinct. Thus, there are exactly \(n\) \(n\)-th roots of unity.
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Find the cube roots of unity.
+
+    \begin{solution}
+        The cube roots of unity are the solutions to the equation \(z^3 = 1\). They are given by
+        \[
+            \begin{aligned}
+                \omega_k &= \exp\left(\frac{2\pi i k}{3}\right) \quad \text{for} \quad k = 0, 1, 2.
+            \end{aligned}
+        \]
+        Explicitly, we have
+        \[
+            \begin{aligned}
+                \omega_0 &= \exp(0) = 1, \\
+                \omega_1 &= \exp\left(\frac{2\pi i}{3}\right) = \cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3} = -\frac{1}{2} + i\frac{\sqrt{3}}{2}, \\
+                \omega_2 &= \exp\left(\frac{4\pi i}{3}\right) = \cos\frac{4\pi}{3} + i\sin\frac{4\pi}{3} = -\frac{1}{2} - i\frac{\sqrt{3}}{2}.
+            \end{aligned}
+        \]
+    \end{solution}
+\end{example}
+
+\begin{example}
+    The identity we have derived in finding the roots of unity can be extended to finding the \(n\)-th roots of any complex number. If \(w\) is a complex number such that \(w = re^{i\theta}\), and \(z^n = w\), we have
+    \[
+        z^n = re^{i(\theta + 2\pi k)} \quad \text{for any integer} \quad k
+    \]
+    so that
+    \[
+        z = \sqrt[n]{r}e^{i\left(\frac{\theta + 2\pi k}{n}\right)},
+    \]
+    or alternatively,
+    \[
+        z = \sqrt[n]{r}\left[\cos\left(\frac{\theta + 2\pi k}{n}\right) + i\sin\left(\frac{\theta + 2\pi k}{n}\right)\right].
+    \]
+    By the same argument as in Example \ref{ex:roots-of-unity-count}, we see that there are exactly \(n\) \(n\)-th roots of a complex number \(w\).
+\end{example}
+
+\begin{example}
+    Using the preceding example, find all solutions to the equation \(z^3 + 1 = 0\).
+
+    \begin{solution}
+        We have
+        \[
+            \begin{aligned}
+                z^3 + 1 &= 0 \\
+                z^3 &= -1 = \exp(i\pi) \\
+                z &= \sqrt[3]{1}\left[\cos\left(\frac{\pi + 2\pi k}{3}\right) + i\sin\left(\frac{\pi + 2\pi k}{3}\right)\right] \quad \text{for} \quad k = 0, 1, 2.
+            \end{aligned}
+        \]
+        Thus, the solutions are
+        \[
+            \begin{aligned}
+                z_0 &= \cos\frac{\pi}{3} + i\sin\frac{\pi}{3} = \frac{1}{2} + i\frac{\sqrt{3}}{2}, \\
+                z_1 &= \cos \pi + i\sin\pi = -1, \\
+                z_2 &= \cos\frac{5\pi}{3} + i\sin\frac{5\pi}{3} = \frac{1}{2} - i\frac{\sqrt{3}}{2}.
+            \end{aligned}
+        \]
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Use Theorem \ref{thm:properties-exp} to find explicit formulas for \(\cos 3\theta\) and \(\sin 3\theta\) in terms of \(\cos\theta\) and \(\sin\theta\).
+
+    \begin{solution}
+        We have
+        \[
+            \begin{aligned}
+                \cos 3\theta + i\sin 3\theta &= e^{i3\theta} = (e^{i\theta})^3 \\
+                &= (\cos\theta + i\sin\theta)^3 \\
+                &= \cos^3\theta + 3i\cos^2\theta\sin\theta - 3\cos\theta\sin^2\theta - i\sin^3\theta.
+            \end{aligned}
+        \]
+        Equating the real and imaginary parts gives us
+        \[
+            \begin{aligned}
+                \cos 3\theta &= \cos^3\theta - 3\cos\theta\sin^2\theta, \\
+                \sin 3\theta &= 3\cos^2\theta\sin\theta - \sin^3\theta.
+            \end{aligned}
+        \]
+    \end{solution}
+\end{example}
+
+\begin{theorem}[Relationships between the modulus and conjugate]
+    Let \(z = re^{i\theta}\) be a complex number. Then
+    \begin{enumerate}[label=(\alph*)]
+        \item \(|z| = |\conj{z}|\);
+        \item \(z\conj{z} = |z|^2\);
+        \item \(\conj{re^{i\theta}} = re^{-i\theta}\); and
+        \item \(|\Re z| \leq |z|\) and \(|\Im z| \leq |z|\).
+    \end{enumerate}
+    \label{thm:modulus-conjugate}
+\end{theorem}
+
+\begin{proof}
+    We prove each part in turn.
+    \begin{enumerate}[label=(\alph*)]
+        \item \[
+            \begin{aligned}
+                |z| &= |re^{i\theta}| = |r||e^{i\theta}| = |r| = |r||e^{-i\theta}| = |re^{-i\theta}| = |\conj{z}|.
+            \end{aligned}
+        \]
+        \item \[
+            \begin{aligned}
+                z\conj{z} &= re^{i\theta}re^{-i\theta} = r^2e^{i\theta - i\theta} = r^2e^0 = r^2 = |z|^2.
+            \end{aligned}
+        \]
+        \item \[
+            \begin{aligned}
+                \conj{re^{i\theta}} &= \conj{r}e^{-i\theta} = re^{-i\theta}.
+            \end{aligned}
+        \]
+        \item Because
+        \[
+            -\sqrt{x^2 + y^2} \leq -\sqrt{x^2} \leq x \leq \sqrt{x^2} \leq \sqrt{x^2 + y^2},
+        \]
+        for real numbers \(x\) and \(y\), we have
+        \[
+            -|z| \leq \Re z \leq |z| \quad \text{and} \quad -|z| \leq \Im z \leq |z|.
+        \]
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Triangle inequality]
+    If \(z\) and \(w\) are complex numbers, then
+    \[
+        |z + w| \leq |z| + |w|.
+    \]
+    \label{thm:triangle-inequality}
+\end{theorem}
+
+\begin{proof}
+    We have
+    \[
+        \begin{aligned}
+            |z + w|^2 &= (z + w)\conj{(z + w)} \\
+            &= (z + w)(\conj{z} + \conj{w}) \\
+            &= z\conj{z} + z\conj{w} + w\conj{z} + w\conj{w} \\
+            &= |z|^2 + z\conj{w} + w\conj{z} + |w|^2 \\
+            &= |z|^2 + z\conj{w} + \conj{z\conj{w}} + |w|^2 \\
+            &= |z|^2 + 2\Re(z\conj{w}) + |w|^2 \\
+            &\leq |z|^2 + 2|z\conj{w}| + |w|^2 \\
+            &= |z|^2 + 2|z||w| + |w|^2 \\
+            &= (|z| + |w|)^2.
+        \end{aligned}
+    \]
+    Taking the square root of both sides gives us the desired result.
+\end{proof}
+
+\begin{corollary}[Triangle inequality, variants]
+    \label{cor:triangle-inequality}
+    
+\end{corollary}
+
+\section{Elementary topology of \(\C\)}
+
+In \S~\ref{thm:distance-modulus} we have established that a notion of `distance' exists in \(\C\), given by the modulus of the difference of two complex numbers. It would therefore be convenient to call the set \(\C\) the complex plane and to think of the complex numbers as points in the plane, to lean on our intuition from \(\R^2\). This allows us to make the following definitions.
+
+\begin{definition}[Open disk]
+    Let \(z_0 \in \C\) and let \(\epsilon > 0\) be a real number. The \emph{open disk} of radius \(\epsilon\) centred at \(z_0\) is the set
+    \[
+        D(z_0, \epsilon) = \{z \in \C : |z - z_0| < \epsilon\}.
+    \]
+    We shall also often refer to the open disk \(D(z_0, \epsilon)\) as the \(\epsilon\)-neighborhood (or more simply, as a neighborhood) of \(z_0\).
+    \label{def:open-disk}
+\end{definition}
+
+\begin{definition}[Open and closed sets]
+    A set \(U \subseteq \C\) is \emph{open} if for every \(z_0 \in U\), there exists an \(\epsilon > 0\) such that \(D(z_0, \epsilon) \subseteq U\). A set \(F \subseteq \C\) is \emph{closed} if its complement \(\C \setminus F\) is open.
+    \label{def:open-closed-sets}
+\end{definition}
+
+We need to note that the terms `open' and `closed' used in this context are not mutually exclusive: that is, for example, a set can be both open and closed or a set that is not open need not necessarily be closed.
+
+\begin{example}
+    The sets \(\C\) and \(\emptyset\) are both open and closed.
+\end{example}
+
+
+\begin{definition}%[Taxonomy of points]
+    Let \(U \subseteq \C\).
+    \begin{enumerate}[label=(\alph*)]
+        \item A point \(z_0 \in U\) is an \emph{interior point} of \(U\) if there exists an \(\epsilon > 0\) such that \(D(z_0, \epsilon) \subseteq U\).
+        \item A point \(z_0 \in U\) is a \emph{boundary point} of \(U\) if for every \(\epsilon > 0\), there exists a point \(z \in D(z_0, \epsilon)\) such that \(z \in U\) and a point \(w \in D(z_0, \epsilon)\) such that \(w \notin U\).
+        \item A point \(z_0 \in U\) is an \emph{isolated point} of \(U\) if there exists an \(\epsilon > 0\) such that \(D(z_0, \epsilon) \cap U = \{z_0\}\).
+        \item A point \(z_0 \in U\) is a \emph{limit point} of \(U\) if for every \(\epsilon > 0\), there exists a point \(z \in D(z_0, \epsilon)\) such that \(z \in U\) and \(z \neq z_0\).
+    \end{enumerate}
+    \label{def:taxonomy-points}
+\end{definition}
+
+\begin{theorem}[Open set equal to its interior]
+    A set is open if and only if all its points are interior points.
+    \label{thm:open-interior}
+\end{theorem}
+
+\section{Limits and continuity}
+
+\begin{definition}[Complex function]
+    A \emph{function} \(f : D \to \C\) is a rule that assigns to each element \(z \in D \subseteq \C\) a unique complex number \(f(z) \in \C\). We call \(D\) the \emph{domain} of \(f\) and the set
+    \[
+        f(D) = \{f(z) : z \in D\}
+    \]
+    the \emph{image} of \(D\) under \(f\) (or simply the image of \(f\)).
+    \label{def:complex-function}
+\end{definition}
+
+Since the value \(w = f(z)\) is itself a complex number, we can write \(f\) in the form
+\[
+    f(z) = u(x, y) + iv(x, y),
+\]
+where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and \(y\). The functions \(u\) and \(v\) are called the \emph{real} and \emph{imaginary parts} of \(f\), respectively.
+
+\begin{example}
+    Let \(f : \C \to \C\) be defined by \(f(z) = z^2 - 1\). Then writing \(z = x + iy\), we have
+    \[
+        \begin{aligned}
+            f(z) &= (x + iy)^2 - 1 \\
+            &= x^2 + 2ixy - y^2 - 1 \\
+            &= (x^2 - y^2 - 1) + i(2xy).
+        \end{aligned}
+    \]
+    Thus, the real and imaginary parts of \(f\) are \(u(x, y) = x^2 - y^2 - 1\) and \(v(x, y) = 2xy\), respectively.
+\end{example}
+
+\begin{definition}[Limit of a function]
+    Let \(f : D \to \C\) be a function defined on some neighborhood of a point \(z_0 \in \C\) except possibly at \(z_0\) itself (i.e., \(z_0\) is an limit point of \(D\)). We say that the \emph{limit} of \(f(z)\) as \(z\) approaches \(z_0\) is \(L \in \C\) and write
+    \[
+        \lim_{z \to z_0} f(z) = L,
+    \]
+    if for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |z - z_0| < \delta\), then \(|f(z) - L| < \epsilon\).
+    \label{def:limit}
+\end{definition}
+
+By defining \(z_0\) as a limit point of \(D\), we allow for the possibility that \(f(z_0)\) is not defined.
+
+\begin{example}
+    Prove that \(\displaystyle\lim_{z \to i} z^2 = -1\).
+    \begin{solution}
+        Given \(\epsilon > 0\), we need to find a \(\delta > 0\) such that if \(0 < |z - i| < \delta\), then \(|z^2 + 1| < \epsilon\). Observe that
+        \begin{equation*}
+            z^2 = (z - i + i)^2 = (z - i)^2 + 2i(z - i) - 1
+        \end{equation*}
+        so that
+        \begin{equation*}
+            |z^2 + 1| = |(z - i)^2 + 2i(z - i)| = |z - i|^2 + 2|z - i|.
+        \end{equation*}
+        If \(|z - i| < 1\), then \(|z - i|^2 < |z - i|\) so that \(|z^2 + 1| < 3|z - i|\). Thus if we choose \(\delta = \min\{1, \epsilon/3\}\), we ensure that \(|z^2 + 1| < \epsilon\).
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Use the definition of the limit to show that \(\lim_{z \to z_0} az + b = az_0 + b\) for any complex numbers \(a\) and \(b\), where \(z_0\) is a limit point of the domain of the function.
+
+    \begin{solution}
+        Given \(\epsilon > 0\), we need to find a \(\delta > 0\) such that if \(0 < |z - z_0| < \delta\), then \(|az + b - az_0 - b| < \epsilon\). Observe that
+        \[
+            |az + b - az_0 - b| = |a(z - z_0)| = |a||z - z_0|.
+        \]
+        If we choose \(\delta = \epsilon/|a|\), then we have \(|az + b - az_0 - b| = |a||z - z_0| < |a|\delta = \epsilon\).
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Let \(f : D \to \C\), with \(D \subseteq \C\) and suppose that \(z_0\) is a limit point of \(D\). Show that \(\lim_{z \to z_0} f(z) = 0\) if and only if \(\lim_{z \to z_0} |f(z)| = 0\).
+\end{example}
+
+\begin{theorem}%[Uniqueness of limits]
+    Limits if they exist are unique.
+    \label{thm:uniqueness-limits}
+\end{theorem}
+
+\begin{proof}
+    Suppose that \(\lim_{z \to z_0} f(z) = L\) and \(\lim_{z \to z_0} f(z) = M\) and \(L \neq M\) for some limit point \(z_0 \in \C\). Let \(\epsilon = (L - M)/2 > 0\). Then there exists a \(\delta_1 > 0\) such that if \(0 < |z - z_0| < \delta_1\), then \(|f(z) - L| < \epsilon\) and a \(\delta_2 > 0\) such that if \(0 < |z - z_0| < \delta_2\), then \(|f(z) - M| < \epsilon\). Let \(\delta = \min\{\delta_1, \delta_2\}\). Because \(z_0\) is a limit point of \(D\), there exists a point \(z \in D\) such that \(0 < |z - z_0| < \delta\). It follows that
+    \begin{align*}
+        |L - M| &\leq |L - f(z) + f(z) - M| \\
+        &\leq |L - f(z)| + |f(z) - M| \\
+        &< \epsilon + \epsilon = 2\epsilon,
+    \end{align*}
+    contradicting our choice of \(\epsilon\). Thus \(L = M\).
+\end{proof}
+
+\begin{theorem}%[Limit of a restriction of a function]
+    Let \(f : D \to \C\) be a function and let \(z_0\) be a limit point of \(D\). Suppose that \(\lim_{z \to z_0} f(z) = L\). If \(H \subseteq D\) and \(f_{|H} : H \to \C\) is the restriction of \(f\) to \(H\), then \(\lim_{z \to z_0} f_{|H}(z) = L\).
+    \label{thm:limit-restriction}
+\end{theorem}
+
+\begin{example}
+    \label{ex:limit-zbar-over-z}
+    Theorem \ref{thm:limit-restriction} tells us that if the limit of a function exists, then it must be equal to the limit of any restriction of the function. That is, if \(G,H \subseteq D\) and \(f_{|G}\) and \(f_{|H}\) are restrictions of \(f\) to \(G\) and \(H\) respectively, if \(\lim_{z \to z_0} f_{|G}(z) = L\) and \(\lim_{z \to z_0} f_{|H}(z) = M\) with \(L \neq M\), then \(\lim_{z \to z_0} f(z)\) cannot exist.
+
+    Use this fact to show that \[\lim_{z \to 0} \frac{\conj{z}}{z}\] does not exist.
+
+    \begin{solution}
+        We try to compute the limit of the function \(\frac{\conj{z}}{z}\) as \(z\) approaches \(0\) from the real and imaginary axes, respectively. If we write \(z = x + iy\), then in the first case, we have
+        \[
+            \lim_{x \to 0} \frac{\conj{z}}{z} = \lim_{x \to 0} \frac{\conj{x}}{x} = \lim_{x \to 0} \frac{x}{x} = 1.
+        \]
+        On the other hand,
+        \[
+            \lim_{y \to 0} \frac{\conj{z}}{z} = \lim_{y \to 0} \frac{-iy}{iy} = \lim_{y \to 0} \frac{-i}{i} = -1.
+        \]
+        Since the limits taken along the real and imaginary axes are different, the limit of the function as \(z\) approaches \(0\) does not exist.
+    \end{solution}
+\end{example}
+
+
+The following result reduces the computation of limits of complex functions to the computation of limits of real functions. 
+
+\begin{theorem}%[Complex limit as a limit of real functions]
+    Suppose that \(f(z) = u(x, y) + iv(x, y)\) is a complex function and that \(z_0 = x_0 + iy_0\) is a limit point of the domain of \(f\). Prove that
+    \[
+        lim_{z \to z_0} f(z) = u_0 + iv_0
+    \]
+    if and only if
+    \[
+        \lim_{(x, y) \to (x_0, y_0)} u(x, y) = u_0 \quad \text{and} \quad \lim_{(x, y) \to (x_0, y_0)} v(x, y) = v_0.
+    \]
+    \label{thm:complex-limit-real}
+\end{theorem}
+
+\begin{example}
+    Let us revisit Theorem~\ref{thm:limit-restriction} while using the result of Theorem~\ref{thm:complex-limit-real}. Consider the function
+    \[
+        f(z) = \frac{x^2 y}{x^4 + 2y^2}
+    \]
+    where \(z = x + iy \neq 0\). Show that the limit of \(f(z)\) as \(z\) approaches \(0\) does not exist.
+
+    \begin{solution}
+        This function is a bit trickier. The limits of \(f\) at \(0\) along straight lines passing through the origin exist and are equal. For example, along the imaginary axis, we have
+        \begin{equation*}
+            \lim_{(x, y) \to (0, 0)} \frac{x^2 y}{x^4 + 2y^2} = \lim_{x \to 0} \frac{x^2 \cdot 0}{x^4 + 2\cdot 0} = 0.
+        \end{equation*}
+        Indeed, since any straight line passing through the origin is of the form \(y = mx\), the general case shows us that
+        \begin{equation*}
+            \lim_{(x, y) \to (0, 0)} \frac{x^2 y}{x^4 + 2y^2} = \lim_{x \to 0} \frac{x^2 mx}{x^4 + 2m^2 x^2} = \lim_{x \to 0} \frac{mx^3}{x^2(x^2 + 2m^2)} = 0.
+        \end{equation*}
+        However, since the limit at \(z_0\) needs to be the same when approaching \(z_0\) from every direction, we need to find a counterexample. We can do this by considering the parabola \(y = x^2\), along which we have
+        \begin{equation*}
+            \lim_{(x, y) \to (0, 0)} \frac{x^2 y}{x^4 + 2y^2} = \lim_{x \to 0} \frac{x^2 x^2}{x^4 +2x^4} = \lim_{x \to 0} \frac{x^4}{3x^4} = \frac{1}{3} \neq 0.
+        \end{equation*}
+        Thus the limit of \(f(z)\) as \(z\) approaches \(0\) does not exist.
+    \end{solution}
+\end{example}
+
+
+
+\begin{theorem}%[Properties of limits]
+    Let \(f\) and \(g\) be complex functions on a domain \(D \subseteq \C\). Let \(z_0\) be a limit point of \(D\) and let \(c \in \C\). If\(\lim_{z \to z_0} f(z) = L\) and \(\lim_{z \to z_0} g(z) = M\)
+    \begin{enumerate}[label=(\alph*)]
+        \item \(\lim_{z \to z_0} (f(z) + c g(z)) = L + cM\);
+        \item \(\lim_{z \to z_0} f(z)g(z) = LM\);
+        \item \(\lim_{z \to z_0} f(z)/g(z) = L/M\) if \(M \neq 0\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    We prove each part in turn.
+    \begin{enumerate}[label=(\alph*), wide]
+        \item If \(c = 0\) then this claim is trivial. Suppose \(c \neq 0\). Given \(\epsilon > 0\), there exists a \(\delta_1 > 0\) such that if \(0 < |z - z_0| < \delta_1\), then \(|f(z) - L| < \epsilon/2\) and a \(\delta_2 > 0\) such that if \(0 < |z - z_0| < \delta_2\), then \(|g(z) - M| < \epsilon/(2|c|)\). Let \(\delta = \min\{\delta_1, \delta_2\}\). Then if \(0 < |z - z_0| < \delta\), we have
+        \begin{align*}
+            |f(z) + cg(z) - (L + cM)| &\leq |f(z) - L| + |c||g(z) - M|\\
+                    &< \epsilon/2 + |c|\epsilon/(2|c|) = \epsilon,
+        \end{align*}
+        so that \(\lim_{z \to z_0} (f(z) + cg(z)) = L + cM\).
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}[Continuity]
+    A function \(f : D \to \C\) is \emph{continuous} at a point \(z_0 \in D\) if
+    \[
+        \lim_{z \to z_0} f(z) = f(z_0).
+    \]
+    We say that \(f\) is \emph{continuous} on \(D\) if it is continuous at every point in \(D\).
+    \label{def:continuity}
+\end{definition}
+
+Restating this in terms of the \(\epsilon\)-\(\delta\) definition of the limit, we have the following alternative definition.
+
+\begin{definition}%[Continuity, alternative definition]
+    A function \(f : D \to \C\) is continuous at a point \(z_0 \in D\) if for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |z - z_0| < \delta\), then \(|f(z) - f(z_0)| < \epsilon\).
+    \label{de:continuity-epsilon-delta}
+\end{definition}
+
+\begin{theorem}%{Equivalence of definitions of continuity}
+    Definitions {\normalfont\ref{def:continuity}} and {\normalfont\ref{de:continuity-epsilon-delta}} are equivalent.
+\end{theorem}
+
+\begin{example}
+    Show that the functions \(f(z) = \Re z\) and \(g(z) = \Im z\) are continuous on \(\C\).
+\end{example}
+
+\begin{theorem}%[Continuity of a composite function]
+    \label{thm:continuity-composite}
+    Let \(f\) be continuous at \(z_0\) and let \(g\) be continuous at \(w_0 = f(z_0)\). Then the composite function \(g \circ f\) is continuous at \(z_0\). 
+\end{theorem}
+
+
+\section{Differentiability and holomorphicity}
+
+\begin{definition}[Complex derivative] \label{def:complex-derivative}
+    Let \(f : D \to \C\) be a complex function with \(D \subseteq \C\) and let \(z_0 \in D\) be a interior point of \(D\). The \emph{derivative} of \(f\) at \(z_0\) is defined as
+    \begin{equation}
+        f'(z_0) = \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0}\label{eq:complex-derivative}
+    \end{equation}
+    provided that this limit exists, in which case we say that \(f\) is \emph{differentiable} at \(z_0\). If \(f\) is differentiable at some neighborhood of \(z_0\), then we say that \(f\) is \emph{holomorphic} at \(z_0\). If \(f\) is holomorphic at every point on the open set \(E \subseteq D\), then we say that \(f\) is holomorphic on \(E\). A function that is holomorphic on the whole complex plane is said to be \emph{entire}.
+\end{definition}
+
+An alternative way of defining the derivative of a complex function is by substituting \(h = z - z_0\) so that we can write
+\eqref{eq:complex-derivative} as
+\[
+    \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h}.
+    \label{eq:complex-derivative-h}
+\]
+By writing \(dz\) as the infinitesimal change in \(z\) (i.e., the limit as the change in \(z\), \(h = z - z_0\), approaches zero), and writing \(df\) as the infinitesimal change in \(f(z)\), we can write the derivative of \(f\) as \(df/dz\), although it must be noted that this is not a fraction and that the choice of notation is purely suggestive.
+
+\begin{example}
+    The function \(f : \C \to \C\) defined by \(f(z) = z^4\) is entire. If \(z_0 \in \C\), then
+    \[
+        \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} = \lim_{z \to z_0} \frac{z^4 - z_0^4}{z - z_0} = \lim_{z \to z_0} \frac{(z^3 + z^2z_0 + zz_0^2 + z_0^3)}{z - z_0} = 4z_0^3.
+    \]
+\end{example}
+
+\begin{example}
+    Show that the function \(f(z) = \conj{z}\) is not differentiable at any point in \(\C\).
+
+    \begin{solution}
+        Let \(z_0 \in \C\). Then from the definition, we have
+        \[
+            \lim_{z \to z_0} \frac{\conj{z} - \conj{z_0}}{z - z_0} = \lim_{z \to z_0} \frac{\conj{z - z_0}}{z - z_0} = \lim_{z \to z_0} \frac{\conj{z}}{z},
+        \]
+        which does not exist, as we have seen in Example \ref{ex:limit-zbar-over-z}.
+    \end{solution}
+\end{example}
+
+\begin{theorem}[Differentiability implies continuity]
+    If a function \(f : D \to \C\) is differentiable at a point \(z_0 \in D\), then \(f\) is continuous at \(z_0\).
+    \label{thm:differentiability-implies-continuity}
+\end{theorem}
+
+The following basic properties of the derivative follow from the definition.
+
+
+
+\begin{example}
+    It is important to note that differentiability at a point \(z_0\) is not the same as holomorphicity at \(z_0\); holomorphicity is a neighborhood property, i.e., it is defined over an open set. To illustrate this, show that the function \(f: \C \to \C\) defined by \(f(z) = |z|^2\) is differentiable but not holomorphic at \(z = 0\).
+\end{example}
+
+We now present a criteria for determining whether the function \(f\) defined by
+\[
+    f(z) = u(x, y) + iv(x, y)
+\]
+is holomorphic by looking at the partial derivatives of \(u\) and \(v\).
+
+\begin{theorem}[Cauchy-Riemann equations]
+    \label{thm:cauchy-riemann}
+    Suppose \(f(z) = u(x, y) + iv(x, y)\) is a complex function defined on an open set \(D \subseteq \C\). If \(f\) is differentiable at a point \(z_0 = x_0 + iy_0\) in \(D\), then the partial derivatives of \(u\) and \(v\) satisfy the \emph{Cauchy-Riemann equations}
+    \begin{equation}
+        \partialfrac{u}{x} = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} = -\partialfrac{v}{x}.
+        \label{eq:cauchy-riemann}
+    \end{equation}
+\end{theorem}

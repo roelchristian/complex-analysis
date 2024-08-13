@@ -1,0 +1,98 @@
+\documentclass[11pt, b5paper]{amsbook}
+
+\title{Complex Analysis Quals Review}
+\author{Roel Christian Yambao}
+\date{2024}
+
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+
+\usepackage{microtype}
+\swapnumbers
+\usepackage{enumitem}
+
+
+
+% Theorem environments
+
+\newtheoremstyle{boldheadthm}
+  {5pt} % Space above
+  {5pt} % Space below
+  {\itshape} % Body font
+  {1em} % Indent amount
+  {\bfseries} % Theorem head font
+  {.} % Punctuation after theorem head
+  {0.5em} % Space after theorem head
+  {} % Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{boldheaddef}
+  {5pt} % Space above
+  {5pt} % Space below
+  {} % Body font
+  {1em} % Indent amount
+  {\bfseries} % Theorem head font
+  {.} % Punctuation after theorem head
+  {0.5em} % Space after theorem head
+  {} % Theorem head spec (can be left empty, meaning `normal')
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{remark}[theorem]{Remark}
+
+% Pad theorem numbers with zeros so that they are all two digits
+\renewcommand{\thetheorem}{\thesection.\ifnum\value{theorem}<10 0\fi\arabic{theorem}}
+
+% Solution environment
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+% Renew ref to be bold
+
+
+
+% Math macros
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+% redefine \Re and \Im to use \operatorname
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\partialfrac}[2]{\frac{\partial #1}{\partial #2}}
+\usepackage{hyperref}
+\usepackage{xcolor}
+% Hyperref setup
+\hypersetup{
+    colorlinks,
+    linkcolor={green!50!black},
+    citecolor={green!50!black},
+    urlcolor={green!50!black}
+}
+
+% Line spacing
+\usepackage{setspace}
+\setstretch{1.1}
+
+\AtBeginDocument{
+    \let\origref\ref
+\def\ref#1{\textbf{\origref{#1}}} % make references bold
+    \let\epsilon\varepsilon
+    \let\phi\varphi
+    \let\emptyset\varnothing
+}
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\include{chapters/01}
+\include{theorems}
+\end{document}

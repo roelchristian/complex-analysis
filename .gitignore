@@ -1,0 +1,17 @@
+# pdf output
+*.pdf
+
+# Latex files
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+
+# Drafts and notes
+*.txt
+*.draft
+
+# Mac
+.DS_Store

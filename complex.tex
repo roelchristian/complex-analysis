@@ -1,4 +1,13 @@
-\documentclass[10pt, b5paper]{amsbook}
+\documentclass[10pt]{amsbook}
+
+\usepackage{geometry}
+\geometry{
+    b5paper,
+    inner=1in,
+    outer=1in,
+    top=0.75in,
+    bottom=0.75in,
+}
 
 \title{Complex Analysis Quals Review}
 \author{Roel Christian Yambao}
@@ -66,7 +75,7 @@
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\Arg}{\operatorname{Arg}}
 \newcommand{\partialfrac}[2]{\frac{\partial #1}{\partial #2}}
-\usepackage{hyperref}
+\usepackage[pdfencoding=auto, psdextra]{hyperref}
 \usepackage{xcolor}
 % Hyperref setup
 \hypersetup{
@@ -81,11 +90,11 @@
 \setstretch{1.1}
 
 \AtBeginDocument{
-
     \let\epsilon\varepsilon
     \let\phi\varphi
     \let\emptyset\varnothing
 }
+
 \begin{document}
 
 \maketitle

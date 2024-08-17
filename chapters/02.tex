@@ -1,0 +1,166 @@
+\chapter{Complex integration}
+
+\section{Contour integrals}
+
+\begin{definition}
+    Let \(f: [a, b] \subseteq \R \to \C\) be a complex-valued function of a real variable \(t\). Then the definite integral of \(f\) over \([a, b]\) is defined as
+    \[
+        \int_a^b f(t) \, dt = \int_a^b u(t) \, dt + i \int_a^b v(t) \, dt,
+    \]
+    where \(f(t) = u(t) + iv(t)\) with \(u\) and \(v\) continuous for all \(t \in [a, b]\).
+    \label{def:complex-integral-real-variable}
+\end{definition}
+
+It follows immediately from Definition~\ref{def:complex-integral-real-variable} that
+\[
+    \Re \int_a^b f(t) \, dt = \int_a^b u(t) \, dt = \int_a^b \Re f(t) \, dt
+\]
+and
+\[
+    \Im \int_a^b f(t) \, dt = \int_a^b v(t) \, dt = \int_a^b \Im f(t) \, dt.
+\]
+
+\begin{example}
+    Evaluate the integral
+    \[
+        \int_0^1 (t-i)^2 \, dt.
+    \]
+\end{example}
+
+We quickly validate some rules of integration from calculus.
+
+\begin{theorem}
+    Let \(f\) and \(g\) be complex-valued functions of a real variable \(t\) and let \(z_0\) be a complex constant. Then
+    \begin{enumerate}[label=(\alph*)]
+        \item \(\displaystyle \int_a^b z_0 f(t) \, dt = z_0 \int_a^b f(t) \, dt\),
+        \item \(\displaystyle \int_a^b \left( f(t) + g(t) \right) \, dt = \int_a^b f(t) \, dt + \int_a^b g(t) \, dt\),
+        \item \(\displaystyle \int_a^b f(t) \, dt = -\int_b^a f(t) \, dt\).
+        \item \(\displaystyle \int_a^b f(t) \, dt = \int_a^c f(t) \, dt + \int_c^b f(t) \, dt\).
+    \end{enumerate}
+\end{theorem}
+
+We also restate the fundamental theorem of calculus.
+
+\begin{theorem}[Fundamental theorem of calculus]
+    Let \(f\) be a continuous function on \([a, b]\) and let \(F\) be a function such that \(F'(t) = f(t)\) for all \(t \in [a, b]\). Then
+    \[
+        \int_a^b f(t) \, dt = F(b) - F(a).
+    \]
+\end{theorem}
+
+Some important results from real-variable calculus, however, do not carry over to complex-valued functions of a real variable. As we shall see in the following two examples.
+
+\begin{example}
+    Show that the mean-value theorem for derivatives does not generally hold for complex-valued functions of a real variable.
+
+    \begin{solution}
+        
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Show that the mean-value theorem for integrals does not generally hold for functions of the form \(f(t) = u(t) + iv(t)\).
+
+    \begin{solution}
+        Consider the function \(f(t) = e^{it}\) on the interval \([0, 2\pi]\). Then
+        \[
+            \int_0^{2\pi} e^{it} \, dt = \left. \frac{e^{it}}{i} \right|_0^{2\pi} = 0.
+        \]
+
+        Now recall that the mean-value theorem for integrals states that if \(f\) is continuous and integrable on \([a, b]\), then there exists a \(c \in [a, b]\) such that
+        \[
+            f(c) = \frac{1}{b-a} \int_a^b f(t) \, dt
+        \]
+        so that,
+        \[
+            \int_a^b f(t) \, dt = f(c)(b-a).
+        \]
+
+        However for any \(c \in [0, 2\pi]\), we have
+        \[
+            |e^{ic}(2\pi - 0) | = 2\pi \neq 0
+        \]
+        and thus \(f(c)(b - a) \neq \int_a^b f(t) \, dt\) and the mean-value theorem for integrals does not hold for complex-valued functions of a real variable.
+    \end{solution}
+\end{example}
+
+
+\begin{theorem}
+    Let \(f\) be as in Definition~\ref{def:complex-integral-real-variable}. Then
+    \[
+        \left| \int_a^b f(t) \, dt \right| \leq \int_a^b |f(t)| \, dt.
+    \]
+    \label{thm:modulus-integral-inequality}
+\end{theorem}
+
+\begin{proof}
+    Let the integral denote the complex number \(z = \rho e^{i\theta}\). Then
+    \[
+        \left| \int_a^b f(t) \, dt \right| = \left| \rho e^{i\theta} \right| = \rho.
+    \]
+    On the other hand, dividing \(z\) by \(e^{i\theta}\) gives
+    \[
+        \rho = e^{-i\theta} \int_a^b f(t) \, dt = \int_a^b e^{-i\theta} f(t) \, dt,
+    \]
+    which, because \(f\) is complex-valued, we can write as
+    \[
+        \rho = \Re \int_a^b e^{-i\theta} f(t) \, dt + i \Im \int_a^b e^{-i\theta} f(t) \, dt.
+    \]
+    Because \(\rho\) is real, the imaginary part of the right-hand side must vanish, so that
+    \[
+        \rho = \Re \int_a^b e^{-i\theta} f(t) \, dt = \int_a^b \Re e^{-i\theta} f(t) \, dt.
+    \]
+    Now since \(|e^{-i\theta}| = 1\) and for any complex number \(\zeta\), \(\Re \zeta \leq |\zeta|\), we have
+    \[
+        \rho = \int_a^b \Re e^{-i\theta} f(t) \, dt \leq \int_a^b |e^{-i\theta} f(t)| \, dt = \int_a^b |f(t)| \, dt.
+    \]
+\end{proof}
+
+
+
+\begin{definition}
+    Let \(\gamma\) be a contour with the equation \(z = z(t)\) for \(a \leq t \leq b\) contained in some region \(\Omega\) and let \(f\) be a function defined and continuous on \(\gamma\). Then the integral of \(f\) along \(\gamma\) is defined as
+    \[
+        \int_\gamma f(z) \, dz = \int_a^b f(z(t)) z'(t) \, dt.
+    \]
+\end{definition}
+
+\begin{theorem}[Invariance under reparametrization]
+    Let \(\gamma\) be a contour with the equation \(z = z(t)\) for \(a \leq t \leq b\) and let \(\phi: [\alpha, \beta] \to [a, b]\) be a reparametrization of \(\gamma\). Then
+    \[
+        \int_\gamma f(z) \, dz = \int_{\phi(\gamma)} f(z) \, dz.
+    \]
+\end{theorem}
+
+\begin{proof}
+    For all \(\tau \in [\alpha, \beta]\), we can find a unique \(t \in [a, b]\) such that \(t = \phi(\tau)\). Then if \(\zeta(\tau)\) is another parametrization of \(\gamma\), we have
+    \[
+        \zeta(\tau) = z(\phi(\tau)) = z(t).
+    \]
+    Differentiating with respect to \(\tau\) gives
+    \[
+        \zeta'(\tau) = \left( z(\phi(\tau)) \right)' = z'(\phi(\tau)) \phi'(\tau).
+    \]
+    Now from the definition of the integral along \(\gamma\), we have
+    \begin{align*}
+        \int_{\phi(\gamma)} f(z) \, dz &= \int_{\phi(\alpha)}^{\phi(\beta)} f(\zeta(\tau)) \zeta'(\tau) \, d\tau \\
+        &= \int_{\phi(\alpha)}^{\phi(\beta)} f(z(\phi(\tau))) z'(\phi(\tau)) \phi'(\tau) \, d\tau \\
+        &= \int_{a}^{b} f(z(t)) z'(t) \, dt\\
+        &= \int_{\gamma} f(z) \, dz.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    If \(\gamma\) is a contour such that \(\gamma = \gamma_1 + \gamma_2 + \cdots + \gamma_n\), where each \(\gamma_k\) is a contour with equation \(z = z_k(t)\) for \(a_k \leq t \leq b_k\) and \(\gamma_k \cap \gamma_{k+1} = \{z_k(b_k) = z_{k+1}(a_{k+1})\}\), i.e., the contours are joined end-to-end, then
+    \[
+        \int_\gamma f(z) \, dz = \int_{\gamma_1} f(z) \, dz + \int_{\gamma_2} f(z) \, dz + \cdots + \int_{\gamma_n} f(z) \, dz.
+    \]
+\end{theorem}
+
+\begin{example}
+    Evaluate the integral
+    \[
+        \int_{\gamma} \conj{z} \, dz,
+    \]
+    where \(\gamma\) is the right-hand half of the circle of radius \(2\) centered at the origin.
+\end{example}

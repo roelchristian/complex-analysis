@@ -904,6 +904,31 @@ The following result reduces the computation of limits of complex functions to t
 \end{proof}
 
 \begin{example}
+    Verify that \(\lim_{z \to 1 + i} (z^2 + i) = 3i\) using Theorem~\ref{thm:complex-limit-real}.
+
+    \begin{proof}
+        Writing \(z = x + iy\) and decomposing the function \(z^2 + i\) into its real and imaginary parts gives us
+        \begin{align*}
+            z^2 + i &= (x + iy)^2 + i = x^2 + 2ixy - y^2 + i\\
+            &= (x^2 - y^2) + i(2xy + 1).
+        \end{align*}
+        Following our notation, we thus have \(u(x, y) = x^2 - y^2\) and \(v(x, y) = 2xy + 1\), respectively. By Theorem~\ref{thm:complex-limit-real}, the limit of the function \(z^2 + i\) as \(z\) approaches \(1 + i\) is equal to sum of the limits of the its real and imaginary parts \(u\) and \(v\) as \((x, y)\) approaches \((1, 1)\). Now since
+        \[
+            \lim_{(x, y) \to (1, 1)} u(x, y) = 1^2 - 1^2 = 0
+        \]
+        and
+        \[
+            \lim_{(x, y) \to (1, 1)} v(x, y) = 2(1)(1) + 1 = 3,
+        \]
+        we have
+        \begin{align*}
+            \lim_{z \to 1 + i} (z^2 + i) &= \lim_{(x, y) \to (1, 1)} (x^2 - y^2) + i(2xy + 1)\\
+            &= 0 + i(3) = 3i.
+        \end{align*}
+    \end{proof}
+\end{example}
+
+\begin{example}
     Let us revisit Theorem~\ref{thm:limit-restriction} while using the result of Theorem~\ref{thm:complex-limit-real}. Consider the function
     \[
         f(z) = \frac{x^2 y}{x^4 + 2y^2}

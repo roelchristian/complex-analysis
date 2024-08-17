@@ -1297,6 +1297,10 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
 \end{definition}
 
 \begin{example}
+    Show that in a domain \(D\), \(u\) is a harmonic conjugate of \(v\) if and only if \(-u\) is a harmonic conjugate of \(v\).
+\end{example}
+
+\begin{example}
     Find an analytic function whose real part is \(u(x, y) = x^3 - 3xy^2 + 7y\).
 
     \begin{solution}
@@ -1304,39 +1308,34 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
     \end{solution}
 \end{example}
 
-\section{Möbius transformations and the Riemann sphere}
+\begin{example}
+    Find a harmonic conjugate of the functions (a) \(u(x, y) = x^2 - y^2\) and (b) \(u(x, y) = \sin x \cosh y\).
 
-\begin{definition}[Möbius transformation]
-    A \emph{linear fractional transformation} is a function of the form
-    \[
-        f(z) = \frac{az + b}{cz + d},
-    \]
-    where \(a, b, c, d \in \C\). If, in addition, \(ad - bc \neq 0\), then \(f\) is called a \emph{Möbius transformation}.
-\end{definition}
+    \begin{solution}
+        Observe that the functions \(u(x, y) = x^2 - y^2\) and \(u(x, y) = \sin x \cosh y\) are harmonic and are
+        the real parts of the functions \(z^2\) and \(\sin z\), where \(z = x + iy\), both of which are holomorphic. Their harmonic conjugates are then the imaginary parts of these functions, which are \(v(x, y) = 2xy\) and \(v(x, y) = \cos x \sinh y\), respectively, taken uniquely up to an additive constant. We validate both cases by verifying that the Cauchy-Riemann equations are satisfied.
 
-By identifying with \(f\) the \(2 \times 2\) matrix with complex entries
-\[
-    \begin{pmatrix}
-        a & b\\
-        c & d
-    \end{pmatrix},
-\]
-we can write the Möbius transformation as
-\[
-    \begin{pmatrix}
-        a & b\\
-        c & d
-    \end{pmatrix}
-    \begin{pmatrix}
-        z\\
-        1
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-        az + b\\
-        cz + d
-    \end{pmatrix},
-\]
+        \begin{enumerate}[label=(\alph*), wide]
+            \item If \(u(x, y) = x^2 - y^2\) then the Cauchy-Riemann equations are
+            \[
+                \partialfrac{u}{x} = 2x = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} = -2y = -\partialfrac{v}{x},
+            \]
+            Integrating the first equation with respect to \(x\) and the second with respect to \(y\), we get
+            \[
+                v = \int \partialfrac{v}{y}\, dy = \int 2x\, dy = 2xy + g_1(y)
+            \]
+            and
+            \[
+                v = -\int \partialfrac{v}{x}\, dx = -\int -2y\, dx = 2xy + g_2(x),
+            \]
+            so that \(v = 2xy + c\) for some constant \(c\).
+            \item If \(u(x, y) = \sin x \cosh y\) then the Cauchy-Riemann equations are
+            \[
+                \partialfrac{u}{x} = \cos x \cosh y = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} = \sin x \sinh y = -\partialfrac{v}{x},
+            \]
+        \end{enumerate}
+    \end{solution}
+\end{example}
 
 \section{A survey of elementary functions}
 
@@ -1346,3 +1345,43 @@ we can write the Möbius transformation as
         \sin z = \frac{e^{iz} - e^{-iz}}{2i} \quad \text{and} \quad \cos z = \frac{e^{iz} + e^{-iz}}{2},
     \]
 \end{definition}
+
+\section{Conformality}
+
+\begin{definition}
+    An \emph{arc} \(\gamma\) on the complex plane is the image of a continuous function \(\gamma : [a, b] \to \C\), where \(a, b \in \R\), that is,
+    \[
+        \gamma = \{\gamma(t) : a \leq t \leq b\}.
+    \]
+\end{definition}
+
+It would be more convenient to write
+\[
+    z = z(t) = x(t) + iy(t),
+\]
+where \(x(t)\) and \(y(t)\) are continuous functions of \(t\), so that
+\[
+    z = \gamma(t).
+\]
+
+\begin{theorem}
+    An arc is compact and connected.
+\end{theorem}
+
+\begin{proof}
+    Since \([a, b] \subseteq \R\) is closed and bounded, it is compact. Since \(\gamma\) is continuous, it follows that \(\gamma([a, b])\) which is a continuous image of a compact set is also compact. Similarly, since the continuous image of a connected set is connected, it follows that \(\gamma([a, b])\) is connected.
+\end{proof}
+
+\begin{theorem}
+    If a nondecreasing function \(t = \phi(\tau)\) maps the interval \(\alpha \leq \tau \leq \beta\) onto the interval \(a \leq t \leq b\), then the mapping \(z = z(\phi(\tau))\) maps the same arc \(\gamma\) as \(z = z(t)\).
+\end{theorem}
+
+Suppose an arc \(\gamma\) is contained in a region \(\Omega\) and is given by the equation \(\gamma = \gamma(t), a \leq t \leq b\). Let \(f\) be a continuous function defined on \(\Omega\). Then the function \(w = f(\gamma(t))\) defines a curve \(\gamma^*\) in the \(w\)-plane, which we call the \emph{image} of \(\gamma\) under \(f\).
+
+If \(f\) is analytic on \(\Omega\), then if \(\gamma\) is differentiable at \(t\), the derivative of \(w\) with respect to \(t\) is given by
+\[
+    w'(t) = f'(\gamma(t))\gamma'(t)
+\]
+by the chain rule.
+
+Immediately we observe that \(w'(t)\) cannot be zero because 

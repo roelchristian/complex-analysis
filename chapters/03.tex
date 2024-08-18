@@ -3,5 +3,108 @@
 \section{Sequences and convergence}
 
 \begin{definition}
-    A \emph{sequence of complex numbers} (or simply a \emph{complex sequence}) is a function $a: \N \to \C$. We write $a_n$ for $a(n)$, and we call $a_n$ the $n$th term of the sequence.
+    A \emph{sequence of complex numbers} (or simply a \emph{complex sequence}) is a function \(a: \N \to \C\). We write \((a_n)\) for \(a(n)\) and we call \(a_n\) the \(n\)th term of the sequence.
 \end{definition}
+
+\begin{definition}[Limit of a sequence]
+    Let \((a_n)\) be a complex sequence. We say that \((a_n)\) \emph{converges} to a complex number \(a\) if for every \(\epsilon > 0\), there exists an \(N \in \N\) such that for all \(n \geq N\), \(\abs{a_n - a} < \epsilon\). In this case, we write \(\lim_{n \to \infty} a_n = a\) or simply \(\lim a_n = a\).
+\end{definition}
+
+\begin{definition}
+    A sequence \((a_n)\) is said to be \emph{bounded} if there exists a real number \(M\) such that \(\abs{a_n} \leq M\) for all \(n \in \N\).
+\end{definition}
+
+\begin{theorem}
+    If \((a_n)\) is a convergent sequence, then it is bounded.
+\end{theorem}
+
+\begin{definition}[Cauchy sequence]
+    A sequence \((a_n)\) is said to be a \emph{Cauchy sequence} if for every \(\epsilon > 0\), there exists an \(N \in \N\) such that for all \(m, n \geq N\), \(\abs{a_m - a_n} < \epsilon\).
+\end{definition}
+
+\begin{theorem}
+    A sequence \((a_n)\) of complex numbers converges if and only if it is a Cauchy sequence.
+\end{theorem}
+
+\section{Series}
+
+\section{Uniform convergence}
+
+\section{Taylor series}
+
+\begin{definition}[Taylor series]
+    If \(f\) is analytic at a point \(z = a\), then the series
+    \[
+        \sum_{k = 0}^\infty \frac{f^{(k)}(a)}{k!} (z - a)^k
+    \]
+    is called the \emph{Taylor series} of \(f\) at \(a\). If \(a = 0\), then the
+    series is called the \emph{Maclaurin series} of \(f\).
+    \label{def:taylor-series}
+\end{definition}
+
+\begin{example}
+    Consider the function \(f(z) = \exp z\). Observe that \(f\) is entire. From
+    Definition~\ref{def:taylor-series}, the Maclaurin series of \(f\) is given
+    by 
+    \begin{align*}
+        &\sum_{k = 0}^\infty \frac{f^{(k)}(0)}{k!} z^k \\
+        &= 
+        \exp 0 + \exp 0 \cdot z + \frac{\exp 0 \cdot z^2}{2!} + \frac{\exp 0 \cdot z^3}{3!} + \cdots \\
+        &= 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \cdots.
+    \end{align*}
+    Observe that this is infinite series converges to \(\exp z\) for all \(z \in \C\). We shall establish this correspondence later in this section.
+\end{example}
+
+\begin{example}
+    Given the entire function \(f(z) = \sin z\), observe that at \(z = 0\) we
+    have
+    \begin{align*}
+        f(0) &= \sin 0 = 0, \\
+        f'(0) &= \cos 0 = 1, \\
+        f''(0) &= -\sin 0 = 0, \\
+        f'''(0) &= -\cos 0 = -1, \\
+        f^{(4)}(0) &= \sin 0 = 0, \\
+        &\vdots
+    \end{align*}
+    That is, for even \(k\), \(f^{(k)}(0) = 0\) and for odd \(k\), \(f^{(k)}(0)
+    = (-1)^{(k - 1)/2}\). Using this fact, we can write the Maclaurin series of
+    \(f\) as
+    \begin{align*}
+        &\sin 0 + \cos 0 \cdot z + \frac{-\sin 0 \cdot z^2}{2!} + \frac{-\cos 0 \cdot z^3}{3!} + \cdots \\
+        &= z - \frac{z^3}{3!} + \frac{z^5}{5!} - \frac{z^7}{7!} + \cdots.
+    \end{align*}
+
+    Similarly if \(f(z) = \cos z\), then \(f^(k)(0) = 0\) for odd \(k\) and \(f^(k)(0) = (-1)^{k/2}\) for even \(k\). Thus, the Maclaurin series of \(f\) is
+    \begin{align*}
+        &\cos 0 - \sin 0 \cdot z - \frac{\cos 0 \cdot z^2}{2!} - \frac{-\sin 0 \cdot z^3}{3!} + \cdots \\
+        &= 1 - \frac{z^2}{2!} + \frac{z^4}{4!} - \frac{z^6}{6!} + \cdots.
+    \end{align*}
+\end{example}
+
+\begin{theorem}
+    If \(z\), \(z_0\) and \(a\) are complex numbers such that \(z \neq z_0\) and \(z \neq a\), then
+    \begin{align*}
+        \frac{1}{z - z_0} &= \frac{1}{z - a} + \frac{z_0 - a}{(z - a)^2} + \frac{(z_0 - a)^2}{(z - a)^3} + \\
+        &\dots + \frac{(z_0 - a)^n}{(z - a)^{n + 1}} + \frac{1}{z-z_0} \frac{(z_0 - a)^{n + 1}}{(z - a)^{n + 1}}.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Taylor's theorem]
+    Let \(f\) be analytic in a domain \(D\) and let \(z_0 \in D\). Then the Taylor series of \(f\) at \(z_0\) converges to \(f(z)\) for all \(z\) in some disk \(D(z_0, R)\) contained in \(D\). That is,
+    \[
+        f(z) = \sum_{k = 0}^\infty \frac{f^{(k)}(z_0)}{k!} (z - z_0)^k
+    \]
+    for all \(z \in D(z_0, R)\).
+\end{theorem}
+
+\section{Laurent series}
+
+\begin{definition}
+    Let \(f\) be analytic in an annulus \(A = \{z \in \C : r < \abs{z - z_0} < R\}\). Then the series
+    \[
+        \sum_{k = -\infty}^\infty c_k (z - z_0)^k
+    \]
+    is called the \emph{Laurent series} of \(f\) in \(A\).
+\end{definition}
+
+\section{Singularities, zeros and poles}

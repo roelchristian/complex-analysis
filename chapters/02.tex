@@ -392,6 +392,38 @@ changes the sign of the integral.
     centered at the origin.
 \end{example}
 
+\begin{sectionthm}
+    \label{thm:complex-integral-real-variable-length-arc}
+    It would be convenient to remark that by equating the symbols \(z\) with \(z(t)\) and \(dz\) with \(z'(t) \, dt\), we can write
+    \[
+        dz = z'(t) \, dt = (x'(t) + iy'(t)) \, dt = dx + i \, dy,
+    \]
+    since \(z(t) = x(t) + iy(t)\). The expression \(dz\) is called the \emph{complex differential} of \(z\). Moreover, if we write
+    \[
+        |dz| = |x'(t) + iy'(t)| \, dt = \sqrt{(x'(t))^2 + (y'(t))^2} \, dt,
+    \]
+    we can thus define the \emph{length} of the arc \(\gamma\) as
+    \[
+        \int_a^b \sqrt{(x'(t))^2 + (y'(t))^2} \, dt = \int_\gamma |dz|.
+    \]
+\end{sectionthm}
+
+\begin{sectionthm}
+    \label{thm:complex-integral-real-variable-dxdy}
+    If \(f(z) = u(x, y) + iv(x, y)\) such that \(z(t) = x(t) + iy(t)\) is a parametrization of \(\gamma\), then
+    \begin{align}
+        \int_\gamma f(z) \, dz &= \int_a^b f(z(t)) z'(t) \, dt \nonumber\\
+        &= \int_a^b [u(z(t)) + iv(z(t))] (x'(t) + iy'(t)) \, dt \nonumber\\
+        &= \int_a^b [u(z(t))x'(t) - v(z(t))y'(t)] \, dt + \nonumber\\
+        &\hphantom{{}={PLACEHOLDER}} i \int_a^b [u(z(t))y'(t) + v(z(t))x'(t)] \, dt\nonumber\\
+        &= \int_\gamma (ux' - vy') \, dx + i \int_\gamma (uy' + vx') \, dy.\label{eq:complex-integral-real-variable-dxdy}
+    \end{align}
+    Using the differentials in \S~\ref{thm:complex-integral-real-variable-length-arc}, Equation~\eqref{eq:complex-integral-real-variable-dxdy} yields
+    \[
+        \int_\gamma f(z) \, dz = \int_\gamma u \, dx - v \, dy + i \int_\gamma u \, dy + v \, dx.
+    \]
+\end{sectionthm}
+
 
 \begin{theorem}
     Let \(f\) be as in Definition~\ref{def:complex-integral-real-variable}. Then
@@ -429,8 +461,77 @@ changes the sign of the integral.
 \section{Cauchy-Goursat theorem}
 
 \begin{theorem}[Green's theorem]
-    Let \(\gamma\) be a positively orientedsimple closed contour 
+    Let \(\gamma\) be a positively orientedsimple closed contour and let \(\Omega\) be the interior of \(\gamma\). If \(P\) and \(Q\) are continuous and have continuous partial derivatives at all points on \(\gamma\) and in \(\Omega\), then
+    \[
+        \oint_\gamma P \, dx + Q \, dy = \iint_\Omega \left( \partialfrac{Q}{x} - \partialfrac{P}{y} \right) \, dx \, dy.
+    \]
 \end{theorem}
+
+\begin{theorem}[Cauchy-Goursat theorem]
+    Let \(f\) be analytic in a simply connected domain \(\Omega\) and let \(\gamma\) be a positively-oriented simple closed contour that lies in \(\Omega\). Then
+    \[
+        \oint_\gamma f(z) \, dz = 0.
+    \]
+    \label{thm:cauchy-goursat}
+\end{theorem}
+
+
+We present two proofs. The first, due to Cauchy, assumes that \(f'\) is
+continuous.
+
+\begin{proof}
+
+\end{proof}
+
+\begin{example}
+    Since \(\exp z\), \(\sin z\), and \(\cos z\) are all analytic in \(\C\), it follows that for any positively-oriented simple closed contour \(\gamma\),
+    \[
+        \oint_\gamma e^z \, dz = 0, \quad \oint_\gamma \sin z \, dz = 0, \quad \text{and} \quad \oint_\gamma \cos z \, dz = 0.
+    \]
+\end{example}
+
+\begin{theorem}[Deformation of contours]
+    Let \(\gamma_1\) and \(\gamma_2\) be two positively-oriented simple closed contours such that \(\gamma_1\) is interior to \(\gamma_2\). If \(f\) is analytic in a simply connected domain \(\Omega\) that contains both \(\gamma_1\) and \(\gamma_2\), then
+    \[
+        \oint_{\gamma_1} f(z) \, dz = \oint_{\gamma_2} f(z) \, dz.
+    \]
+\end{theorem}
+
+Figure~\ref{fig:deformation-of-contours} illustrates the condition of the theorem for the curves \(\gamma_1\) and \(\gamma_2\).
+
+% Tikz picture showing a simple closed contour C_1 contained in another simple closed contour C_2
+
+\begin{figure}
+    \label{fig:deformation-of-contours}
+    \begin{tikzpicture}
+        % Draw the outer contour \gamma_2
+        \draw[thick] plot [smooth cycle, tension=1] coordinates {(0,0) (2,0.5) (2.5,2) (1,3) (-1,2.5) (-1.5,1)};
+        
+        % Label the outer contour \gamma_2
+        \node at (-2.5,2) {$\gamma_2$};
+        
+        % Draw the inner contour \gamma_1
+        \draw[thick] plot [smooth cycle, tension=1] coordinates {(0.5,1) (1.5,1.5) (1,2) (0,1.5)};
+        
+        % Label the inner contour \gamma_1
+        \node at (2,1.5) {$\gamma_1$};
+
+        
+        
+    \end{tikzpicture}
+    \caption{A simple closed contour \(\gamma_1\) contained in another simple closed contour \(\gamma_2\).}
+\end{figure}
+
+\begin{theorem}
+    If \(z_0\) is a point interior to a positively-oriented simple closed contour \(\gamma\), then for any integer \(n \geq 1\),
+    \[
+        \oint_\gamma \frac{1}{(z - z_0)^n} \, dz = \begin{cases}
+            \quad 0 & \text{ if } n \neq 1,\\
+            \quad 2\pi i & \text{ if } n = 1.
+        \end{cases}
+    \]
+\end{theorem}
+
 
 \section{Consequences of Cauchy's theorem}
 

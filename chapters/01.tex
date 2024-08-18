@@ -186,7 +186,7 @@ We review some standard properties of the conjugate.
 \begin{theorem}[Properties of the complex conjugate]
     Let \(z\) and \(w\) be complex numbers. Then
     \begin{enumerate}[label=(\alph*)]
-        \item \(\displaystyle\Re z = \frac{z + \conj{z}}{2}\) and \(\displaystyle\Im z = \frac{z - \conj{z}}{2i}\);
+        \item \(\displaystyle\Re z = \frac{z + \conj{z}}{2}\) and \(\displaystyle\Im z = \frac{z - \conj{z}}{2i}\);\label{thm:conjugate-a}
         \item \(\conj{z + w} = \conj{z} + \conj{w}\);
         \item \(\conj{zw} = \conj{z}\conj{w}\);
         \item \(\conj{\conj{z}} = z\); and 
@@ -686,6 +686,17 @@ This shall prove useful later on and we introduce the following definition.
     
 \end{corollary}
 
+\subsection*{Collected problems}
+
+\begin{enumerate}
+    \item Show that \(2 - \sqrt{-1} = \sqrt[3]{2 - 11 \sqrt{-1}}\).
+    \begin{solution}
+        We have
+        \begin{align*}
+        \end{align*}
+    \end{solution}
+\end{enumerate}
+
 \section{Elementary topology of \(\C\)}
 
 In \S~\ref{thm:distance-modulus} we have established that a notion of `distance' exists in \(\C\), given by the modulus of the difference of two complex numbers. It would therefore be convenient to call the set \(\C\) the complex plane and to think of the complex numbers as points in the plane, to lean on our intuition from \(\R^2\). This allows us to make the following definitions.
@@ -727,7 +738,7 @@ We need to note that the terms `open' and `closed' used in this context are not 
     \label{thm:open-interior}
 \end{theorem}
 
-\section{Limits and continuity}
+\section{Complex functions}
 
 \begin{definition}[Complex function]
     A \emph{function} \(f : D \to \C\) is a rule that assigns to each element \(z \in D \subseteq \C\) a unique complex number \(f(z) \in \C\). We call \(D\) the \emph{domain} of \(f\) and the set
@@ -757,6 +768,23 @@ where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and 
 \end{example}
 
 \begin{example}
+    Express the function \(f(z) = \conj{z}\Re z + z^2 + \Im z\) in terms of its real and imaginary parts.
+
+    \begin{solution}
+        Writing \(z = x + iy\), we have
+        \[
+            \begin{aligned}
+                f(z) &= \conj{z}\Re z + z^2 + \Im z \\
+                &= (x - iy)x + (x + iy)^2 + y \\
+                &= (x^2 - ixy) + (x^2 + 2ixy - y^2) + y \\
+                &= 2x^2 + ixy - y^2 + y.
+            \end{aligned}
+        \]
+        Thus, the real and imaginary parts of \(f\) are \(u(x, y) = 2x^2 - y^2 + y\) and \(v(x, y) = xy\), respectively.
+    \end{solution}
+\end{example}
+
+\begin{example}
     If \(x = re^{i\theta} = r(\cos\theta + i\sin\theta)\), then the real and imaginary parts of \(x\) are \(u(x, y) = r\cos\theta\) and \(v(x, y) = r\sin\theta\), respectively. Note, however, that the functions \(u\) and \(v\) are not necessarily the same as the functions \(u\) and \(v\) previously defined when writing \(z = x+ iy\).
 
     Consider, for example, the function \(f : \C \to \C\) defined by \(f(z) = z^2\). Then in rectangular form, writing \(z = x + iy\) we have
@@ -770,6 +798,21 @@ where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and 
         & = r^2\cos 2\theta + ir^2\sin 2\theta.
     \end{align*}
 \end{example}
+
+\begin{example}
+    Using the identities in part \ref{thm:conjugate-a} of \S~\ref{thm:conjugate} we can conversely write a function of two real variables in terms of a complex number \(z = x + iy\). To illustrate this, consider the function \(f : \R^2 \to \R^2\) defined by \(f(x, y) = 4x^2 + 4iy^2\). Write \(f\) in terms of the complex number \(z = x + iy\).
+
+    \begin{solution}
+        We have
+        \begin{align*}
+            f(z) & = 4\left(\frac{z + \conj{z}}{2}\right)^2 + 4i\left(\frac{z - \conj{z}}{2i}\right)^2\\
+            & = z^2 + 2z\conj{z} + \conj{z}^2 - i(z^2 - 2z\conj{z} + \conj{z}^2)\\
+            & = (1 - i)z^2 + (2 + 2i)z\conj{z} + (1 - i)\conj{z}^2.
+        \end{align*}
+    \end{solution}
+\end{example}
+
+\section{Limits and continuity}
 
 \begin{definition}[Limit of a function]
     Let \(f : D \to \C\) be a function defined on some neighborhood of a point \(z_0 \in \C\) except possibly at \(z_0\) itself (i.e., \(z_0\) is an limit point of \(D\)). We say that the \emph{limit} of \(f(z)\) as \(z\) approaches \(z_0\) is \(L \in \C\) and write
@@ -1361,52 +1404,3 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
         \end{enumerate}
     \end{solution}
 \end{example}
-
-\section{A survey of elementary functions}
-
-\begin{definition}
-    The (complex) \emph{sine} and \emph{cosine} functions are defined by
-    \[
-        \sin z = \frac{e^{iz} - e^{-iz}}{2i} \quad \text{and} \quad \cos z = \frac{e^{iz} + e^{-iz}}{2},
-    \]
-\end{definition}
-
-\section{Conformality}
-
-\begin{definition}
-    An \emph{arc} \(\gamma\) on the complex plane is the image of a continuous function \(\gamma : [a, b] \to \C\), where \(a, b \in \R\), that is,
-    \[
-        \gamma = \{\gamma(t) : a \leq t \leq b\}.
-    \]
-\end{definition}
-
-It would be more convenient to write
-\[
-    z = z(t) = x(t) + iy(t),
-\]
-where \(x(t)\) and \(y(t)\) are continuous functions of \(t\), so that
-\[
-    z = \gamma(t).
-\]
-
-\begin{theorem}
-    An arc is compact and connected.
-\end{theorem}
-
-\begin{proof}
-    Since \([a, b] \subseteq \R\) is closed and bounded, it is compact. Since \(\gamma\) is continuous, it follows that \(\gamma([a, b])\) which is a continuous image of a compact set is also compact. Similarly, since the continuous image of a connected set is connected, it follows that \(\gamma([a, b])\) is connected.
-\end{proof}
-
-\begin{theorem}
-    If a nondecreasing function \(t = \phi(\tau)\) maps the interval \(\alpha \leq \tau \leq \beta\) onto the interval \(a \leq t \leq b\), then the mapping \(z = z(\phi(\tau))\) maps the same arc \(\gamma\) as \(z = z(t)\).
-\end{theorem}
-
-Suppose an arc \(\gamma\) is contained in a region \(\Omega\) and is given by the equation \(\gamma = \gamma(t), a \leq t \leq b\). Let \(f\) be a continuous function defined on \(\Omega\). Then the function \(w = f(\gamma(t))\) defines a curve \(\gamma^*\) in the \(w\)-plane, which we call the \emph{image} of \(\gamma\) under \(f\).
-
-If \(f\) is analytic on \(\Omega\), then if \(\gamma\) is differentiable at \(t\), the derivative of \(w\) with respect to \(t\) is given by
-\[
-    w'(t) = f'(\gamma(t))\gamma'(t)
-\]
-by the chain rule.
-
-Immediately we observe that \(w'(t)\) cannot be zero because 

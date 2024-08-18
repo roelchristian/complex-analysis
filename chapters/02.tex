@@ -170,7 +170,9 @@ Some important results from real-variable calculus, however, do not carry over t
 \section{Contour integrals}
 
 \begin{definition}
-    An \emph{arc} (or a \emph{curve}) \(\gamma\) on the complex plane is the image of a continuous function \(\gamma : [a, b] \to \C\), where \(a, b \in \R\), that is,
+    An \emph{arc} (or a \emph{curve}) \(\gamma\) on the complex plane is the
+    image of a continuous function \(\gamma : [a, b] \to \C\), where \(a, b \in
+    \R\), that is,
     \[
         \gamma = \{\gamma(t) : a \leq t \leq b\}.
     \]
@@ -185,21 +187,32 @@ where \(x(t)\) and \(y(t)\) are continuous functions of \(t\), so that
     z = \gamma(t).
 \]
 
-We call \(z(t)\) a \emph{parametrization} of the arc \(\gamma\). The points \emph{a} and \emph{b} are the \emph{initial} and \emph{terminal} points of the arc \(\gamma\), respectively. The \emph{opposite arc} \(-\gamma\) is the arc \(\gamma\) traversed in the opposite direction, i.e., from \emph{b} to \emph{a}.
+We call \(z(t)\) a \emph{parametrization} of the arc \(\gamma\). The points
+\emph{a} and \emph{b} are the \emph{initial} and \emph{terminal} points of the
+arc \(\gamma\), respectively. The \emph{opposite arc} \(-\gamma\) is the arc
+\(\gamma\) traversed in the opposite direction, i.e., from \emph{b} to \emph{a}.
 
 \begin{theorem}
     An arc is compact and connected.
 \end{theorem}
 
 \begin{proof}
-    Since \([a, b] \subseteq \R\) is closed and bounded, it is compact. Since \(\gamma\) is continuous, it follows that \(\gamma([a, b])\) which is a continuous image of a compact set is also compact. Similarly, since the continuous image of a connected set is connected, it follows that \(\gamma([a, b])\) is connected.
+    Since \([a, b] \subseteq \R\) is closed and bounded, it is compact. Since
+    \(\gamma\) is continuous, it follows that \(\gamma([a, b])\) which is a
+    continuous image of a compact set is also compact. Similarly, since the
+    continuous image of a connected set is connected, it follows that
+    \(\gamma([a, b])\) is connected.
 \end{proof}
 
 \begin{example}
-    Find a parametrization of the arcs \(\gamma\) and \(-\gamma\), where \(\gamma\) is the straight line from the point \(z_0 = (x_0, y_0)\) to the point \(z_1 = (x_1, y_1)\).
+    Find a parametrization of the arcs \(\gamma\) and \(-\gamma\), where
+    \(\gamma\) is the straight line from the point \(z_0 = (x_0, y_0)\) to the
+    point \(z_1 = (x_1, y_1)\).
 
     \begin{solution}
-        From calculus, we know that the line in \(\R^2\) from \(z_0\) to \(z_1\) is given by the vector \(z_1 - z_0\). Thus a parametrization of the line is given by
+        From calculus, we know that the line in \(\R^2\) from \(z_0\) to \(z_1\)
+        is given by the vector \(z_1 - z_0\). Thus a parametrization of the line
+        is given by
         \begin{align*}
             z(t) &= z_0 + t(z_1 - z_0) \\
             &= (x_0, y_0) + t[(x_1 - x_0) + i(y_1 - y_0)] \\
@@ -211,27 +224,67 @@ We call \(z(t)\) a \emph{parametrization} of the arc \(\gamma\). The points \emp
         \]
         for \(0 \leq t \leq 1\).
 
-        In general, we can see that if \(z(t)\) is a parametrization of \(\gamma\), then \(z^*(t) = z(b + a - t)\) is a parametrization of \(-\gamma\). (In particular, if \(a = 0\) and \(b = 1\), then \(z^*(t) = z(1 - t)\).)
+        In general, we can see that if \(z(t)\) is a parametrization of
+        \(\gamma\), then \(z^*(t) = z(b + a - t)\) is a parametrization of
+        \(-\gamma\). (In particular, if \(a = 0\) and \(b = 1\), then \(z^*(t) =
+        z(1 - t)\).)
     \end{solution}
 \end{example}
 
 
+Some additional definitions are in order.
 
 \begin{definition}
-    Let \(\gamma\) be a contour with the equation \(z = z(t)\) for \(a \leq t \leq b\) contained in some region \(\Omega\) and let \(f\) be a function defined and continuous on \(\gamma\). Then the integral of \(f\) along \(\gamma\) is defined as
+    An arc \(\gamma\) is \emph{simple} if it does not intersect itself, i.e., if
+    \(\gamma(t_1) = \gamma(t_2)\) implies \(t_1 = t_2\). An arc \(\gamma\) is
+    \emph{closed} if \(\gamma(a) = \gamma(b)\). An arc \(\gamma\) that is both
+    simple and closed is a \emph{simple closed curve} (or a \emph{Jordan
+    curve}).
+
+    An arc \(\gamma\) is \emph{smooth} if its parametrization \(z(t)\) is
+    continuously differentiable and \(z'(t) \neq 0\) for all \(t \in [a, b]\). A
+    \emph{contour} is a piecewise smooth arc, i.e., an arc that is the union of
+    a finite number of smooth arcs.
+\end{definition}
+
+
+\begin{definition}
+    Let \(\gamma\) be a contour with the equation \(z = z(t)\) for \(a \leq t
+    \leq b\) contained in some region \(\Omega\) and let \(f\) be a function
+    defined and continuous on \(\gamma\). Then the integral of \(f\) along
+    \(\gamma\) is defined as
     \[
         \int_\gamma f(z) \, dz = \int_a^b f(z(t)) z'(t) \, dt.
     \]
     \label{def:complex-integral-contour}
 \end{definition}
 
+If the contour \(\gamma\) is a positively-oriented simple closed curve, then we write
+\[
+    \oint_\gamma f(z) \, dz
+\]
+to emphasize that the integration is along a closed curve.
+
 \begin{example}
     \label{ex:complex-integral-contour-different-paths}
-    Whereas the integral of functions of a real variable (whether real-valued or complex-valued) depends only on the endpoints of the interval of integration, the integral of a function of a complex variable along a contour depends on the path taken by the contour as Definition~\ref{def:complex-integral-contour} clearly indicates that the integration is defined along some contour \(\gamma\). This important because while there is a unique way to go from a point \(a\) to a point \(b\) in the real line, there are infinitely many ways to go from a point \(a\) to a point \(b\) in the complex plane.
+    Whereas the integral of functions of a real variable (whether real-valued or
+    complex-valued) depends only on the endpoints of the interval of
+    integration, the integral of a function of a complex variable along a
+    contour depends on the path taken by the contour as
+    Definition~\ref{def:complex-integral-contour} clearly indicates that the
+    integration is defined along some contour \(\gamma\). This important because
+    while there is a unique way to go from a point \(a\) to a point \(b\) in the
+    real line, there are infinitely many ways to go from a point \(a\) to a
+    point \(b\) in the complex plane.
     
-    To belabor this point, consider the function \(f : \C \to \C\) defined by \(f(z) = \conj{z}^2\) along several paths from \(0\) to \(1 + i\). 
+    To belabor this point, consider the function \(f : \C \to \C\) defined by
+    \(f(z) = \conj{z}^2\) along several paths from \(0\) to \(1 + i\). 
     \begin{enumerate}[label=(\alph*), wide, nosep]
-        \item In the first case, let \(\gamma\) be the line segment from \(0\) to \(1 + i\). A parametrization of this path is given by \(z(t) = t(1 + i) = t + it\) for \(0 \leq t \leq 1\). Thus since \(z'(t) = 1 + i\) and \(f(z(t)) = \conj{t + it}^2 = (t - it)^2\), the integral of \(f\) along \(\gamma\) is
+        \item In the first case, let \(\gamma\) be the line segment from \(0\)
+        to \(1 + i\). A parametrization of this path is given by \(z(t) = t(1 +
+        i) = t + it\) for \(0 \leq t \leq 1\). Thus since \(z'(t) = 1 + i\) and
+        \(f(z(t)) = \conj{t + it}^2 = (t - it)^2\), the integral of \(f\) along
+        \(\gamma\) is
         \[
             \begin{aligned}
                 \int_\gamma f(z) \, dz &= \int_0^1 (t - it)^2 (1 + i) \, dt \\
@@ -242,7 +295,9 @@ We call \(z(t)\) a \emph{parametrization} of the arc \(\gamma\). The points \emp
             \end{aligned}
         \]
 
-        \item If \(\gamma\) is the arc of the parabola \(y = x^2\) from \(0\) to \(1 + i\), then a parametrization of this path is given by \(z(t) = t + it^2\) for \(0 \leq t \leq 1\). Then \(z'(t) = 1 + 2it\) and
+        \item If \(\gamma\) is the arc of the parabola \(y = x^2\) from \(0\) to
+        \(1 + i\), then a parametrization of this path is given by \(z(t) = t +
+        it^2\) for \(0 \leq t \leq 1\). Then \(z'(t) = 1 + 2it\) and
         \[
             f(z(t)) = \conj{t + it^2}^2 = (t - it^2)^2 = t^2 - t^4 - 2it^3,
         \]
@@ -255,13 +310,17 @@ We call \(z(t)\) a \emph{parametrization} of the arc \(\gamma\). The points \emp
             \end{aligned}
         \]
     \end{enumerate}
-    We have thus seen that the integral of \(f\) along \(\gamma\) depends on the path taken by \(\gamma\) and not just the endpoints of the path.
+    We have thus seen that the integral of \(f\) along \(\gamma\) depends on the
+    path taken by \(\gamma\) and not just the endpoints of the path.
 \end{example}
 
-On the other hand, given a curve \(\gamma\), the following result tells us that the actual choice of parametrization does not affect the value of the integral.
+On the other hand, given a curve \(\gamma\), the following result tells us that
+the actual choice of parametrization does not affect the value of the integral.
 
 \begin{theorem}[Invariance under reparametrization]
-    Let \(\gamma\) be a contour with the equation \(z = z(t)\) for \(a \leq t \leq b\) and let \(\phi: [\alpha, \beta] \to [a, b]\) be a reparametrization of \(\gamma\). Then
+    Let \(\gamma\) be a contour with the equation \(z = z(t)\) for \(a \leq t
+    \leq b\) and let \(\phi: [\alpha, \beta] \to [a, b]\) be a reparametrization
+    of \(\gamma\). Then
     \[
         \int_\gamma f(z) \, dz = \int_{\phi(\gamma)} f(z) \, dz.
     \]
@@ -285,12 +344,22 @@ On the other hand, given a curve \(\gamma\), the following result tells us that 
     \end{align*}
 \end{proof}
 
-We note that while Example \ref{ex:complex-integral-contour-different-paths} shows that the integral of a function of a complex variable along a contour depends on the path taken by the contour, the invariance under reparametrization tells us that the actual choice of parametrization does not affect the value of the integral. That is, since all parametrizations of a contour \(\gamma\) are equivalent, the integral of a function of a complex variable along \(\gamma\) is well-defined. In Example \ref{ex:complex-integral-contour-different-paths}, we are talking about different contours altogether, not different parametrizations of the same contour.
+We note that while Example \ref{ex:complex-integral-contour-different-paths}
+shows that the integral of a function of a complex variable along a contour
+depends on the path taken by the contour, the invariance under reparametrization
+tells us that the actual choice of parametrization does not affect the value of
+the integral. That is, since all parametrizations of a contour \(\gamma\) are
+equivalent, the integral of a function of a complex variable along \(\gamma\) is
+well-defined. In Example \ref{ex:complex-integral-contour-different-paths}, we
+are talking about different contours altogether, not different parametrizations
+of the same contour.
 
-A related result tells us that a change in the orientation of the contour changes the sign of the integral.
+A related result tells us that a change in the orientation of the contour
+changes the sign of the integral.
 
 \begin{theorem}
-    Let \(\gamma\) be a contour with the equation \(z = z(t)\) for \(a \leq t \leq b\) and let \(-\gamma\) its opposite contour. Then
+    Let \(\gamma\) be a contour with the equation \(z = z(t)\) for \(a \leq t
+    \leq b\) and let \(-\gamma\) its opposite contour. Then
     \[
         \int_{-\gamma} f(z) \, dz = -\int_\gamma f(z) \, dz.
     \]
@@ -319,7 +388,8 @@ A related result tells us that a change in the orientation of the contour change
     \[
         \int_{\gamma} \conj{z} \, dz,
     \]
-    where \(\gamma\) is the right-hand half of the circle of radius \(2\) centered at the origin.
+    where \(\gamma\) is the right-hand half of the circle of radius \(2\)
+    centered at the origin.
 \end{example}
 
 
@@ -344,7 +414,8 @@ A related result tells us that a change in the orientation of the contour change
     \[
         \rho = \Re \int_a^b e^{-i\theta} f(t) \, dt + i \Im \int_a^b e^{-i\theta} f(t) \, dt.
     \]
-    Because \(\rho\) is real, the imaginary part of the right-hand side must vanish, so that
+    Because \(\rho\) is real, the imaginary part of the right-hand side must
+    vanish, so that
     \[
         \rho = \Re \int_a^b e^{-i\theta} f(t) \, dt = \int_a^b \Re e^{-i\theta} f(t) \, dt.
     \]
@@ -356,3 +427,38 @@ A related result tells us that a change in the orientation of the contour change
 
 
 \section{Cauchy-Goursat theorem}
+
+\begin{theorem}[Green's theorem]
+    Let \(\gamma\) be a positively orientedsimple closed contour 
+\end{theorem}
+
+\section{Consequences of Cauchy's theorem}
+
+\begin{theorem}[Cauchy's integral]
+    Let \(f\) be analytic in a simply connected domain \(\Omega\) and let
+    \(\gamma\) be a positively-oriented simple closed contour that lies in
+    \(\Omega\). Then if \(z_0\) is a point interior to \(\gamma\), then
+    \[
+        f(z_0) = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{z - z_0} \, dz.
+    \]
+    \label{thm:cauchys-integral-formula}
+\end{theorem}
+
+\begin{example}
+    Show that
+    \[
+        \oint_{\gamma} \frac{\exp z}{z - 1} \, dz = 2\pi i e,
+    \]
+    where \(\gamma\) is the circle of radius \(2\) centered at the origin.
+\end{example}
+
+\begin{theorem}[Cauchy's integral formula for derivatives]
+    Let \(f\) be analytic in a simply connected domain \(\Omega\) and let
+    \(\gamma\) be a positively-oriented simple closed contour that lies in
+    \(\Omega\). Then if \(z_0\) is a point interior to \(\gamma\), then for any
+    integer \(n \geq 0\),
+    \[
+        f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_\gamma \frac{f(z)}{(z - z_0)^{n+1}} \, dz.
+    \]
+    \label{thm:cauchys-integral-formula-nth-derivative}
+\end{theorem}

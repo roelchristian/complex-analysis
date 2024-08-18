@@ -4,7 +4,8 @@
 
 \begin{definition}[Complex number]
     \label{def:complex}
-    A \emph{complex number} is an ordered pair \((x, y)\) of real numbers together with the operations of addition and multiplication defined by
+    A \emph{complex number} is an ordered pair \((x, y)\) of real numbers
+    together with the operations of addition and multiplication defined by
     \[
         (x_1, y_1) + (x_2, y_2) = (x_1 + x_2, y_1 + y_2)
     \]
@@ -12,12 +13,16 @@
     \[
         (x_1, y_1) \cdot (x_2, y_2) = (x_1x_2 - y_1y_2, x_1y_2 + x_2y_1),
     \]
-    where the \(x_i\) and \(y_i\) are real numbers and the operations on the right-hand side are the usual addition and multiplication of real numbers.
+    where the \(x_i\) and \(y_i\) are real numbers and the operations on the
+    right-hand side are the usual addition and multiplication of real numbers.
 
     We denote the set of complex numbers by \(\C\).
 \end{definition}
 
-Observe that every real number \(x\) can be identified with the complex number \((x, 0)\). We can thus think of the complex numbers as an extension of the real numbers. Indeed, the usual addition and multiplication of real numbers can be seen to hold by applying the above definitions to the real numbers, viz.,
+Observe that every real number \(x\) can be identified with the complex number
+\((x, 0)\). We can thus think of the complex numbers as an extension of the real
+numbers. Indeed, the usual addition and multiplication of real numbers can be
+seen to hold by applying the above definitions to the real numbers, viz.,
 \[
     x + y = (x, 0) + (y, 0) = (x + y, 0) = x + y
 \]
@@ -25,7 +30,9 @@ and
 \[
     xy = (x, 0) \cdot (y, 0) = (xy - 0, 0 + 0) = xy.
 \]
-We can also verify that the elements \(1 = (1, 0)\) and \(0 = (0, 0)\) behave as the additive and multiplicative identities, respectively. That is for any complex number \((x, y)\),
+We can also verify that the elements \(1 = (1, 0)\) and \(0 = (0, 0)\) behave as
+the additive and multiplicative identities, respectively. That is for any
+complex number \((x, y)\),
 \[
     (x, y) + (0, 0) = (x + 0, y + 0) = (x, y)
 \]
@@ -33,11 +40,15 @@ and
 \[
     (x, y) \cdot (1, 0) = (x \cdot 1 - y \cdot 0, x \cdot 0 + y \cdot 1) = (x, y).
 \]
-By writing \(-(x, y) = (-x, -y)\) we see that the additive inverse of \((x, y)\) is \((-x, -y)\). We can also verify that the multiplicative inverse of \((x, y)\) is \((x/(x^2 + y^2), -y/(x^2 + y^2))\) if \((x, y) \neq (0, 0)\) and is undefined if \((x, y) = (0, 0)\). This is,
+By writing \(-(x, y) = (-x, -y)\) we see that the additive inverse of \((x, y)\)
+is \((-x, -y)\). We can also verify that the multiplicative inverse of \((x,
+y)\) is \((x/(x^2 + y^2), -y/(x^2 + y^2))\) if \((x, y) \neq (0, 0)\) and is
+undefined if \((x, y) = (0, 0)\). This is,
 \[
     (x, y) \cdot \left(\frac{x}{x^2 + y^2}, -\frac{y}{x^2 + y^2}\right) = \left(\frac{x^2 + y^2}{x^2 + y^2}, \frac{xy - yx}{x^2 + y^2}\right) = (1, 0).
 \]
-Finally, we can verify that the distributive law holds for complex numbers. That is, for any complex numbers \((x_1, y_1)\), \((x_2, y_2)\), and \((x_3, y_3)\),
+Finally, we can verify that the distributive law holds for complex numbers. That
+is, for any complex numbers \((x_1, y_1)\), \((x_2, y_2)\), and \((x_3, y_3)\),
 
 \[
     \begin{aligned}
@@ -51,12 +62,16 @@ Finally, we can verify that the distributive law holds for complex numbers. That
 \]
 This gives us the following result.
 \begin{theorem}[\(\C\) is a field]
-    The set \(\C\) of complex numbers forms a field under the operations of addition and multiplication defined above.
+    The set \(\C\) of complex numbers forms a field under the operations of
+    addition and multiplication defined above.
     \label{thm:c-field}
 \end{theorem}
 
 \begin{example}
-    Prove the following general property of a field for \(\C\) using only the properties we have established so far: for any complex numbers \(z\) and \(w\), if \(zw = 0\), then either \(z = 0\) or \(w = 0\); that is, \(\C\) has no zero divisors.
+    Prove the following general property of a field for \(\C\) using only the
+    properties we have established so far: for any complex numbers \(z\) and
+    \(w\), if \(zw = 0\), then either \(z = 0\) or \(w = 0\); that is, \(\C\)
+    has no zero divisors.
 \end{example}
 
 By exploiting the above properties, we can see that
@@ -65,7 +80,13 @@ By exploiting the above properties, we can see that
     &= (x, 0) \cdot (1, 0) + (0, y) \cdot (0, 1) \nonumber \\
     &= x(1, 0) + y(0, 1).\nonumber
 \end{align}
-As such, and since we have already established the correspondence between the real number \(1\) and the complex number \((1, 0)\), it would be convenient to denote the complex number \((0, 1)\) as \(i\), so that we can identify the complex number \((x, y)\) with the sum \[x + iy.\] We call this the \emph{rectangular form} of the complex number. The real numbers \(x\) and \(y\) are called the \emph{real} and \emph{imaginary} parts of the complex number \(x + iy\). If we write \(z = x + iy\), we can introduce the notation
+As such, and since we have already established the correspondence between the
+real number \(1\) and the complex number \((1, 0)\), it would be convenient to
+denote the complex number \((0, 1)\) as \(i\), so that we can identify the
+complex number \((x, y)\) with the sum \[x + iy.\] We call this the
+\emph{rectangular form} of the complex number. The real numbers \(x\) and \(y\)
+are called the \emph{real} and \emph{imaginary} parts of the complex number \(x
++ iy\). If we write \(z = x + iy\), we can introduce the notation
 \[
     \Re z = x \quad \text{and} \quad \Im z = y.
 \]
@@ -78,7 +99,9 @@ We can also see that
         &= -1.
     \end{aligned}
 \]
-We call \(i\) the \emph{imaginary unit}, although it should be noted that the term `imaginary' in this sense is only a historical artifact. If \(\Re z = 0\), then we say that \(z\) is a \emph{purely imaginary} number.
+We call \(i\) the \emph{imaginary unit}, although it should be noted that the
+term `imaginary' in this sense is only a historical artifact. If \(\Re z = 0\),
+then we say that \(z\) is a \emph{purely imaginary} number.
 
 \begin{example}
     Express the complex number \(1/i\) in rectangular form.
@@ -92,33 +115,43 @@ We call \(i\) the \emph{imaginary unit}, although it should be noted that the te
 \end{example}
 
 \begin{example}
-    Show that \(\C\) is a vector space over \(\R\) under addition and scalar multiplication, defined by
+    Show that \(\C\) is a vector space over \(\R\) under addition and scalar
+    multiplication, defined by
     \[
         \lambda(x, y) = (\lambda, 0)(x, y) = (\lambda x, \lambda y)
     \]
     Find a basis for \(\C\).
 
     \begin{solution}
-        We shall skip the first part of the question which can be routinely verified by checking the axioms of a vector space.
+        We shall skip the first part of the question which can be routinely
+        verified by checking the axioms of a vector space.
 
-        Equation \eqref{eq:rectangular} shows that every element of \(\C\) can be written as a linear combination of the vectors \((1, 0)\) and \((0, 1)\) and thus \({(1, 0), (0, 1)}\) is a basis for \(\C\). We call this the \emph{standard basis} for \(\C\).
+        Equation \eqref{eq:rectangular} shows that every element of \(\C\) can
+        be written as a linear combination of the vectors \((1, 0)\) and \((0,
+        1)\) and thus \({(1, 0), (0, 1)}\) is a basis for \(\C\). We call this
+        the \emph{standard basis} for \(\C\).
     \end{solution}
 \end{example}
 
 \begin{example}
-    If \(z\) and \(w\) are complex numbers, show that \(\Re(z + w) = \Re z + \Re w\) and \(\Im(z + w) = \Im z + \Im w\).\label{ex:reimsum}
+    If \(z\) and \(w\) are complex numbers, show that \(\Re(z + w) = \Re z + \Re
+    w\) and \(\Im(z + w) = \Im z + \Im w\).\label{ex:reimsum}
 
     \begin{solution}
-        Let \(z = x_1 + iy_1\) and \(w = x_2 + iy_2\). Then \(z + w = (x_1 + x_2) + i(y_1 + y_2)\). Thus, \(\Re(z + w) = x_1 + x_2 = \Re z + \Re w\) 
+        Let \(z = x_1 + iy_1\) and \(w = x_2 + iy_2\). Then \(z + w = (x_1 +
+        x_2) + i(y_1 + y_2)\). Thus, \(\Re(z + w) = x_1 + x_2 = \Re z + \Re w\)
         and \(\Im(z + w) = y_1 + y_2 = \Im z + \Im w\).
     \end{solution}
 \end{example}
 
 \begin{example}
-    Let \(z\) and \(w\) be complex numbers. Is it true that \(\Re(zw) = \Re z \Re w\)?
+    Let \(z\) and \(w\) be complex numbers. Is it true that \(\Re(zw) = \Re z
+    \Re w\)?
 
     \begin{solution}
-        Let \(z = x_1 + iy_1\) and \(w = x_2 + iy_2\). Then \(zw = (x_1x_2 - y_1y_2) + i(x_1y_2 + x_2y_1)\). Thus, \(\Re(zw) = x_1x_2 - y_1y_2 \neq x_1x_2 = \Re z \Re w\).
+        Let \(z = x_1 + iy_1\) and \(w = x_2 + iy_2\). Then \(zw = (x_1x_2 -
+        y_1y_2) + i(x_1y_2 + x_2y_1)\). Thus, \(\Re(zw) = x_1x_2 - y_1y_2 \neq
+        x_1x_2 = \Re z \Re w\).
     \end{solution}
 \end{example}
 
@@ -156,7 +189,8 @@ We call \(i\) the \emph{imaginary unit}, although it should be noted that the te
 \end{example}
 
 \begin{definition}[Complex conjugate]
-    Let \(z = x + iy\) be a complex number. The \emph{(complex) conjugate} of \(z\) is the complex number \(\conj{z} = x - iy\) (read as `\(z\) bar').
+    Let \(z = x + iy\) be a complex number. The \emph{(complex) conjugate} of
+    \(z\) is the complex number \(\conj{z} = x - iy\) (read as `\(z\) bar').
     \label{def:conjugate}
 \end{definition}
 
@@ -186,7 +220,8 @@ We review some standard properties of the conjugate.
 \begin{theorem}[Properties of the complex conjugate]
     Let \(z\) and \(w\) be complex numbers. Then
     \begin{enumerate}[label=(\alph*)]
-        \item \(\displaystyle\Re z = \frac{z + \conj{z}}{2}\) and \(\displaystyle\Im z = \frac{z - \conj{z}}{2i}\);\label{thm:conjugate-a}
+        \item \(\displaystyle\Re z = \frac{z + \conj{z}}{2}\) and
+        \(\displaystyle\Im z = \frac{z - \conj{z}}{2i}\);\label{thm:conjugate-a}
         \item \(\conj{z + w} = \conj{z} + \conj{w}\);
         \item \(\conj{zw} = \conj{z}\conj{w}\);
         \item \(\conj{\conj{z}} = z\); and 
@@ -204,8 +239,7 @@ We review some standard properties of the conjugate.
                 \frac{z + \conj{z}}{2} &= \frac{x + iy + x - iy}{2} \\
                 &= \frac{2x}{2} = x = \Re z,
             \end{aligned}
-        \]
-        and
+        \] and
         \[
             \begin{aligned}
                 \frac{z - \conj{z}}{2i} &= \frac{x + iy - (x - iy)}{2i} \\
@@ -235,8 +269,7 @@ We review some standard properties of the conjugate.
                 \conj{\conj{z}} &= \conj{x - iy} \\
                 &= x + iy = z.
             \end{aligned}
-        \]
-        This property is called \emph{involution}.
+        \] This property is called \emph{involution}.
         \item Using the result in Example \ref{ex:reimsum}
         \[
             \begin{aligned}
@@ -258,10 +291,13 @@ We review some standard properties of the conjugate.
 \end{proof}
 
 \begin{example}
-    Show that a complex number \(z\) is real if and only if \(\conj{z} = z\). Show that \(z\) is real or purely imaginary if and only if \((\conj{z})^2 = z^2\).
+    Show that a complex number \(z\) is real if and only if \(\conj{z} = z\).
+    Show that \(z\) is real or purely imaginary if and only if \((\conj{z})^2 =
+    z^2\).
 
     \begin{solution}
-        Let \(z = x + iy\). Then \(\conj{z} = x - iy\). Thus, \(\conj{z} = z\) if and only if \(y = 0\), i.e., \(z\) is real.
+        Let \(z = x + iy\). Then \(\conj{z} = x - iy\). Thus, \(\conj{z} = z\)
+        if and only if \(y = 0\), i.e., \(z\) is real.
 
         On the other hand, \((\conj{z})^2 = z^2\) implies
         \[
@@ -271,13 +307,21 @@ We review some standard properties of the conjugate.
         \[
             xy = 0,
         \]
-        which is true if and only if \(y = 0\) or \(x = 0\), i.e., \(z\) is real or purely imaginary.
+        which is true if and only if \(y = 0\) or \(x = 0\), i.e., \(z\) is real
+        or purely imaginary.
     \end{solution}
 \end{example}
 
-Recall that since we have defined a complex number as an ordered pair of real numbers, we can consequently interpret any complex number \(z = x + iy\) as a vector in \(\R^2\). We can use the geometrical properties of vectors in \(\R^2\) to introduce an alternative characterization of the complex numbers.
+Recall that since we have defined a complex number as an ordered pair of real
+numbers, we can consequently interpret any complex number \(z = x + iy\) as a
+vector in \(\R^2\). We can use the geometrical properties of vectors in \(\R^2\)
+to introduce an alternative characterization of the complex numbers.
 
-Suppose that the vector \(z = x + iy\) has a distance of \(r\) from the origin and makes an angle \(\theta\) with the positive real axis. If we restrict the values of \(\theta\) to the interval \([0, 2\pi)\), then we see that the vector \(z\) can be uniquely identified by the pair \((r, \theta)\). The value of \(r\) can be computed as
+Suppose that the vector \(z = x + iy\) has a distance of \(r\) from the origin
+and makes an angle \(\theta\) with the positive real axis. If we restrict the
+values of \(\theta\) to the interval \([0, 2\pi)\), then we see that the vector
+\(z\) can be uniquely identified by the pair \((r, \theta)\). The value of \(r\)
+can be computed as
 \[
     r = \sqrt{x^2 + y^2},
 \]
@@ -290,7 +334,8 @@ by trigonometry.
 Before we proceed, we shall note a useful property of the modulus.
 
 \begin{theorem}[Distance and modulus]
-    Let \(z\) and \(w\) be complex numbers thought of as vectors in \(\R^2\) and let \(d(z, w)\) denote the Euclidean distance between \(z\) and \(w\). Then
+    Let \(z\) and \(w\) be complex numbers thought of as vectors in \(\R^2\) and
+    let \(d(z, w)\) denote the Euclidean distance between \(z\) and \(w\). Then
     \[
         d(z, w) = \abs{z - w} = \abs{w - z}.
     \]
@@ -298,16 +343,22 @@ Before we proceed, we shall note a useful property of the modulus.
 \end{theorem}
 
 \begin{proof}
-    Let \(z = x_1 + iy_1\) and \(w = x_2 + iy_2\). Then \(z - w = (x_1 - x_2) + i(y_1 - y_2)\). Thus
+    Let \(z = x_1 + iy_1\) and \(w = x_2 + iy_2\). Then \(z - w = (x_1 - x_2) +
+    i(y_1 - y_2)\). Thus
     \[
         \begin{aligned}
             \abs{z - w} &= \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2},
         \end{aligned}
     \]
-    which is the Euclidean distance between \(z\) and \(w\). Since \((x_1 - x_2)^2 = (x_2 - x_1)^2\) and \((y_1 - y_2)^2 = (y_2 - y_1)^2\), we have \(\abs{z - w} = \abs{w - z}\).
+    which is the Euclidean distance between \(z\) and \(w\). Since \((x_1 -
+    x_2)^2 = (x_2 - x_1)^2\) and \((y_1 - y_2)^2 = (y_2 - y_1)^2\), we have
+    \(\abs{z - w} = \abs{w - z}\).
 \end{proof}
 
-We call \(r\) the \emph{modulus} of \(z\), denoted by \(\abs{z}\). The angle \(\theta\) is called an \emph{argument} of \(z\), denoted by \(\arg z\) which is unique modulo \(2\pi\). We can use results from trigonometry to express \(x\) and \(y\) in terms of \(r\) and \(\theta\), viz.,
+We call \(r\) the \emph{modulus} of \(z\), denoted by \(\abs{z}\). The angle
+\(\theta\) is called an \emph{argument} of \(z\), denoted by \(\arg z\) which is
+unique modulo \(2\pi\). We can use results from trigonometry to express \(x\)
+and \(y\) in terms of \(r\) and \(\theta\), viz.,
 \[
     x = r\cos\theta \quad \text{and} \quad y = r\sin\theta,
 \]
@@ -315,7 +366,11 @@ which gives us the \emph{polar form} of the complex number \(z\):
 \[
     z = r\cos\theta + ir\sin\theta = r(\cos\theta + i\sin\theta).
 \]
-Since the angle \(\theta\) is only unique modulo \(2\pi\), the values of \(\arg z\) are thus of the form \(\theta + 2\pi k\) for any integer \(k\). If we want to explicitly restrict the values of \(\arg z\) to the interval \([0, 2\pi)\), we shall write \(\Arg z\) instead; this is called the \emph{principal value} of the argument.
+Since the angle \(\theta\) is only unique modulo \(2\pi\), the values of \(\arg
+z\) are thus of the form \(\theta + 2\pi k\) for any integer \(k\). If we want
+to explicitly restrict the values of \(\arg z\) to the interval \([0, 2\pi)\),
+we shall write \(\Arg z\) instead; this is called the \emph{principal value} of
+the argument.
 
 \begin{example}
     Find the polar form of the complex number \(1 + i\).
@@ -336,7 +391,8 @@ Since the angle \(\theta\) is only unique modulo \(2\pi\), the values of \(\arg 
     \end{solution}
 \end{example}
 
-Writing \(z = r_1(\cos\theta_1 + i\sin\theta_1)\) and \(w = r_2(\cos\theta_2 + i\sin\theta_2)\), we can see that
+Writing \(z = r_1(\cos\theta_1 + i\sin\theta_1)\) and \(w = r_2(\cos\theta_2 +
+i\sin\theta_2)\), we can see that
 \begin{align}
     zw &= r_1(\cos\theta_1 + i\sin\theta_1) \cdot r_2(\cos\theta_2 + i\sin\theta_2) \nonumber \\
     &= r_1r_2(\cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2 + i(\cos\theta_1\sin\theta_2 + \sin\theta_1\cos\theta_2)) \nonumber \\
@@ -354,7 +410,9 @@ This gives us the following result.
 \end{theorem}
 
 \begin{example}
-    Alternatively, we can think of multiplication of complex numbers in terms of the map \(\phi_z : \C \to \C\) defined by \(\phi_z(w) = zw\) where we fix some complex number \(z\).
+    Alternatively, we can think of multiplication of complex numbers in terms of
+    the map \(\phi_z : \C \to \C\) defined by \(\phi_z(w) = zw\) where we fix
+    some complex number \(z\).
 
     The map \(\phi_z\) is a linear transformation in the sense that
     \[
@@ -366,7 +424,9 @@ This gives us the following result.
     \]
     where \(\lambda, \mu \in \R\) and \(w_1, w_2 \in \C\).
 
-    We can find the matrix representation of \(\phi_z\) by considering the images of the basis vectors \(1 = (1, 0)\) and \(i = (0, 1)\). If we let \(z = x + iy\), then
+    We can find the matrix representation of \(\phi_z\) by considering the
+    images of the basis vectors \(1 = (1, 0)\) and \(i = (0, 1)\). If we let \(z
+    = x + iy\), then
     \[
         \begin{aligned}
             \phi_z(1) &= z = x + iy = x(1, 0) + y(0, 1) = x(1, 0) + y(0, 1) = x + iy, \\
@@ -400,11 +460,13 @@ This gives us the following result.
     \]
 \end{example}
 
-We can extend Equation \eqref{eq:product-polar} to powers of complex numbers, as in the following result.
+We can extend Equation \eqref{eq:product-polar} to powers of complex numbers, as
+in the following result.
 
 \begin{theorem}[De Moivre's formula]
     \label{thm:demoivre}
-    Let \(z = r(\cos\theta + i\sin\theta)\) be a complex number. Then for any integer \(n\),
+    Let \(z = r(\cos\theta + i\sin\theta)\) be a complex number. Then for any
+    integer \(n\),
     \begin{equation}
         z^n = r^n(\cos n\theta + i\sin n\theta).
     \label{eq:demoivre}
@@ -417,7 +479,8 @@ We can extend Equation \eqref{eq:product-polar} to powers of complex numbers, as
     \[
         z^1 = r^1(\cos\theta + i\sin\theta) = r(\cos\theta + i\sin\theta),
     \]
-    which is essentially our definition. Suppose that Equation \eqref{eq:demoivre} holds for some integer \(k\). Then
+    which is essentially our definition. Suppose that Equation
+    \eqref{eq:demoivre} holds for some integer \(k\). Then
     \[
         \begin{aligned}
             z^{k + 1} &= z^kz \\
@@ -428,12 +491,19 @@ We can extend Equation \eqref{eq:product-polar} to powers of complex numbers, as
     \]
 \end{proof}
 
-Observe that the quantity \(\cos \theta + i\sin \theta\) is of particular import when dealing with complex numbers. We thus introduce the notation
+Observe that the quantity \(\cos \theta + i\sin \theta\) is of particular import
+when dealing with complex numbers. We thus introduce the notation
 \begin{equation}
     e^{i\theta} := \cos\theta + i\sin\theta.
     \label{eq:euler}
 \end{equation}
-Equation \eqref{eq:euler} above is often called \emph{Euler's formula}. We shall call the quantity \(e^{i\theta}\) the \emph{exponential function} of the complex number \(i\theta\). For typographic reasons we shall sometimes write \(e^{i\theta}\) as \(\exp(i\theta)\). While this notation may seem arbitrary, we shall establish that this is indeed the familiar exponential function. However, we shall use this as the definition of the exponential function for now and establish the connection later.
+Equation \eqref{eq:euler} above is often called \emph{Euler's formula}. We shall
+call the quantity \(e^{i\theta}\) the \emph{exponential function} of the complex
+number \(i\theta\). For typographic reasons we shall sometimes write
+\(e^{i\theta}\) as \(\exp(i\theta)\). While this notation may seem arbitrary, we
+shall establish that this is indeed the familiar exponential function. However,
+we shall use this as the definition of the exponential function for now and
+establish the connection later.
 
 Since the polar form of the complex number is
 \[
@@ -473,28 +543,31 @@ We establish some properties of the exponential function.
     \begin{enumerate}[label=(\alph*)]
         \item \[
             \begin{aligned}
-                e^{i\theta_1}e^{i\theta_2} &= (\cos\theta_1 + i\sin\theta_1)(\cos\theta_2 + i\sin\theta_2) \\
-                &= \cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2 + i(\cos\theta_1\sin\theta_2 + \sin\theta_1\cos\theta_2) \\
+                e^{i\theta_1}e^{i\theta_2} &= (\cos\theta_1 +
+                i\sin\theta_1)(\cos\theta_2 + i\sin\theta_2) \\
+                &= \cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2 +
+                i(\cos\theta_1\sin\theta_2 + \sin\theta_1\cos\theta_2) \\
                 &= \cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2) \\
                 &= e^{i(\theta_1 + \theta_2)}.
             \end{aligned}
         \]
-        \item \[
-            e^0 = e^{i0} = \cos 0 + i\sin 0 = 1.
-        \]
+        \item \[ e^0 = e^{i0} = \cos 0 + i\sin 0 = 1. \]
         \item \[
             \begin{aligned}
-                \frac{1}{e^{i\theta}} &= \frac{1}{\cos\theta + i\sin\theta} = \frac{1}{\cos\theta + i\sin\theta} \cdot \frac{\cos\theta - i\sin\theta}{\cos\theta - i\sin\theta} \\
-                &= \frac{\cos\theta - i\sin\theta}{\cos^2\theta + \sin^2\theta} = \cos\theta - i\sin\theta = e^{-i\theta}.
+                \frac{1}{e^{i\theta}} &= \frac{1}{\cos\theta + i\sin\theta} =
+                \frac{1}{\cos\theta + i\sin\theta} \cdot \frac{\cos\theta -
+                i\sin\theta}{\cos\theta - i\sin\theta} \\
+                &= \frac{\cos\theta - i\sin\theta}{\cos^2\theta + \sin^2\theta}
+                = \cos\theta - i\sin\theta = e^{-i\theta}.
             \end{aligned}
         \]
         \item This follows from the periodicity of the trigonometric functions.
-        \item \[
-            |e^{i\theta}| = |\cos\theta + i\sin\theta| = \sqrt{\cos^2\theta + \sin^2\theta} = 1.
-        \]
+        \item \[ |e^{i\theta}| = |\cos\theta + i\sin\theta| = \sqrt{\cos^2\theta
+            + \sin^2\theta} = 1. \]
         \item \[
             \begin{aligned}
-                \frac{d}{d\theta}e^{i\theta} &= \frac{d}{d\theta}(\cos\theta + i\sin\theta) \\
+                \frac{d}{d\theta}e^{i\theta} &= \frac{d}{d\theta}(\cos\theta +
+                i\sin\theta) \\
                 &= \frac{d}{d\theta}\cos\theta + i\frac{d}{d\theta}\sin\theta \\
                 &= -\sin\theta + i\cos\theta \\
                 &= i(\cos\theta + i\sin\theta) \\
@@ -504,23 +577,30 @@ We establish some properties of the exponential function.
     \end{enumerate}
 \end{proof}
 
-By Theorem \ref{thm:properties-exp} above we see that for any integers \(k\) and \(n\), with \(n > 0\),
+By Theorem \ref{thm:properties-exp} above we see that for any integers \(k\) and
+\(n\), with \(n > 0\),
 \[
     \exp\left({\frac{i2\pi k}{n}}\right)^n = e^{i2\pi k} = 1.
 \]
 This shall prove useful later on and we introduce the following definition.
 
 \begin{definition}[Roots of unity]
-    A complex number \(\omega\) of the form \(\exp\left(\frac{2\pi i k}{n}\right)\) for some integers \(k\) and \(n\) with \(n > 0\) is called an \(n\)-th \emph{root of unity}.
+    A complex number \(\omega\) of the form \(\exp\left(\frac{2\pi i
+    k}{n}\right)\) for some integers \(k\) and \(n\) with \(n > 0\) is called an
+    \(n\)-th \emph{root of unity}.
     \label{def:roots-of-unity}
 \end{definition}
 
 \begin{example}
-    Show that there are exactly \(n\) \(n\)-th roots of unity.\label{ex:roots-of-unity-count}
+    Show that there are exactly \(n\) \(n\)-th roots of
+    unity.\label{ex:roots-of-unity-count}
 
     \begin{solution}
-        Let \(\omega = \exp\left(\frac{2\pi i k}{n}\right)\) be an \(n\)-th root of unity. Because \(k\) and \(n\) are integers, by the division algorithm, there must exist
-        integers \(q\) and \(r\) such that \(k = nq + r\) with \(0 \leq r < n\), with \(r = 0\) if and only if \(m\) is divisible by \(n\). Thus, we can write
+        Let \(\omega = \exp\left(\frac{2\pi i k}{n}\right)\) be an \(n\)-th root
+        of unity. Because \(k\) and \(n\) are integers, by the division
+        algorithm, there must exist integers \(q\) and \(r\) such that \(k = nq
+        + r\) with \(0 \leq r < n\), with \(r = 0\) if and only if \(m\) is
+        divisible by \(n\). Thus, we can write
         \[
             \begin{aligned}
                 \omega &= \exp\left(\frac{2\pi i k}{n}\right) \\
@@ -529,7 +609,8 @@ This shall prove useful later on and we introduce the following definition.
                 &= \exp\left(\frac{2\pi i r}{n}\right),
             \end{aligned}
         \]
-        so that only the values of \(r\) from \(0\) to \(n - 1\) are distinct. Thus, there are exactly \(n\) \(n\)-th roots of unity.
+        so that only the values of \(r\) from \(0\) to \(n - 1\) are distinct.
+        Thus, there are exactly \(n\) \(n\)-th roots of unity.
     \end{solution}
 \end{example}
 
@@ -537,7 +618,8 @@ This shall prove useful later on and we introduce the following definition.
     Find the cube roots of unity.
 
     \begin{solution}
-        The cube roots of unity are the solutions to the equation \(z^3 = 1\). They are given by
+        The cube roots of unity are the solutions to the equation \(z^3 = 1\).
+        They are given by
         \[
             \begin{aligned}
                 \omega_k &= \exp\left(\frac{2\pi i k}{3}\right) \quad \text{for} \quad k = 0, 1, 2.
@@ -555,7 +637,9 @@ This shall prove useful later on and we introduce the following definition.
 \end{example}
 
 \begin{example}
-    The identity we have derived in finding the roots of unity can be extended to finding the \(n\)-th roots of any complex number. If \(w\) is a complex number such that \(w = re^{i\theta}\), and \(z^n = w\), we have
+    The identity we have derived in finding the roots of unity can be extended
+    to finding the \(n\)-th roots of any complex number. If \(w\) is a complex
+    number such that \(w = re^{i\theta}\), and \(z^n = w\), we have
     \[
         z^n = re^{i(\theta + 2\pi k)} \quad \text{for any integer} \quad k
     \]
@@ -567,11 +651,13 @@ This shall prove useful later on and we introduce the following definition.
     \[
         z = \sqrt[n]{r}\left[\cos\left(\frac{\theta + 2\pi k}{n}\right) + i\sin\left(\frac{\theta + 2\pi k}{n}\right)\right].
     \]
-    By the same argument as in Example \ref{ex:roots-of-unity-count}, we see that there are exactly \(n\) \(n\)-th roots of a complex number \(w\).
+    By the same argument as in Example \ref{ex:roots-of-unity-count}, we see
+    that there are exactly \(n\) \(n\)-th roots of a complex number \(w\).
 \end{example}
 
 \begin{example}
-    Using the preceding example, find all solutions to the equation \(z^3 + 1 = 0\).
+    Using the preceding example, find all solutions to the equation \(z^3 + 1 =
+    0\).
 
     \begin{solution}
         We have
@@ -594,7 +680,9 @@ This shall prove useful later on and we introduce the following definition.
 \end{example}
 
 \begin{example}
-    Use Theorem \ref{thm:properties-exp} to find explicit formulas for \(\cos 3\theta\) and \(\sin 3\theta\) in terms of \(\cos\theta\) and \(\sin\theta\).
+    Use Theorem \ref{thm:properties-exp} to find explicit formulas for \(\cos
+    3\theta\) and \(\sin 3\theta\) in terms of \(\cos\theta\) and
+    \(\sin\theta\).
 
     \begin{solution}
         We have
@@ -631,12 +719,14 @@ This shall prove useful later on and we introduce the following definition.
     \begin{enumerate}[label=(\alph*)]
         \item \[
             \begin{aligned}
-                |z| &= |re^{i\theta}| = |r||e^{i\theta}| = |r| = |r||e^{-i\theta}| = |re^{-i\theta}| = |\conj{z}|.
+                |z| &= |re^{i\theta}| = |r||e^{i\theta}| = |r| =
+                |r||e^{-i\theta}| = |re^{-i\theta}| = |\conj{z}|.
             \end{aligned}
         \]
         \item \[
             \begin{aligned}
-                z\conj{z} &= re^{i\theta}re^{-i\theta} = r^2e^{i\theta - i\theta} = r^2e^0 = r^2 = |z|^2.
+                z\conj{z} &= re^{i\theta}re^{-i\theta} = r^2e^{i\theta -
+                i\theta} = r^2e^0 = r^2 = |z|^2.
             \end{aligned}
         \]
         \item \[
@@ -699,23 +789,34 @@ This shall prove useful later on and we introduce the following definition.
 
 \section{Elementary topology of \(\C\)}
 
-In \S~\ref{thm:distance-modulus} we have established that a notion of `distance' exists in \(\C\), given by the modulus of the difference of two complex numbers. It would therefore be convenient to call the set \(\C\) the complex plane and to think of the complex numbers as points in the plane, to lean on our intuition from \(\R^2\). This allows us to make the following definitions.
+In \S~\ref{thm:distance-modulus} we have established that a notion of `distance'
+exists in \(\C\), given by the modulus of the difference of two complex numbers.
+It would therefore be convenient to call the set \(\C\) the complex plane and to
+think of the complex numbers as points in the plane, to lean on our intuition
+from \(\R^2\). This allows us to make the following definitions.
 
 \begin{definition}[Open disk]
-    Let \(z_0 \in \C\) and let \(\epsilon > 0\) be a real number. The \emph{open disk} of radius \(\epsilon\) centred at \(z_0\) is the set
+    Let \(z_0 \in \C\) and let \(\epsilon > 0\) be a real number. The \emph{open
+    disk} of radius \(\epsilon\) centred at \(z_0\) is the set
     \[
         D(z_0, \epsilon) = \{z \in \C : |z - z_0| < \epsilon\}.
     \]
-    We shall also often refer to the open disk \(D(z_0, \epsilon)\) as the \(\epsilon\)-neighborhood (or more simply, as a neighborhood) of \(z_0\).
+    We shall also often refer to the open disk \(D(z_0, \epsilon)\) as the
+    \(\epsilon\)-neighborhood (or more simply, as a neighborhood) of \(z_0\).
     \label{def:open-disk}
 \end{definition}
 
 \begin{definition}[Open and closed sets]
-    A set \(U \subseteq \C\) is \emph{open} if for every \(z_0 \in U\), there exists an \(\epsilon > 0\) such that \(D(z_0, \epsilon) \subseteq U\). A set \(F \subseteq \C\) is \emph{closed} if its complement \(\C \setminus F\) is open.
+    A set \(U \subseteq \C\) is \emph{open} if for every \(z_0 \in U\), there
+    exists an \(\epsilon > 0\) such that \(D(z_0, \epsilon) \subseteq U\). A set
+    \(F \subseteq \C\) is \emph{closed} if its complement \(\C \setminus F\) is
+    open.
     \label{def:open-closed-sets}
 \end{definition}
 
-We need to note that the terms `open' and `closed' used in this context are not mutually exclusive: that is, for example, a set can be both open and closed or a set that is not open need not necessarily be closed.
+We need to note that the terms `open' and `closed' used in this context are not
+mutually exclusive: that is, for example, a set can be both open and closed or a
+set that is not open need not necessarily be closed.
 
 \begin{example}
     The sets \(\C\) and \(\emptyset\) are both open and closed.
@@ -725,10 +826,19 @@ We need to note that the terms `open' and `closed' used in this context are not 
 \begin{definition}%[Taxonomy of points]
     Let \(U \subseteq \C\).
     \begin{enumerate}[label=(\alph*)]
-        \item A point \(z_0 \in U\) is an \emph{interior point} of \(U\) if there exists an \(\epsilon > 0\) such that \(D(z_0, \epsilon) \subseteq U\).
-        \item A point \(z_0 \in U\) is a \emph{boundary point} of \(U\) if for every \(\epsilon > 0\), there exists a point \(z \in D(z_0, \epsilon)\) such that \(z \in U\) and a point \(w \in D(z_0, \epsilon)\) such that \(w \notin U\).
-        \item A point \(z_0 \in U\) is an \emph{isolated point} of \(U\) if there exists an \(\epsilon > 0\) such that \(D(z_0, \epsilon) \cap U = \{z_0\}\).
-        \item A point \(z_0 \in U\) is a \emph{limit point} of \(U\) if for every \(\epsilon > 0\), there exists a point \(z \in D(z_0, \epsilon)\) such that \(z \in U\) and \(z \neq z_0\).
+        \item A point \(z_0 \in U\) is an \emph{interior point} of \(U\) if
+        there exists an \(\epsilon > 0\) such that \(D(z_0, \epsilon) \subseteq
+        U\).
+        \item A point \(z_0 \in U\) is a \emph{boundary point} of \(U\) if for
+        every \(\epsilon > 0\), there exists a point \(z \in D(z_0, \epsilon)\)
+        such that \(z \in U\) and a point \(w \in D(z_0, \epsilon)\) such that
+        \(w \notin U\).
+        \item A point \(z_0 \in U\) is an \emph{isolated point} of \(U\) if
+        there exists an \(\epsilon > 0\) such that \(D(z_0, \epsilon) \cap U =
+        \{z_0\}\).
+        \item A point \(z_0 \in U\) is a \emph{limit point} of \(U\) if for
+        every \(\epsilon > 0\), there exists a point \(z \in D(z_0, \epsilon)\)
+        such that \(z \in U\) and \(z \neq z_0\).
     \end{enumerate}
     \label{def:taxonomy-points}
 \end{definition}
@@ -741,7 +851,9 @@ We need to note that the terms `open' and `closed' used in this context are not 
 \section{Complex functions}
 
 \begin{definition}[Complex function]
-    A \emph{function} \(f : D \to \C\) is a rule that assigns to each element \(z \in D \subseteq \C\) a unique complex number \(f(z) \in \C\). We call \(D\) the \emph{domain} of \(f\) and the set
+    A \emph{function} \(f : D \to \C\) is a rule that assigns to each element
+    \(z \in D \subseteq \C\) a unique complex number \(f(z) \in \C\). We call
+    \(D\) the \emph{domain} of \(f\) and the set
     \[
         f(D) = \{f(z) : z \in D\}
     \]
@@ -749,14 +861,18 @@ We need to note that the terms `open' and `closed' used in this context are not 
     \label{def:complex-function}
 \end{definition}
 
-Since the value \(w = f(z)\) is itself a complex number, we can write \(f\) in the form
+Since the value \(w = f(z)\) is itself a complex number, we can write \(f\) in
+the form
 \[
     f(z) = u(x, y) + iv(x, y),
 \]
-where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and \(y\). The functions \(u\) and \(v\) are called the \emph{real} and \emph{imaginary parts} of \(f\), respectively.
+where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and
+\(y\). The functions \(u\) and \(v\) are called the \emph{real} and
+\emph{imaginary parts} of \(f\), respectively.
 
 \begin{example}
-    Let \(f : \C \to \C\) be defined by \(f(z) = z^2 - 1\). Then writing \(z = x + iy\), we have
+    Let \(f : \C \to \C\) be defined by \(f(z) = z^2 - 1\). Then writing \(z = x
+    + iy\), we have
     \[
         \begin{aligned}
             f(z) &= (x + iy)^2 - 1 \\
@@ -764,11 +880,13 @@ where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and 
             &= (x^2 - y^2 - 1) + i(2xy).
         \end{aligned}
     \]
-    Thus, the real and imaginary parts of \(f\) are \(u(x, y) = x^2 - y^2 - 1\) and \(v(x, y) = 2xy\), respectively.
+    Thus, the real and imaginary parts of \(f\) are \(u(x, y) = x^2 - y^2 - 1\)
+    and \(v(x, y) = 2xy\), respectively.
 \end{example}
 
 \begin{example}
-    Express the function \(f(z) = \conj{z}\Re z + z^2 + \Im z\) in terms of its real and imaginary parts.
+    Express the function \(f(z) = \conj{z}\Re z + z^2 + \Im z\) in terms of its
+    real and imaginary parts.
 
     \begin{solution}
         Writing \(z = x + iy\), we have
@@ -780,14 +898,20 @@ where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and 
                 &= 2x^2 + ixy - y^2 + y.
             \end{aligned}
         \]
-        Thus, the real and imaginary parts of \(f\) are \(u(x, y) = 2x^2 - y^2 + y\) and \(v(x, y) = xy\), respectively.
+        Thus, the real and imaginary parts of \(f\) are \(u(x, y) = 2x^2 - y^2 +
+        y\) and \(v(x, y) = xy\), respectively.
     \end{solution}
 \end{example}
 
 \begin{example}
-    If \(x = re^{i\theta} = r(\cos\theta + i\sin\theta)\), then the real and imaginary parts of \(x\) are \(u(x, y) = r\cos\theta\) and \(v(x, y) = r\sin\theta\), respectively. Note, however, that the functions \(u\) and \(v\) are not necessarily the same as the functions \(u\) and \(v\) previously defined when writing \(z = x+ iy\).
+    If \(x = re^{i\theta} = r(\cos\theta + i\sin\theta)\), then the real and
+    imaginary parts of \(x\) are \(u(x, y) = r\cos\theta\) and \(v(x, y) =
+    r\sin\theta\), respectively. Note, however, that the functions \(u\) and
+    \(v\) are not necessarily the same as the functions \(u\) and \(v\)
+    previously defined when writingq \(z = x+ iy\).
 
-    Consider, for example, the function \(f : \C \to \C\) defined by \(f(z) = z^2\). Then in rectangular form, writing \(z = x + iy\) we have
+    Consider, for example, the function \(f : \C \to \C\) defined by \(f(z) =
+    z^2\). Then in rectangular form, writing \(z = x + iy\) we have
     \begin{align*}
         f(z) & = z^2 = (x + iy)^2 = x^2 + 2ixy - y^2\\
         & = (x^2 - y^2) + i(2xy).
@@ -800,7 +924,11 @@ where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and 
 \end{example}
 
 \begin{example}
-    Using the identities in part \ref{thm:conjugate-a} of \S~\ref{thm:conjugate} we can conversely write a function of two real variables in terms of a complex number \(z = x + iy\). To illustrate this, consider the function \(f : \R^2 \to \R^2\) defined by \(f(x, y) = 4x^2 + 4iy^2\). Write \(f\) in terms of the complex number \(z = x + iy\).
+    Using the identities in part \ref{thm:conjugate-a} of \S~\ref{thm:conjugate}
+    we can conversely write a function of two real variables in terms of a
+    complex number \(z = x + iy\). To illustrate this, consider the function \(f
+    : \R^2 \to \R^2\) defined by \(f(x, y) = 4x^2 + 4iy^2\). Write \(f\) in
+    terms of the complex number \(z = x + iy\).
 
     \begin{solution}
         We have
@@ -815,20 +943,26 @@ where \(u\) and \(v\) are real-valued functions of the real variables \(x\) and 
 \section{Limits and continuity}
 
 \begin{definition}[Limit of a function]
-    Let \(f : D \to \C\) be a function defined on some neighborhood of a point \(z_0 \in \C\) except possibly at \(z_0\) itself (i.e., \(z_0\) is an limit point of \(D\)). We say that the \emph{limit} of \(f(z)\) as \(z\) approaches \(z_0\) is \(L \in \C\) and write
+    Let \(f : D \to \C\) be a function defined on some neighborhood of a point
+    \(z_0 \in \C\) except possibly at \(z_0\) itself (i.e., \(z_0\) is an limit
+    point of \(D\)). We say that the \emph{limit} of \(f(z)\) as \(z\)
+    approaches \(z_0\) is \(L \in \C\) and write
     \[
         \lim_{z \to z_0} f(z) = L,
     \]
-    if for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |z - z_0| < \delta\), then \(|f(z) - L| < \epsilon\).
+    if for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if
+    \(0 < |z - z_0| < \delta\), then \(|f(z) - L| < \epsilon\).
     \label{def:limit}
 \end{definition}
 
-By defining \(z_0\) as a limit point of \(D\), we allow for the possibility that \(f(z_0)\) is not defined.
+By defining \(z_0\) as a limit point of \(D\), we allow for the possibility that
+\(f(z_0)\) is not defined.
 
 \begin{example}
     Prove that \(\displaystyle\lim_{z \to i} z^2 = -1\).
     \begin{solution}
-        Given \(\epsilon > 0\), we need to find a \(\delta > 0\) such that if \(0 < |z - i| < \delta\), then \(|z^2 + 1| < \epsilon\). Observe that
+        Given \(\epsilon > 0\), we need to find a \(\delta > 0\) such that if
+        \(0 < |z - i| < \delta\), then \(|z^2 + 1| < \epsilon\). Observe that
         \begin{equation*}
             z^2 = (z - i + i)^2 = (z - i)^2 + 2i(z - i) - 1
         \end{equation*}
@@ -836,24 +970,33 @@ By defining \(z_0\) as a limit point of \(D\), we allow for the possibility that
         \begin{equation*}
             |z^2 + 1| = |(z - i)^2 + 2i(z - i)| = |z - i|^2 + 2|z - i|.
         \end{equation*}
-        If \(|z - i| < 1\), then \(|z - i|^2 < |z - i|\) so that \(|z^2 + 1| < 3|z - i|\). Thus if we choose \(\delta = \min\{1, \epsilon/3\}\), we ensure that \(|z^2 + 1| < \epsilon\).
+        If \(|z - i| < 1\), then \(|z - i|^2 < |z - i|\) so that \(|z^2 + 1| <
+        3|z - i|\). Thus if we choose \(\delta = \min\{1, \epsilon/3\}\), we
+        ensure that \(|z^2 + 1| < \epsilon\).
     \end{solution}
 \end{example}
 
 \begin{example}
-    Use the definition of the limit to show that \(\lim_{z \to z_0} az + b = az_0 + b\) for any complex numbers \(a\) and \(b\), where \(z_0\) is a limit point of the domain of the function.
+    Use the definition of the limit to show that \(\lim_{z \to z_0} az + b =
+    az_0 + b\) for any complex numbers \(a\) and \(b\), where \(z_0\) is a limit
+    point of the domain of the function.
 
     \begin{solution}
-        Given \(\epsilon > 0\), we need to find a \(\delta > 0\) such that if \(0 < |z - z_0| < \delta\), then \(|az + b - az_0 - b| < \epsilon\). Observe that
+        Given \(\epsilon > 0\), we need to find a \(\delta > 0\) such that if
+        \(0 < |z - z_0| < \delta\), then \(|az + b - az_0 - b| < \epsilon\).
+        Observe that
         \[
             |az + b - az_0 - b| = |a(z - z_0)| = |a||z - z_0|.
         \]
-        If we choose \(\delta = \epsilon/|a|\), then we have \(|az + b - az_0 - b| = |a||z - z_0| < |a|\delta = \epsilon\).
+        If we choose \(\delta = \epsilon/|a|\), then we have \(|az + b - az_0 -
+        b| = |a||z - z_0| < |a|\delta = \epsilon\).
     \end{solution}
 \end{example}
 
 \begin{example}
-    Let \(f : D \to \C\), with \(D \subseteq \C\) and suppose that \(z_0\) is a limit point of \(D\). Show that \(\lim_{z \to z_0} f(z) = 0\) if and only if \(\lim_{z \to z_0} |f(z)| = 0\).
+    Let \(f : D \to \C\), with \(D \subseteq \C\) and suppose that \(z_0\) is a
+    limit point of \(D\). Show that \(\lim_{z \to z_0} f(z) = 0\) if and only if
+    \(\lim_{z \to z_0} |f(z)| = 0\).
 \end{example}
 
 \begin{theorem}%[Uniqueness of limits]
@@ -862,7 +1005,14 @@ By defining \(z_0\) as a limit point of \(D\), we allow for the possibility that
 \end{theorem}
 
 \begin{proof}
-    Suppose that \(\lim_{z \to z_0} f(z) = L\) and \(\lim_{z \to z_0} f(z) = M\) and \(L \neq M\) for some limit point \(z_0 \in \C\). Let \(\epsilon = (L - M)/2 > 0\). Then there exists a \(\delta_1 > 0\) such that if \(0 < |z - z_0| < \delta_1\), then \(|f(z) - L| < \epsilon\) and a \(\delta_2 > 0\) such that if \(0 < |z - z_0| < \delta_2\), then \(|f(z) - M| < \epsilon\). Let \(\delta = \min\{\delta_1, \delta_2\}\). Because \(z_0\) is a limit point of \(D\), there exists a point \(z \in D\) such that \(0 < |z - z_0| < \delta\). It follows that
+    Suppose that \(\lim_{z \to z_0} f(z) = L\) and \(\lim_{z \to z_0} f(z) = M\)
+    and \(L \neq M\) for some limit point \(z_0 \in \C\). Let \(\epsilon = (L -
+    M)/2 > 0\). Then there exists a \(\delta_1 > 0\) such that if \(0 < |z -
+    z_0| < \delta_1\), then \(|f(z) - L| < \epsilon\) and a \(\delta_2 > 0\)
+    such that if \(0 < |z - z_0| < \delta_2\), then \(|f(z) - M| < \epsilon\).
+    Let \(\delta = \min\{\delta_1, \delta_2\}\). Because \(z_0\) is a limit
+    point of \(D\), there exists a point \(z \in D\) such that \(0 < |z - z_0| <
+    \delta\). It follows that
     \begin{align*}
         |L - M| &\leq |L - f(z) + f(z) - M| \\
         &\leq |L - f(z)| + |f(z) - M| \\
@@ -872,18 +1022,29 @@ By defining \(z_0\) as a limit point of \(D\), we allow for the possibility that
 \end{proof}
 
 \begin{theorem}%[Limit of a restriction of a function]
-    Let \(f : D \to \C\) be a function and let \(z_0\) be a limit point of \(D\). Suppose that \(\lim_{z \to z_0} f(z) = L\). If \(H \subseteq D\) and \(f_{|H} : H \to \C\) is the restriction of \(f\) to \(H\), then \(\lim_{z \to z_0} f_{|H}(z) = L\).
+    Let \(f : D \to \C\) be a function and let \(z_0\) be a limit point of
+    \(D\). Suppose that \(\lim_{z \to z_0} f(z) = L\). If \(H \subseteq D\) and
+    \(f_{|H} : H \to \C\) is the restriction of \(f\) to \(H\), then \(\lim_{z
+    \to z_0} f_{|H}(z) = L\).
     \label{thm:limit-restriction}
 \end{theorem}
 
 \begin{example}
     \label{ex:limit-zbar-over-z}
-    Theorem \ref{thm:limit-restriction} tells us that if the limit of a function exists, then it must be equal to the limit of any restriction of the function. That is, if \(G,H \subseteq D\) and \(f_{|G}\) and \(f_{|H}\) are restrictions of \(f\) to \(G\) and \(H\) respectively, if \(\lim_{z \to z_0} f_{|G}(z) = L\) and \(\lim_{z \to z_0} f_{|H}(z) = M\) with \(L \neq M\), then \(\lim_{z \to z_0} f(z)\) cannot exist.
+    Theorem \ref{thm:limit-restriction} tells us that if the limit of a function
+    exists, then it must be equal to the limit of any restriction of the
+    function. That is, if \(G,H \subseteq D\) and \(f_{|G}\) and \(f_{|H}\) are
+    restrictions of \(f\) to \(G\) and \(H\) respectively, if \(\lim_{z \to z_0}
+    f_{|G}(z) = L\) and \(\lim_{z \to z_0} f_{|H}(z) = M\) with \(L \neq M\),
+    then \(\lim_{z \to z_0} f(z)\) cannot exist.
 
-    Use this fact to show that \[\lim_{z \to 0} \frac{\conj{z}}{z}\] does not exist.
+    Use this fact to show that \[\lim_{z \to 0} \frac{\conj{z}}{z}\] does not
+    exist.
 
     \begin{solution}
-        We try to compute the limit of the function \(\frac{\conj{z}}{z}\) as \(z\) approaches \(0\) from the real and imaginary axes, respectively. If we write \(z = x + iy\), then in the first case, we have
+        We try to compute the limit of the function \(\frac{\conj{z}}{z}\) as
+        \(z\) approaches \(0\) from the real and imaginary axes, respectively.
+        If we write \(z = x + iy\), then in the first case, we have
         \[
             \lim_{x \to 0} \frac{\conj{z}}{z} = \lim_{x \to 0} \frac{\conj{x}}{x} = \lim_{x \to 0} \frac{x}{x} = 1.
         \]
@@ -891,15 +1052,18 @@ By defining \(z_0\) as a limit point of \(D\), we allow for the possibility that
         \[
             \lim_{y \to 0} \frac{\conj{z}}{z} = \lim_{y \to 0} \frac{-iy}{iy} = \lim_{y \to 0} \frac{-i}{i} = -1.
         \]
-        Since the limits taken along the real and imaginary axes are different, the limit of the function as \(z\) approaches \(0\) does not exist.
+        Since the limits taken along the real and imaginary axes are different,
+        the limit of the function as \(z\) approaches \(0\) does not exist.
     \end{solution}
 \end{example}
 
 
-The following result reduces the computation of limits of complex functions to the computation of limits of real functions. 
+The following result reduces the computation of limits of complex functions to
+the computation of limits of real functions. 
 
 \begin{theorem}%[Complex limit as a limit of real functions]
-    Suppose that \(f(z) = u(x, y) + iv(x, y)\) is a complex function and that \(z_0 = x_0 + iy_0\) is a limit point of the domain of \(f\). Prove that
+    Suppose that \(f(z) = u(x, y) + iv(x, y)\) is a complex function and that
+    \(z_0 = x_0 + iy_0\) is a limit point of the domain of \(f\). Prove that
     \begin{equation}
         \lim_{z \to z_0} f(z) = u_0 + iv_0
         \label{eq:complex-limit-real-eq-1}
@@ -913,7 +1077,8 @@ The following result reduces the computation of limits of complex functions to t
 \end{theorem}
 
 \begin{proof}
-    Suppose that \eqref{eq:complex-limit-real-eq-1} holds. Then, given a real number \(\epsilon > 0\), there exists a \(\delta > 0\) such that
+    Suppose that \eqref{eq:complex-limit-real-eq-1} holds. Then, given a real
+    number \(\epsilon > 0\), there exists a \(\delta > 0\) such that
     \[
         |(u + iv) - (u_0 + iv_0)|  < \epsilon
     \]
@@ -931,7 +1096,9 @@ The following result reduces the computation of limits of complex functions to t
     \]
     Equation \eqref{eq:complex-limit-real-eq-2} holds.
 
-    Conversely, suppose that \eqref{eq:complex-limit-real-eq-2} holds. Then for any real number \(\epsilon > 0\), there exist real numbers \(\delta_1, \delta_2 > 0\) such that
+    Conversely, suppose that \eqref{eq:complex-limit-real-eq-2} holds. Then for
+    any real number \(\epsilon > 0\), there exist real numbers \(\delta_1,
+    \delta_2 > 0\) such that
     \[
         |u - u_0| < \frac{\epsilon}{2} \quad \text{whenever} \quad 0 < \sqrt{(x - x_0)^2 + (y - y_0)^2} < \delta_1
     \]
@@ -943,19 +1110,26 @@ The following result reduces the computation of limits of complex functions to t
     \[
         |(u + iv) - (u_0 + iv_0)| = |(u - u_0) + i(v - v_0)| < \epsilon
     \]
-    whenever \(0 < |(x + iy) - (x_0 + iy_0)| < \delta\). Thus \eqref{eq:complex-limit-real-eq-1} holds and the proof is complete.
+    whenever \(0 < |(x + iy) - (x_0 + iy_0)| < \delta\). Thus
+    \eqref{eq:complex-limit-real-eq-1} holds and the proof is complete.
 \end{proof}
 
 \begin{example}
-    Verify that \(\lim_{z \to 1 + i} (z^2 + i) = 3i\) using Theorem~\ref{thm:complex-limit-real}.
+    Verify that \(\lim_{z \to 1 + i} (z^2 + i) = 3i\) using
+    Theorem~\ref{thm:complex-limit-real}.
 
     \begin{proof}
-        Writing \(z = x + iy\) and decomposing the function \(z^2 + i\) into its real and imaginary parts gives us
+        Writing \(z = x + iy\) and decomposing the function \(z^2 + i\) into its
+        real and imaginary parts gives us
         \begin{align*}
             z^2 + i &= (x + iy)^2 + i = x^2 + 2ixy - y^2 + i\\
             &= (x^2 - y^2) + i(2xy + 1).
         \end{align*}
-        Following our notation, we thus have \(u(x, y) = x^2 - y^2\) and \(v(x, y) = 2xy + 1\), respectively. By Theorem~\ref{thm:complex-limit-real}, the limit of the function \(z^2 + i\) as \(z\) approaches \(1 + i\) is equal to sum of the limits of the its real and imaginary parts \(u\) and \(v\) as \((x, y)\) approaches \((1, 1)\). Now since
+        Following our notation, we thus have \(u(x, y) = x^2 - y^2\) and \(v(x,
+        y) = 2xy + 1\), respectively. By Theorem~\ref{thm:complex-limit-real},
+        the limit of the function \(z^2 + i\) as \(z\) approaches \(1 + i\) is
+        equal to sum of the limits of the its real and imaginary parts \(u\) and
+        \(v\) as \((x, y)\) approaches \((1, 1)\). Now since
         \[
             \lim_{(x, y) \to (1, 1)} u(x, y) = 1^2 - 1^2 = 0
         \]
@@ -972,22 +1146,30 @@ The following result reduces the computation of limits of complex functions to t
 \end{example}
 
 \begin{example}
-    Let us revisit Theorem~\ref{thm:limit-restriction} while using the result of Theorem~\ref{thm:complex-limit-real}. Consider the function
+    Let us revisit Theorem~\ref{thm:limit-restriction} while using the result of
+    Theorem~\ref{thm:complex-limit-real}. Consider the function
     \[
         f(z) = \frac{x^2 y}{x^4 + 2y^2}
     \]
-    where \(z = x + iy \neq 0\). Show that the limit of \(f(z)\) as \(z\) approaches \(0\) does not exist.
+    where \(z = x + iy \neq 0\). Show that the limit of \(f(z)\) as \(z\)
+    approaches \(0\) does not exist.
 
     \begin{solution}
-        This function is a bit trickier. The limits of \(f\) at \(0\) along straight lines passing through the origin exist and are equal. For example, along the imaginary axis, we have
+        This function is a bit trickier. The limits of \(f\) at \(0\) along
+        straight lines passing through the origin exist and are equal. For
+        example, along the imaginary axis, we have
         \begin{equation*}
             \lim_{(x, y) \to (0, 0)} \frac{x^2 y}{x^4 + 2y^2} = \lim_{x \to 0} \frac{x^2 \cdot 0}{x^4 + 2\cdot 0} = 0.
         \end{equation*}
-        Indeed, since any straight line passing through the origin is of the form \(y = mx\), the general case shows us that
+        Indeed, since any straight line passing through the origin is of the
+        form \(y = mx\), the general case shows us that
         \begin{equation*}
             \lim_{(x, y) \to (0, 0)} \frac{x^2 y}{x^4 + 2y^2} = \lim_{x \to 0} \frac{x^2 mx}{x^4 + 2m^2 x^2} = \lim_{x \to 0} \frac{mx^3}{x^2(x^2 + 2m^2)} = 0.
         \end{equation*}
-        However, since the limit at \(z_0\) needs to be the same when approaching \(z_0\) from every direction, we need to find a counterexample. We can do this by considering the parabola \(y = x^2\), along which we have
+        However, since the limit at \(z_0\) needs to be the same when
+        approaching \(z_0\) from every direction, we need to find a
+        counterexample. We can do this by considering the parabola \(y = x^2\),
+        along which we have
         \begin{equation*}
             \lim_{(x, y) \to (0, 0)} \frac{x^2 y}{x^4 + 2y^2} = \lim_{x \to 0} \frac{x^2 x^2}{x^4 +2x^4} = \lim_{x \to 0} \frac{x^4}{3x^4} = \frac{1}{3} \neq 0.
         \end{equation*}
@@ -995,10 +1177,14 @@ The following result reduces the computation of limits of complex functions to t
     \end{solution}
 \end{example}
 
-The following results are useful in computing limits of complex functions and illustrate that complex limits follow the usual algebraic limit laws for real functions.
+The following results are useful in computing limits of complex functions and
+illustrate that complex limits follow the usual algebraic limit laws for real
+functions.
 
 \begin{theorem}%[Properties of limits]
-    Let \(f\) and \(g\) be complex functions on a domain \(D \subseteq \C\). Let \(z_0\) be a limit point of \(D\) and let \(c \in \C\). If\(\lim_{z \to z_0} f(z) = L\) and \(\lim_{z \to z_0} g(z) = M\)
+    Let \(f\) and \(g\) be complex functions on a domain \(D \subseteq \C\). Let
+    \(z_0\) be a limit point of \(D\) and let \(c \in \C\). If\(\lim_{z \to z_0}
+    f(z) = L\) and \(\lim_{z \to z_0} g(z) = M\)
     \begin{enumerate}[label=(\alph*)]
         \item \(\lim_{z \to z_0} (f(z) + c g(z)) = L + cM\);
         \item \(\lim_{z \to z_0} f(z)g(z) = LM\);
@@ -1009,7 +1195,12 @@ The following results are useful in computing limits of complex functions and il
 \begin{proof}
     We prove each part in turn.
     \begin{enumerate}[label=(\alph*), wide]
-        \item If \(c = 0\) then this claim is trivial. Suppose \(c \neq 0\). Given \(\epsilon > 0\), there exists a \(\delta_1 > 0\) such that if \(0 < |z - z_0| < \delta_1\), then \(|f(z) - L| < \epsilon/2\) and a \(\delta_2 > 0\) such that if \(0 < |z - z_0| < \delta_2\), then \(|g(z) - M| < \epsilon/(2|c|)\). Let \(\delta = \min\{\delta_1, \delta_2\}\). Then if \(0 < |z - z_0| < \delta\), we have
+        \item If \(c = 0\) then this claim is trivial. Suppose \(c \neq 0\).
+        Given \(\epsilon > 0\), there exists a \(\delta_1 > 0\) such that if \(0
+        < |z - z_0| < \delta_1\), then \(|f(z) - L| < \epsilon/2\) and a
+        \(\delta_2 > 0\) such that if \(0 < |z - z_0| < \delta_2\), then \(|g(z)
+        - M| < \epsilon/(2|c|)\). Let \(\delta = \min\{\delta_1, \delta_2\}\).
+        Then if \(0 < |z - z_0| < \delta\), we have
         \begin{align*}
             |f(z) + cg(z) - (L + cM)| &\leq |f(z) - L| + |c||g(z) - M|\\
                     &< \epsilon/2 + |c|\epsilon/(2|c|) = \epsilon,
@@ -1020,18 +1211,21 @@ The following results are useful in computing limits of complex functions and il
 \end{proof}
 
 \begin{theorem}
-    Let \(f: D \to \C\) be a function and let \(z_0\) be a limit point of \(D\). Then for any natural number \(n\), we have
+    Let \(f: D \to \C\) be a function and let \(z_0\) be a limit point of \(D\).
+    Then for any natural number \(n\), we have
     \[
         \lim_{z \to z_0} z^n = z_0^n.
     \]
 \end{theorem}
 
 \begin{theorem}
-    Let \(f: D \to \C\) be a function and let \(z_0\) be a limit point of \(D\). Then for any natural number \(n\),
+    Let \(f: D \to \C\) be a function and let \(z_0\) be a limit point of \(D\).
+    Then for any natural number \(n\),
     \[
         \lim_{z \to z_0} P(z) = P(z_0),
     \]
-    where \(P(z)\) is the polynomial \(P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0\).
+    where \(P(z)\) is the polynomial \(P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots
+    + a_1 z + a_0\).
 \end{theorem}
 
 
@@ -1049,80 +1243,112 @@ We have earlier defined the point at infinity \(\infty\) [to be continued...]
     \[
         \lim_{z \to z_0} f(z) = f(z_0).
     \]
-    We say that \(f\) is \emph{continuous} on \(D\) if it is continuous at every point in \(D\).
+    We say that \(f\) is \emph{continuous} on \(D\) if it is continuous at every
+    point in \(D\).
     \label{def:continuity}
 \end{definition}
 
-Restating this in terms of the \(\epsilon\)-\(\delta\) definition of the limit, we have the following alternative definition.
+Restating this in terms of the \(\epsilon\)-\(\delta\) definition of the limit,
+we have the following alternative definition.
 
 \begin{definition}%[Continuity, alternative definition]
-    A function \(f : D \to \C\) is continuous at a point \(z_0 \in D\) if for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |z - z_0| < \delta\), then \(|f(z) - f(z_0)| < \epsilon\).
+    A function \(f : D \to \C\) is continuous at a point \(z_0 \in D\) if for
+    every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |z
+    - z_0| < \delta\), then \(|f(z) - f(z_0)| < \epsilon\).
     \label{de:continuity-epsilon-delta}
 \end{definition}
 
 \begin{theorem}%{Equivalence of definitions of continuity}
-    Definitions {\normalfont\ref{def:continuity}} and {\normalfont\ref{de:continuity-epsilon-delta}} are equivalent.
+    Definitions {\normalfont\ref{def:continuity}} and
+    {\normalfont\ref{de:continuity-epsilon-delta}} are equivalent.
 \end{theorem}
 
 \begin{proof}
-    Suppose that \(f\) is continuous at \(z_0\) according to Definition \ref{def:continuity}. Then because \(\lim_{z \to z_0} f(z) = f(z_0)\), for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |z - z_0| < \delta\), then \(|f(z) - f(z_0)| < \epsilon\), which is Definition \ref{de:continuity-epsilon-delta}. The converse follows similarly.
+    Suppose that \(f\) is continuous at \(z_0\) according to Definition
+    \ref{def:continuity}. Then because \(\lim_{z \to z_0} f(z) = f(z_0)\), for
+    every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |z
+    - z_0| < \delta\), then \(|f(z) - f(z_0)| < \epsilon\), which is Definition
+    \ref{de:continuity-epsilon-delta}. The converse follows similarly.
 \end{proof}
 
 \begin{example}
-    Show that the functions \(f(z) = \Re z\) and \(g(z) = \Im z\) are continuous on \(\C\).
+    Show that the functions \(f(z) = \Re z\) and \(g(z) = \Im z\) are continuous
+    on \(\C\).
 \end{example}
 
 \begin{theorem}%[Continuity of a composite function]
     \label{thm:continuity-composite}
-    Let \(f\) be continuous at \(z_0\) and let \(g\) be continuous at \(w_0 = f(z_0)\). Then the composite function \(g \circ f\) is continuous at \(z_0\). 
+    Let \(f\) be continuous at \(z_0\) and let \(g\) be continuous at \(w_0 =
+    f(z_0)\). Then the composite function \(g \circ f\) is continuous at
+    \(z_0\). 
 \end{theorem}
 
 
 \section{Differentiability and holomorphicity}
 
-\begin{definition}[Complex derivative] \label{def:complex-derivative}
-    Let \(f : D \to \C\) be a complex function with \(D \subseteq \C\) and let \(z_0 \in D\) be a interior point of \(D\). The \emph{derivative} of \(f\) at \(z_0\) is defined as
+\begin{definition}[Complex derivative] \label{def:complex-derivative} Let \(f :
+    D \to \C\) be a complex function with \(D \subseteq \C\) and let \(z_0 \in
+    D\) be a interior point of \(D\). The \emph{derivative} of \(f\) at \(z_0\)
+    is defined as
     \begin{equation}
         f'(z_0) = \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0}\label{eq:complex-derivative}
     \end{equation}
-    provided that this limit exists, in which case we say that \(f\) is \emph{differentiable} at \(z_0\). If \(f\) is differentiable at some neighborhood of \(z_0\), then we say that \(f\) is \emph{holomorphic} at \(z_0\). If \(f\) is holomorphic at every point on the open set \(E \subseteq D\), then we say that \(f\) is holomorphic on \(E\). A function that is holomorphic on the whole complex plane is said to be \emph{entire}.
+    provided that this limit exists, in which case we say that \(f\) is
+    \emph{differentiable} at \(z_0\). If \(f\) is differentiable at some
+    neighborhood of \(z_0\), then we say that \(f\) is \emph{holomorphic} at
+    \(z_0\). If \(f\) is holomorphic at every point on the open set \(E
+    \subseteq D\), then we say that \(f\) is holomorphic on \(E\). A function
+    that is holomorphic on the whole complex plane is said to be \emph{entire}.
 \end{definition}
 
-An alternative way of defining the derivative of a complex function is by substituting \(\Delta z = z - z_0\) so that we can write
+An alternative way of defining the derivative of a complex function is by
+substituting \(\Delta z = z - z_0\) so that we can write
 \eqref{eq:complex-derivative} as
 \[
     \lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z} = f'(z_0).
     \label{eq:complex-derivative-delta-z}
 \]
-By writing \(dz\) as the infinitesimal change in \(z\) (i.e., the limit as the change in \(z\), \(\Delta z = z - z_0\), approaches zero), and writing \(df\) as the infinitesimal change in \(f(z)\), we can write the derivative of \(f\) as \(df/dz\), although it must be noted that this is not a fraction and that the choice of notation is purely suggestive.
+By writing \(dz\) as the infinitesimal change in \(z\) (i.e., the limit as the
+change in \(z\), \(\Delta z = z - z_0\), approaches zero), and writing \(df\) as
+the infinitesimal change in \(f(z)\), we can write the derivative of \(f\) as
+\(df/dz\), although it must be noted that this is not a fraction and that the
+choice of notation is purely suggestive.
 
-Geometrically, the existence of a derivative at a point \(z_0\) means that the function \(f\) is well-approximated by a linear function near \(z_0\), or more precisely, on an \(\epsilon\)-neighborhood of \(z_0\) for very small \(\epsilon\). That is,
+Geometrically, the existence of a derivative at a point \(z_0\) means that the
+function \(f\) is well-approximated by a linear function near \(z_0\), or more
+precisely, on an \(\epsilon\)-neighborhood of \(z_0\) for very small
+\(\epsilon\). That is,
 \[
     f(z) = f(z_0) + f'(z_0)(z - z_0) + o(z - z_0),
 \]
-where the error term \(o(z - z_0)\) is a function of \(z - z_0\) that vanishes faster than \(z - z_0\) as \(z \to z_0\).
+where the error term \(o(z - z_0)\) is a function of \(z - z_0\) that vanishes
+faster than \(z - z_0\) as \(z \to z_0\).
 
 \begin{example}
-    The function \(f : \C \to \C\) defined by \(f(z) = z^4\) is entire. If \(z_0 \in \C\), then
+    The function \(f : \C \to \C\) defined by \(f(z) = z^4\) is entire. If \(z_0
+    \in \C\), then
     \[
         \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} = \lim_{z \to z_0} \frac{z^4 - z_0^4}{z - z_0} = \lim_{z \to z_0} \frac{(z^3 + z^2z_0 + zz_0^2 + z_0^3)}{z - z_0} = 4z_0^3.
     \]
 \end{example}
 
 \begin{example}
-    Show that the function \(f(z) = \conj{z}\) is not differentiable at any point in \(\C\).
+    Show that the function \(f(z) = \conj{z}\) is not differentiable at any
+    point in \(\C\).
 
     \begin{solution}
         Let \(z_0 \in \C\). Then from the definition, we have
         \[
             \lim_{z \to z_0} \frac{\conj{z} - \conj{z_0}}{z - z_0} = \lim_{z \to z_0} \frac{\conj{z - z_0}}{z - z_0} = \lim_{z \to z_0} \frac{\conj{z}}{z},
         \]
-        which does not exist, as we have seen in Example \ref{ex:limit-zbar-over-z}.
+        which does not exist, as we have seen in Example
+        \ref{ex:limit-zbar-over-z}.
     \end{solution}
 \end{example}
 
 \begin{theorem}[Differentiability implies continuity]
-    If a function \(f : D \to \C\) is differentiable at a point \(z_0 \in D\), then \(f\) is continuous at \(z_0\).
+    If a function \(f : D \to \C\) is differentiable at a point \(z_0 \in D\),
+    then \(f\) is continuous at \(z_0\).
     \label{thm:differentiability-implies-continuity}
 \end{theorem}
 
@@ -1133,7 +1359,9 @@ The following basic properties of the derivative follow from the definition.
 \end{theorem}
 
 \begin{theorem}[Chain rule]
-    Let \(f\) be differentiable at a point \(z_0\) and let \(g\) be differentiable at \(f(z_0)\). Then the composite function \(g \circ f\) is differentiable at \(z_0\) and
+    Let \(f\) be differentiable at a point \(z_0\) and let \(g\) be
+    differentiable at \(f(z_0)\). Then the composite function \(g \circ f\) is
+    differentiable at \(z_0\) and
     \[
         (g \circ f)'(z_0) = g'(f(z_0))f'(z_0).
     \]
@@ -1141,10 +1369,12 @@ The following basic properties of the derivative follow from the definition.
 \end{theorem}
 
 \begin{example}
-    Use the chain rule to find the derivative of the function \(f(z) = (2z^2 + i)^3\).
+    Use the chain rule to find the derivative of the function \(f(z) = (2z^2 +
+    i)^3\).
 
     \begin{solution}
-        Write \(f = g \circ h\) where \(g(w) = w^3\) and \(h(z) = 2z^2 + i\). Then since \(g'(w) = 3w^2\) and \(h'(z) = 4z\), we have
+        Write \(f = g \circ h\) where \(g(w) = w^3\) and \(h(z) = 2z^2 + i\).
+        Then since \(g'(w) = 3w^2\) and \(h'(z) = 4z\), we have
         \[
             f'(z) = g'(h(z))h'(z) = 3(2z^2 + i)^2(4z) = 12z(2z^2 + i)^2.
         \]
@@ -1153,7 +1383,11 @@ The following basic properties of the derivative follow from the definition.
 
 
 \begin{example}
-    It is important to note that differentiability at a point \(z_0\) is not the same as holomorphicity at \(z_0\); holomorphicity is a neighborhood property, i.e., it is defined over an open set. To illustrate this, show that the function \(f: \C \to \C\) defined by \(f(z) = |z|^2\) is differentiable but not holomorphic at \(z = 0\).
+    It is important to note that differentiability at a point \(z_0\) is not the
+    same as holomorphicity at \(z_0\); holomorphicity is a neighborhood
+    property, i.e., it is defined over an open set. To illustrate this, show
+    that the function \(f: \C \to \C\) defined by \(f(z) = |z|^2\) is
+    differentiable but not holomorphic at \(z = 0\).
 \end{example}
 
 We now present a criterion for determining whether the function \(f\) defined by
@@ -1164,7 +1398,10 @@ is holomorphic by looking at the partial derivatives of \(u\) and \(v\).
 
 \begin{theorem}[Cauchy-Riemann equations]
     \label{thm:cauchy-riemann}
-    Suppose \(f(z) = u(x, y) + iv(x, y)\) is a complex function defined on an open set \(D \subseteq \C\). If \(f\) is differentiable at a point \(z_0 = x_0 + iy_0\) in \(D\), then the partial derivatives of \(u\) and \(v\) satisfy the \emph{Cauchy-Riemann equations}
+    Suppose \(f(z) = u(x, y) + iv(x, y)\) is a complex function defined on an
+    open set \(D \subseteq \C\). If \(f\) is differentiable at a point \(z_0 =
+    x_0 + iy_0\) in \(D\), then the partial derivatives of \(u\) and \(v\)
+    satisfy the \emph{Cauchy-Riemann equations}
     \begin{equation}
         \partialfrac{u}{x} = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} = -\partialfrac{v}{x}.
         \label{eq:cauchy-riemann}
@@ -1177,36 +1414,55 @@ is holomorphic by looking at the partial derivatives of \(u\) and \(v\).
         \lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z}
         \label{eq:limit-derivative-delta-z-cr}
     \end{equation}
-    must exist and must be equal to the same limit taken along any path to \(z_0\). Writing \(\Delta z = \Delta x + i\Delta y\), Equation \eqref{eq:limit-derivative-delta-z-cr} then becomes
+    must exist and must be equal to the same limit taken along any path to
+    \(z_0\). Writing \(\Delta z = \Delta x + i\Delta y\), Equation
+    \eqref{eq:limit-derivative-delta-z-cr} then becomes
     \begin{equation}
         \lim_{\Delta z \to 0} \frac{u(x_0 + \Delta x, y_0 + \Delta y) + iv(x_0 + \Delta x, y_0 + \Delta y) - u(x_0, y_0) - iv(x_0, y_0)}{\Delta x + i\Delta y}.
         \label{eq:limit-derivative-x-y}
     \end{equation}
-    In particular, if we approach \(z_0\) along the real axis, we have \(\Delta y = 0\) and \(\Delta z = \Delta x\), so that \eqref{eq:limit-derivative-x-y} simplifies to
+    In particular, if we approach \(z_0\) along the real axis, we have \(\Delta
+    y = 0\) and \(\Delta z = \Delta x\), so that \eqref{eq:limit-derivative-x-y}
+    simplifies to
     \begin{align*}
         \lim_{\Delta x \to 0} &\frac{u(x_0 + \Delta x, y_0) + iv(x_0 + \Delta x, y_0) - u(x_0, y_0) - iv(x_0, y_0)}{\Delta x}\\
         &= \lim_{\Delta x \to 0} \frac{u(x_0 + \Delta x, y_0) - u(x_0, y_0)}{\Delta x} + i\lim_{\Delta x \to 0} \frac{v(x_0 + \Delta x, y_0) - v(x_0, y_0)}{\Delta x}.\\
         &= \partialfrac{u}{x}(x_0, y_0) + i\partialfrac{v}{x}(x_0, y_0).
     \end{align*}
-    Similarly, if we approach \(z_0\) along the imaginary axis, we have \(\Delta x = 0\) and \(\Delta z = i\Delta y\), so that \eqref{eq:limit-derivative-x-y} becomes
+    Similarly, if we approach \(z_0\) along the imaginary axis, we have \(\Delta
+    x = 0\) and \(\Delta z = i\Delta y\), so that
+    \eqref{eq:limit-derivative-x-y} becomes
     \begin{align*}
         \lim_{\Delta y \to 0} &\frac{u(x_0, y_0 + \Delta y) + iv(x_0, y_0 + \Delta y) - u(x_0, y_0) - iv(x_0, y_0)}{i\Delta y}\\
         &= \lim_{\Delta y \to 0} \frac{u(x_0, y_0 + \Delta y) - u(x_0, y_0)}{i\Delta y} + i\lim_{\Delta y \to 0} \frac{v(x_0, y_0 + \Delta y) - v(x_0, y_0)}{i\Delta y}.\\
         &= -i \partialfrac{u}{y}(x_0, y_0) + \partialfrac{v}{y}(x_0, y_0).
     \end{align*}
-    Equating the real and imaginary parts of the limit in \eqref{eq:limit-derivative-delta-z-cr} along the real and imaginary axes, we obtain the Cauchy-Riemann equations.
+    Equating the real and imaginary parts of the limit in
+    \eqref{eq:limit-derivative-delta-z-cr} along the real and imaginary axes, we
+    obtain the Cauchy-Riemann equations.
 \end{proof}
 
-Theorem \ref{thm:cauchy-riemann} tells us that having the partial derivatives of a complex function with respect to \(x\) and \(y\) satisfy the Cauchy-Riemann equations is a necessary condition for the function to be differentiable at a point. While it does not tell us when a function is differentiable, it does tell us when a function fails to be differentiable.
+Theorem \ref{thm:cauchy-riemann} tells us that having the partial derivatives of
+a complex function with respect to \(x\) and \(y\) satisfy the Cauchy-Riemann
+equations is a necessary condition for the function to be differentiable at a
+point. While it does not tell us when a function is differentiable, it does tell
+us when a function fails to be differentiable.
 
 \begin{example}
-    The function \(f(z) = x + 3iy\) is not differentiable at any point in \(\C\). We can verify this by checking that the Cauchy-Riemann equations are not simultaneously satisfied, viz.,
+    The function \(f(z) = x + 3iy\) is not differentiable at any point in
+    \(\C\). We can verify this by checking that the Cauchy-Riemann equations are
+    not simultaneously satisfied, viz.,
     \[
         \partialfrac{u}{x} = 1 \neq 3 = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} =  0 = -\partialfrac{v}{x}.
     \]
 \end{example}
 
-We can extend Theorem \ref{thm:cauchy-riemann} to holomorphic functions by considering that a function \(f : D \to \C\) that is holomorphic in its domain must be differentiable at every point in \(D\). Thus, the Cauchy-Riemann equations must be satisfied at every point in \(D\). From the converse, it then follows that if the Cauchy-Riemann equations are not satisfied at every point in \(D\), then the function is not holomorphic in \(D\).
+We can extend Theorem \ref{thm:cauchy-riemann} to holomorphic functions by
+considering that a function \(f : D \to \C\) that is holomorphic in its domain
+must be differentiable at every point in \(D\). Thus, the Cauchy-Riemann
+equations must be satisfied at every point in \(D\). From the converse, it then
+follows that if the Cauchy-Riemann equations are not satisfied at every point in
+\(D\), then the function is not holomorphic in \(D\).
 
 \begin{example}
     Show that the function
@@ -1220,22 +1476,33 @@ We can extend Theorem \ref{thm:cauchy-riemann} to holomorphic functions by consi
         \[
             \partialfrac{u}{x} = 4x \neq 2y = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} = 1 = 1 -\partialfrac{v}{x}.
         \]
-        The equality \(\partial u / \partial x = \partial v / \partial y\) is satisfied only along the line \(y = 2x\) but not elsewhere, so that the function is not holomorphic.
+        The equality \(\partial u / \partial x = \partial v / \partial y\) is
+        satisfied only along the line \(y = 2x\) but not elsewhere, so that the
+        function is not holomorphic.
     \end{solution}
 \end{example}
 
 \begin{example}
-    Consider the function \(f(z) = \sqrt{|x||y|}\). Show that \(f\) satisfies the Cauchy-Riemann equations at the origin but is not holomorphic at \(z = 0\).
+    Consider the function \(f(z) = \sqrt{|x||y|}\). Show that \(f\) satisfies
+    the Cauchy-Riemann equations at the origin but is not holomorphic at \(z =
+    0\).
 \end{example}
 
-We have thus seen that the Cauchy-Riemann equations are not sufficient for a function to be holomorphic. As it turns out, however, we can easily establish a criterion for holomorphicity using the Cauchy-Riemann equations by adding a simple qualification.
+We have thus seen that the Cauchy-Riemann equations are not sufficient for a
+function to be holomorphic. As it turns out, however, we can easily establish a
+criterion for holomorphicity using the Cauchy-Riemann equations by adding a
+simple qualification.
 
 \begin{theorem}[Criterion for holomorphicity]
-    Let \(f(z) = u(x, y) + iv(x, y)\) be a complex function defined on an open set \(D \subseteq \C\). If \(u\) and \(v\) are continuous and have continuous first partial derivatives in \(D\) that satisfy the Cauchy-Riemann equations, then \(f\) is holomorphic in \(D\).
+    Let \(f(z) = u(x, y) + iv(x, y)\) be a complex function defined on an open
+    set \(D \subseteq \C\). If \(u\) and \(v\) are continuous and have
+    continuous first partial derivatives in \(D\) that satisfy the
+    Cauchy-Riemann equations, then \(f\) is holomorphic in \(D\).
 \end{theorem}
 
 \begin{theorem}
-    If \(f(z) = u(x, y) + iv(x, y)\) is holomorphic on an open set \(D \subseteq \C\), then the derivative of \(f\) is given by
+    If \(f(z) = u(x, y) + iv(x, y)\) is holomorphic on an open set \(D \subseteq
+    \C\), then the derivative of \(f\) is given by
     \[
         f'(z) = \partialfrac{f}{x} = -i\partialfrac{f}{y}.
     \]
@@ -1263,7 +1530,9 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
 \begin{proof}
     Write \(f(z) = u(x, y) + iv(x, y)\) as usual.
     \begin{enumerate}[label=(\alph*), wide]
-        \item Since \(|f(z)|\) is constant, it follows that \(u(x, y)^2 + v(x, y)^2\) is also constant. Taking the partial derivatives of this expression with respect to \(x\) and \(y\), respectively, we get
+        \item Since \(|f(z)|\) is constant, it follows that \(u(x, y)^2 + v(x,
+        y)^2\) is also constant. Taking the partial derivatives of this
+        expression with respect to \(x\) and \(y\), respectively, we get
         \[
             2u(x, y)\partialfrac{u}{x} + 2v(x, y)\partialfrac{v}{x} = 0 \quad \text{and} \quad 2u(x, y)\partialfrac{u}{y} + 2v(x, y)\partialfrac{v}{y} = 0,
         \]
@@ -1271,7 +1540,8 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
         \[
             u(x, y)\partialfrac{u}{x} + v(x, y)\partialfrac{v}{x} = 0 \quad \text{and} \quad u(x, y)\partialfrac{u}{y} + v(x, y)\partialfrac{v}{y} = 0.
         \]
-        Since \(f\) is holomorphic, the Cauchy-Riemann equations are satisfied, so that
+        Since \(f\) is holomorphic, the Cauchy-Riemann equations are satisfied,
+        so that
         \[
             u(x, y)\partialfrac{u}{x} - v(x, y)\partialfrac{u}{y} = 0
         \]
@@ -1279,7 +1549,8 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
         \[
             u(x, y)\partialfrac{u}{y} + v(x, y)\partialfrac{u}{x} = 0.
         \]
-        Multiplying the first equation by \(u\) and the second by \(v\) and adding the two, we get
+        Multiplying the first equation by \(u\) and the second by \(v\) and
+        adding the two, we get
         \[
             (u^2(x, y) + v^2(x, y))\partialfrac{u}{x} = 0,
         \]
@@ -1287,7 +1558,8 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
         \[
             (u^2(x, y) + v^2(x, y))\partialfrac{v}{x} = 0.
         \]
-        Doing the same for the other pair of equations with \(v\) instead of \(u\), we ultimately get
+        Doing the same for the other pair of equations with \(v\) instead of
+        \(u\), we ultimately get
         \[
             \partialfrac{u}{x} = 0, \quad \partialfrac{u}{y} = 0, \quad \partialfrac{v}{x} = 0, \quad \text{and} \quad \partialfrac{v}{y} = 0,
         \]
@@ -1296,12 +1568,16 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
 \end{proof}
 
 \begin{definition}[Harmonic functions]
-    A function \(f: D \to \C\) is \emph{harmonic} on an open set \(D \subseteq \C\) if it is twice continuously differentiable and satisfies the \emph{Laplace equation}
+    A function \(f: D \to \C\) is \emph{harmonic} on an open set \(D \subseteq
+    \C\) if it is twice continuously differentiable and satisfies the
+    \emph{Laplace equation}
     \begin{equation}
         \partialfrac{^2u}{x^2} + \partialfrac{^2u}{y^2} = 0,
         \label{eq:laplace-equation}
     \end{equation}
-    where \(f(z) = u(x, y) + iv(x, y)\). The right-hand side of \eqref{eq:laplace-equation} will be denoted by \(\nabla^2 u\) so that \eqref{eq:laplace-equation} can be written as \(\nabla^2 u = 0\).
+    where \(f(z) = u(x, y) + iv(x, y)\). The right-hand side of
+    \eqref{eq:laplace-equation} will be denoted by \(\nabla^2 u\) so that
+    \eqref{eq:laplace-equation} can be written as \(\nabla^2 u = 0\).
     \label{def:harmonic-function}
 \end{definition}
 
@@ -1317,19 +1593,23 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
         \[
             \partialfrac{^2u}{x^2} = e^x \cos y \quad \text{and} \quad \partialfrac{^2u}{y^2} = -e^x \cos y.
         \]
-        Since \(\nabla^2 u = 0\) and the second-order partial derivatives are continuous on the whole plane, \(f\) is harmonic on the entire plane.
+        Since \(\nabla^2 u = 0\) and the second-order partial derivatives are
+        continuous on the whole plane, \(f\) is harmonic on the entire plane.
     \end{solution}
 \end{example}
 
 
 
 \begin{theorem}
-    If \(f(z) = u(x, y) + iv(x, y)\) is holomorphic on an open set \(D \subseteq \C\), then \(u\) and \(v\) are harmonic on \(D\).
+    If \(f(z) = u(x, y) + iv(x, y)\) is holomorphic on an open set \(D \subseteq
+    \C\), then \(u\) and \(v\) are harmonic on \(D\).
     \label{thm:holomorphic-implies-harmonic-continuous}
 \end{theorem}
 
 \begin{proof}
-    Since \(f\) is holomorphic on \(D\), its partial derivatives exist and satisfy the Cauchy-Riemann equations. Differentiating both equations with respect to \(x\), we have
+    Since \(f\) is holomorphic on \(D\), its partial derivatives exist and
+    satisfy the Cauchy-Riemann equations. Differentiating both equations with
+    respect to \(x\), we have
     \[
         \partialfrac{^2u}{x^2} = \frac{\partial^2 v}{\partial x \partial y} \quad \text{and} \quad \frac{\partial^2 u}{\partial x \partial y} = -\partialfrac{^2v}{x^2}.
     \]
@@ -1337,7 +1617,9 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
     \[
         \partialfrac{^2u}{y^2} = -\frac{\partial^2 v}{\partial y \partial x} \quad \text{and} \quad \frac{\partial^2 u}{\partial y \partial x} = \partialfrac{^2v}{y^2}.
     \]
-    Now if we assume that the second-order partial derivatives of \(u\) and \(v\) are continuous, by Clairaut's theorem from multivariable calculus, we have
+    Now if we assume that the second-order partial derivatives of \(u\) and
+    \(v\) are continuous, by Clairaut's theorem from multivariable calculus, we
+    have
     \[
         \partialfrac{^2 u}{ x^2} = \partialfrac{^2 u}{ y^2} \quad \text{and} \quad \partialfrac{^2 v}{ x^2} = \partialfrac{^2 v}{ y^2},
     \]
@@ -1345,7 +1627,13 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
 \end{proof}
 
 \begin{example}
-    As with the Cauchy-Riemann equations, the statement of Theorem~\ref{thm:holomorphic-implies-harmonic-continuous} tells us that satisfying the Laplace equation is a necessary condition for a function to be holomorphic if the second-order partial derivatives are continuous; it is not, however, a sufficient condition. Nevertheless, this gives us a criterion for non-holomorphicity. For example, show that there cannot exist a complex function \(f\) whose real part is given by
+    As with the Cauchy-Riemann equations, the statement of
+    Theorem~\ref{thm:holomorphic-implies-harmonic-continuous} tells us that
+    satisfying the Laplace equation is a necessary condition for a function to
+    be holomorphic if the second-order partial derivatives are continuous; it is
+    not, however, a sufficient condition. Nevertheless, this gives us a
+    criterion for non-holomorphicity. For example, show that there cannot exist
+    a complex function \(f\) whose real part is given by
     \[
         u(x, y) = 3x^2 + xy + y^2
     \]
@@ -1356,16 +1644,21 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
         \[
             \partialfrac{^2u}{x^2} = 6 \quad \text{and} \quad \partialfrac{^2u}{y^2} = 2,
         \]
-        so that \(\nabla^2 \neq 0\). Thus by Theorem~\ref{thm:holomorphic-implies-harmonic-continuous}, the function \(f\) cannot be holomorphic on any open set.
+        so that \(\nabla^2 \neq 0\). Thus by
+        Theorem~\ref{thm:holomorphic-implies-harmonic-continuous}, the function
+        \(f\) cannot be holomorphic on any open set.
     \end{solution}
 \end{example}
 
 \begin{definition}[Harmonic conjugate]
-    Let \(u(x, y)\) be a harmonic function on an open set \(D \subseteq \C\). A function \(v(x, y)\) such that \(f(z) = u(x, y) + iv(x, y)\) is holomorphic on \(D\) is called a \emph{harmonic conjugate} of \(u\).
+    Let \(u(x, y)\) be a harmonic function on an open set \(D \subseteq \C\). A
+    function \(v(x, y)\) such that \(f(z) = u(x, y) + iv(x, y)\) is holomorphic
+    on \(D\) is called a \emph{harmonic conjugate} of \(u\).
 \end{definition}
 
 \begin{example}
-    Show that in a domain \(D\), \(u\) is a harmonic conjugate of \(v\) if and only if \(-u\) is a harmonic conjugate of \(v\).
+    Show that in a domain \(D\), \(u\) is a harmonic conjugate of \(v\) if and
+    only if \(-u\) is a harmonic conjugate of \(v\).
 \end{example}
 
 \begin{example}
@@ -1377,18 +1670,26 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
 \end{example}
 
 \begin{example}
-    Find a harmonic conjugate of the functions (a) \(u(x, y) = x^2 - y^2\) and (b) \(u(x, y) = \sin x \cosh y\).
+    Find a harmonic conjugate of the functions (a) \(u(x, y) = x^2 - y^2\) and
+    (b) \(u(x, y) = \sin x \cosh y\).
 
     \begin{solution}
-        Observe that the functions \(u(x, y) = x^2 - y^2\) and \(u(x, y) = \sin x \cosh y\) are harmonic and are
-        the real parts of the functions \(z^2\) and \(\sin z\), where \(z = x + iy\), both of which are holomorphic. Their harmonic conjugates are then the imaginary parts of these functions, which are \(v(x, y) = 2xy\) and \(v(x, y) = \cos x \sinh y\), respectively, taken uniquely up to an additive constant. We validate both cases by verifying that the Cauchy-Riemann equations are satisfied.
+        Observe that the functions \(u(x, y) = x^2 - y^2\) and \(u(x, y) = \sin
+        x \cosh y\) are harmonic and are the real parts of the functions \(z^2\)
+        and \(\sin z\), where \(z = x + iy\), both of which are holomorphic.
+        Their harmonic conjugates are then the imaginary parts of these
+        functions, which are \(v(x, y) = 2xy\) and \(v(x, y) = \cos x \sinh y\),
+        respectively, taken uniquely up to an additive constant. We validate
+        both cases by verifying that the Cauchy-Riemann equations are satisfied.
 
         \begin{enumerate}[label=(\alph*), wide]
-            \item If \(u(x, y) = x^2 - y^2\) then the Cauchy-Riemann equations are
+            \item If \(u(x, y) = x^2 - y^2\) then the Cauchy-Riemann equations
+            are
             \[
                 \partialfrac{u}{x} = 2x = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} = -2y = -\partialfrac{v}{x},
             \]
-            Integrating the first equation with respect to \(x\) and the second with respect to \(y\), we get
+            Integrating the first equation with respect to \(x\) and the second
+            with respect to \(y\), we get
             \[
                 v = \int \partialfrac{v}{y}\, dy = \int 2x\, dy = 2xy + g_1(y)
             \]
@@ -1397,7 +1698,8 @@ We have thus seen that the Cauchy-Riemann equations are not sufficient for a fun
                 v = -\int \partialfrac{v}{x}\, dx = -\int -2y\, dx = 2xy + g_2(x),
             \]
             so that \(v = 2xy + c\) for some constant \(c\).
-            \item If \(u(x, y) = \sin x \cosh y\) then the Cauchy-Riemann equations are
+            \item If \(u(x, y) = \sin x \cosh y\) then the Cauchy-Riemann
+            equations are
             \[
                 \partialfrac{u}{x} = \cos x \cosh y = \partialfrac{v}{y} \quad \text{and} \quad \partialfrac{u}{y} = \sin x \sinh y = -\partialfrac{v}{x},
             \]
